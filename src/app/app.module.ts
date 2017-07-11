@@ -15,13 +15,31 @@ import { RoutingModule } from "app/app.routing";
 //components
 import { AppComponent } from './app.component';
 import { NuevoUsuarioComponent } from './components/nuevo-usuario/nuevo-usuario.component';
+import { LoginComponent } from './components/login/login.component';
+import { ClientesComponent } from './components/clientes/clientes.component';
+import { NuevoClienteComponent } from './components/nuevo-cliente/nuevo-cliente.component';
+import { NuevoProductoComponent } from './components/nuevo-producto/nuevo-producto.component';
+import { InventarioComponent } from './components/inventario/inventario.component';
+import { EntradaAlmacenComponent } from './components/entrada-almacen/entrada-almacen.component';
+import { SalidaAlmacenComponent } from './components/salida-almacen/salida-almacen.component';
+import { OrdenPedidoComponent } from './components/orden-pedido/orden-pedido.component';
+import { ReportesComponent } from './components/reportes/reportes.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NuevoUsuarioComponent
+    NuevoUsuarioComponent,
+    LoginComponent,
+    ClientesComponent,
+    NuevoClienteComponent,
+    NuevoProductoComponent,
+    InventarioComponent,
+    EntradaAlmacenComponent,
+    SalidaAlmacenComponent,
+    OrdenPedidoComponent,
+    ReportesComponent
   ],
   imports: [
     BrowserModule,
