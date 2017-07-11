@@ -10,7 +10,7 @@ import { NuevoUsuarioComponent } from "app/components/nuevo-usuario/nuevo-usuari
 
 export const ROUTES: Routes = [
     { path: '', redirectTo: 'nuevo-usuario', pathMatch: 'full' },
-    { path: 'propinuevo-usuarioedades', component: NuevoUsuarioComponent }
+    { path: 'nuevo-usuario', component: NuevoUsuarioComponent }
 
 
 ];
