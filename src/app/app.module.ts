@@ -24,6 +24,9 @@ import { EntradaAlmacenComponent } from './components/entrada-almacen/entrada-al
 import { SalidaAlmacenComponent } from './components/salida-almacen/salida-almacen.component';
 import { OrdenPedidoComponent } from './components/orden-pedido/orden-pedido.component';
 import { ReportesComponent } from './components/reportes/reportes.component';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { SalidasAlmacenComponent } from './components/salidas-almacen/salidas-almacen.component';
+import { EntradasAlmacenComponent } from './components/entradas-almacen/entradas-almacen.component';
 
 
 
@@ -39,7 +42,10 @@ import { ReportesComponent } from './components/reportes/reportes.component';
     EntradaAlmacenComponent,
     SalidaAlmacenComponent,
     OrdenPedidoComponent,
-    ReportesComponent
+    ReportesComponent,
+    UsuariosComponent,
+    SalidasAlmacenComponent,
+    EntradasAlmacenComponent
   ],
   imports: [
     BrowserModule,

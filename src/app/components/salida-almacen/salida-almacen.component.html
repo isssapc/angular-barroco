@@ -4,9 +4,9 @@
 
     <div class="col-12">
 
-      <div class="card">
+      <div class="card my-5">
         <div class="card-header">
-          Inventario
+         Salida de almacen
         </div>
         <div>
           <div class="table-responsive">
@@ -17,7 +17,8 @@
                   <th>Categoria</th>
                   <th>Num. factura</th>
                   <th>Existencias</th>
-                  <th>Salida</th>
+                  <th style="width:100px">Salida</th>
+                  <th></th>
                 </tr>
               </thead>
 
@@ -28,38 +29,118 @@
                   <td>0000000</td>
                   <td>1</td>
                   <td><input class="form-control" type="text" value=""></td>
+                  <td>
+                    <button md-icon-button [mdMenuTriggerFor]="menu1">
+                   <md-icon>more_vert</md-icon>
+                  </button>
+                    <md-menu #menu1="mdMenu">
+                      <button md-menu-item>
+                     <md-icon>create</md-icon>
+                      <span>Editar</span>
+                    </button>
+                      <button md-menu-item>
+                     <md-icon>attach_file</md-icon>
+                      <span>Ficha técnica</span>
+                   </button>
+                      <button md-menu-item>
+                      <md-icon>delete</md-icon>
+                        <span>Eliminar</span>
+                     </button>
+                    </md-menu>
+                  </td>
                 </tr>
-                 <tr>
+                <tr>
                   <td>Producto 1</td>
                   <td>Categoria 1</td>
                   <td>0000000</td>
                   <td>1</td>
                   <td><input class="form-control" type="text" value=""></td>
+                  <td>
+                    <button md-icon-button [mdMenuTriggerFor]="menu2">
+                   <md-icon>more_vert</md-icon>
+                  </button>
+                    <md-menu #menu2="mdMenu">
+                      <button md-menu-item>
+                     <md-icon>create</md-icon>
+                      <span>Editar</span>
+                    </button>
+                      <button md-menu-item>
+                     <md-icon>attach_file</md-icon>
+                      <span>Ficha técnica</span>
+                   </button>
+                      <button md-menu-item>
+                      <md-icon>delete</md-icon>
+                        <span>Eliminar</span>
+                     </button>
+                    </md-menu>
+                  </td>
                 </tr>
-                 <tr>
+                <tr>
                   <td>Producto 1</td>
                   <td>Categoria 1</td>
                   <td>0000000</td>
                   <td>1</td>
                   <td><input class="form-control" type="text" value=""></td>
+                  <td>
+                    <button md-icon-button [mdMenuTriggerFor]="menu3">
+                   <md-icon>more_vert</md-icon>
+                  </button>
+                    <md-menu #menu3="mdMenu">
+                      <button md-menu-item>
+                     <md-icon>create</md-icon>
+                      <span>Editar</span>
+                    </button>
+                      <button md-menu-item>
+                     <md-icon>attach_file</md-icon>
+                      <span>Ficha técnica</span>
+                   </button>
+                      <button md-menu-item>
+                      <md-icon>delete</md-icon>
+                        <span>Eliminar</span>
+                     </button>
+                    </md-menu>
+                  </td>
                 </tr>
-                 <tr>
+                <tr>
                   <td>Producto 1</td>
                   <td>Categoria 1</td>
                   <td>0000000</td>
                   <td>1</td>
                   <td><input class="form-control" type="text" value=""></td>
+                  <td>
+                    <button md-icon-button [mdMenuTriggerFor]="menu4">
+                   <md-icon>more_vert</md-icon>
+                  </button>
+                    <md-menu #menu4="mdMenu">
+                      <button md-menu-item>
+                     <md-icon>create</md-icon>
+                      <span>Editar</span>
+                    </button>
+                      <button md-menu-item>
+                     <md-icon>attach_file</md-icon>
+                      <span>Ficha técnica</span>
+                   </button>
+                      <button md-menu-item>
+                      <md-icon>delete</md-icon>
+                        <span>Eliminar</span>
+                     </button>
+                    </md-menu>
+                  </td>
                 </tr>
 
-                
+
               </tbody>
             </table>
           </div>
         </div>
-
+        <div class="card-footer">
+          <div>
+            <button type="button" class="btn btn-primary">Aceptar</button>
+          </div>
+        </div>
 
       </div>
-     
+
     </div>
   </div>
 

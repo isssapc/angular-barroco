@@ -12,6 +12,9 @@ import { NuevoProductoComponent } from "app/components/nuevo-producto/nuevo-prod
 import { ReportesComponent } from "app/components/reportes/reportes.component";
 import { OrdenPedidoComponent } from "app/components/orden-pedido/orden-pedido.component";
 import { SalidaAlmacenComponent } from "app/components/salida-almacen/salida-almacen.component";
+import { UsuariosComponent } from "app/components/usuarios/usuarios.component";
+import { SalidasAlmacenComponent } from "app/components/salidas-almacen/salidas-almacen.component";
+import { EntradasAlmacenComponent } from "app/components/entradas-almacen/entradas-almacen.component";
 
 
 
@@ -28,7 +31,10 @@ export const ROUTES: Routes = [
     { path: 'nuevo-producto', component: NuevoProductoComponent },
     { path: 'orden-pedido', component: OrdenPedidoComponent },
     { path: 'reportes', component: ReportesComponent },
-    { path: 'salida-almacen', component: SalidaAlmacenComponent  }
+    { path: 'salida-almacen', component: SalidaAlmacenComponent  },
+    { path: 'usuarios', component: UsuariosComponent  },
+    { path: 'salidas-almacen', component: SalidasAlmacenComponent  },
+    { path: 'entradas-almacen', component: EntradasAlmacenComponent  }
 
 
 ];

@@ -1,31 +1,32 @@
 <div class="container">
 
   <div class="row">
- 
+
     <div class="col-12">
 
-      <div class="card my-5">
+
+      <div class="card mt-5">
         <div class="card-header">
-          Inventario
+          Usuarios
         </div>
         <div>
           <table class="table table-hover table-striped">
             <thead>
               <tr>
-                <th>Producto</th>
-                <th>Categoria</th>
-                <th>Unidad</th>
-                <th>Cantidad</th>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Rol</th>
                 <th></th>
               </tr>
             </thead>
 
             <tbody>
               <tr>
-                <td>producto</td>
-                <td>categoria</td>
-                <td>bultos</td>
-                <td>1000</td>
+                <td>1</td>
+                <td>Nombre</td>
+                <td>ejemplo@ejemplo.com</td>
+                <td>Comercial</td>
                 <td>
                   <button md-icon-button [mdMenuTriggerFor]="menu1">
                    <md-icon>more_vert</md-icon>
@@ -46,23 +47,16 @@
                   </md-menu>
                 </td>
               </tr>
-              <tr>
-                <td>producto</td>
-                <td>categoria</td>
-                <td>bultos</td>
-                <td>1000</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>producto</td>
-                <td>categoria</td>
-                <td>bultos</td>
-                <td>1000</td>
+               <tr>
+                <td>1</td>
+                <td>Nombre</td>
+                <td>ejemplo@ejemplo.com</td>
+                <td>Comercial</td>
                 <td>
                   <button md-icon-button [mdMenuTriggerFor]="menu2">
                    <md-icon>more_vert</md-icon>
-                  </button> 
-                 <md-menu #menu2="mdMenu">
+                  </button>
+                  <md-menu #menu2="mdMenu">
                     <button md-menu-item>
                      <md-icon>create</md-icon>
                       <span>Editar</span>
@@ -76,21 +70,41 @@
                         <span>Eliminar</span>
                      </button>
                   </md-menu>
-                  </td>
+                </td>
               </tr>
-              <tr>
-                <td>producto</td>
-                <td>categoria</td>
-                <td>bultos</td>
-                <td>1000</td>
-                <td></td>
+               <tr>
+                <td>1</td>
+                <td>Nombre</td>
+                <td>ejemplo@ejemplo.com</td>
+                <td>Comercial</td>
+                <td>
+                  <button md-icon-button [mdMenuTriggerFor]="menu3">
+                   <md-icon>more_vert</md-icon>
+                  </button>
+                  <md-menu #menu3="mdMenu">
+                    <button md-menu-item>
+                     <md-icon>create</md-icon>
+                      <span>Editar</span>
+                    </button>
+                    <button md-menu-item>
+                     <md-icon>attach_file</md-icon>
+                      <span>Ficha técnica</span>
+                   </button>
+                    <button md-menu-item>
+                      <md-icon>delete</md-icon>
+                        <span>Eliminar</span>
+                     </button>
+                  </md-menu>
+                </td>
               </tr>
+              
             </tbody>
           </table>
 
         </div>
       </div>
 
+     
     </div>
   </div>
 
