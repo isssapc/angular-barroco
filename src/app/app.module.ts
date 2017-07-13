@@ -27,6 +27,10 @@ import { ReportesComponent } from './components/reportes/reportes.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { SalidasAlmacenComponent } from './components/salidas-almacen/salidas-almacen.component';
 import { EntradasAlmacenComponent } from './components/entradas-almacen/entradas-almacen.component';
+import { EditarUsuarioDialogComponent } from './components/editar-usuario-dialog/editar-usuario-dialog.component';
+import { EditarClienteDialogoComponent } from './components/editar-cliente-dialogo/editar-cliente-dialogo.component';
+import { EditarInventarioDialogoComponent } from './components/editar-inventario-dialogo/editar-inventario-dialogo.component';
+import { EditarOrdenPedidoDialogoComponent } from './components/editar-orden-pedido-dialogo/editar-orden-pedido-dialogo.component';
 
 
 
@@ -45,7 +49,11 @@ import { EntradasAlmacenComponent } from './components/entradas-almacen/entradas
     ReportesComponent,
     UsuariosComponent,
     SalidasAlmacenComponent,
-    EntradasAlmacenComponent
+    EntradasAlmacenComponent,
+    EditarUsuarioDialogComponent,
+    EditarClienteDialogoComponent,
+    EditarInventarioDialogoComponent,
+    EditarOrdenPedidoDialogoComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +63,10 @@ import { EntradasAlmacenComponent } from './components/entradas-almacen/entradas
     BrowserAnimationsModule,
     AngularMaterialModule,
     FlexLayoutModule
+  ],
+  entryComponents:[
+    EditarUsuarioDialogComponent,
+    EditarInventarioDialogoComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

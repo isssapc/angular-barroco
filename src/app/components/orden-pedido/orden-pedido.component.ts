@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {MdDialog} from '@angular/material';
+import { EditarOrdenPedidoDialogoComponent } from "app/components/editar-orden-pedido-dialogo/editar-orden-pedido-dialogo.component";
+
 
 @Component({
   selector: 'app-orden-pedido',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrdenPedidoComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MdDialog) { }
 
   ngOnInit() {
+  }
+
+   editarorden() {
+    this.dialog.open(EditarOrdenPedidoDialogoComponent);
   }
 
 }

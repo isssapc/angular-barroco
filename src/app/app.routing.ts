@@ -15,6 +15,9 @@ import { SalidaAlmacenComponent } from "app/components/salida-almacen/salida-alm
 import { UsuariosComponent } from "app/components/usuarios/usuarios.component";
 import { SalidasAlmacenComponent } from "app/components/salidas-almacen/salidas-almacen.component";
 import { EntradasAlmacenComponent } from "app/components/entradas-almacen/entradas-almacen.component";
+import { EditarClienteDialogoComponent } from "app/components/editar-cliente-dialogo/editar-cliente-dialogo.component";
+import { EditarInventarioDialogoComponent } from "app/components/editar-inventario-dialogo/editar-inventario-dialogo.component";
+import { EditarOrdenPedidoDialogoComponent } from "app/components/editar-orden-pedido-dialogo/editar-orden-pedido-dialogo.component";
 
 
 
@@ -34,7 +37,11 @@ export const ROUTES: Routes = [
     { path: 'salida-almacen', component: SalidaAlmacenComponent  },
     { path: 'usuarios', component: UsuariosComponent  },
     { path: 'salidas-almacen', component: SalidasAlmacenComponent  },
-    { path: 'entradas-almacen', component: EntradasAlmacenComponent  }
+    { path: 'entradas-almacen', component: EntradasAlmacenComponent  },
+    { path: 'editar-cliente-dialogo', component: EditarClienteDialogoComponent  },
+    { path: 'editar-inventario-dialogo', component: EditarInventarioDialogoComponent  },
+    { path: 'editar-orden-pedido-dialogo', component: EditarOrdenPedidoDialogoComponent  }
+
 
 
 ];

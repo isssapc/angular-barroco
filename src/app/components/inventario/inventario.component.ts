@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {MdDialog} from '@angular/material';
+import { EditarInventarioDialogoComponent } from "app/components/editar-inventario-dialogo/editar-inventario-dialogo.component";
+
+
 
 @Component({
   selector: 'app-inventario',
@@ -7,9 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InventarioComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MdDialog) { }
 
   ngOnInit() {
+  }
+
+  editarinventario() {
+    this.dialog.open(EditarInventarioDialogoComponent);
   }
 
 }
