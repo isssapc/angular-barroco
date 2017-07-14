@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-salidas-almacen',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SalidasAlmacenComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
+  }
+
+  editarsalida(){
+    this.router.navigate(["/editar-salida-almacen"]);
   }
 
 }

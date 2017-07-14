@@ -87,7 +87,6 @@
               </tr>            
               <tr>
                 <td>producto</td>
-                
                 <td>bultos</td>
                 <td>1000</td>
                 <td>
@@ -95,7 +94,7 @@
                    <md-icon>more_vert</md-icon>
                   </button>
                   <md-menu #menu2="mdMenu">
-                    <button md-menu-item>
+                    <button md-menu-item (click)="editarorden()">
                      <md-icon>create</md-icon>
                       <span>Editar</span>
                     </button>                

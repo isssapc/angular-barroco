@@ -31,6 +31,8 @@ import { EditarUsuarioDialogComponent } from './components/editar-usuario-dialog
 import { EditarClienteDialogoComponent } from './components/editar-cliente-dialogo/editar-cliente-dialogo.component';
 import { EditarInventarioDialogoComponent } from './components/editar-inventario-dialogo/editar-inventario-dialogo.component';
 import { EditarOrdenPedidoDialogoComponent } from './components/editar-orden-pedido-dialogo/editar-orden-pedido-dialogo.component';
+import { EditarSalidaAlmacenDialogoComponent } from './components/editar-salida-almacen-dialogo/editar-salida-almacen-dialogo.component';
+import { EditarSalidaAlmacenComponent } from './components/editar-salida-almacen/editar-salida-almacen.component';
 
 
 
@@ -53,7 +55,9 @@ import { EditarOrdenPedidoDialogoComponent } from './components/editar-orden-ped
     EditarUsuarioDialogComponent,
     EditarClienteDialogoComponent,
     EditarInventarioDialogoComponent,
-    EditarOrdenPedidoDialogoComponent
+    EditarOrdenPedidoDialogoComponent,
+    EditarSalidaAlmacenDialogoComponent,
+    EditarSalidaAlmacenComponent
   ],
   imports: [
     BrowserModule,
