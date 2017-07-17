@@ -6,16 +6,36 @@ import { Observable } from "rxjs/Observable";
 @Injectable()
 export class ClienteService {
 
-  url: string = "http://localhost:8080/barroco/api/index.php/";
+  url: string = "http://localhost:8080/barroco/api/index.php/clientes/";
 
   constructor(private http: Http) { }
 
 
-  getClientes(){
-      return this.http.get(this.url + 'clientes/')
+  getClientes() {
+    return this.http.get(this.url)
       .map(this.extractData)
       .catch(this.handleError);
   }
+
+  createCliente(cliente) {
+    return this.http.post(this.url + 'create_cliente', { cliente: cliente })
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  updateCliente(id, cliente) {
+    return this.http.post(this.url + 'update_cliente/' + id, { cliente: cliente })
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  delCliente(id) {
+    return this.http.get(this.url + 'del_cliente/' + id)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+
 
   private extractData(res: Response) {
     console.log("response", res);

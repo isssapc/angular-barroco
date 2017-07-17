@@ -4,13 +4,31 @@ import { Observable } from "rxjs/Observable";
 
 @Injectable()
 export class OrdenService {
-    url: string = "http://localhost:8080/barroco/api/index.php/";
+  url: string = "http://localhost:8080/barroco/api/index.php/";
 
   constructor(private http: Http) { }
 
 
-    getOrdenes(){
-      return this.http.get(this.url + 'ordenes/')
+  getOrdenes() {
+    return this.http.get(this.url + 'ordenes/')
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  createOrden(orden) {
+    return this.http.post(this.url + 'create_orden', { orden: orden })
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  updateOrden(id, orden) {
+    return this.http.post(this.url + 'update_orden/' + id, { orden: orden })
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  delOrden(id) {
+    return this.http.get(this.url + 'del_orden/' + id)
       .map(this.extractData)
       .catch(this.handleError);
   }

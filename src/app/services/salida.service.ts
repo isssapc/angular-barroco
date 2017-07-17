@@ -4,12 +4,31 @@ import { Observable } from "rxjs/Observable";
 
 @Injectable()
 export class SalidaService {
-    url: string = "http://localhost:8080/barroco/api/index.php/";
+  url: string = "http://localhost:8080/barroco/api/index.php/";
 
   constructor(private http: Http) { }
 
-  getSalidas(){
-      return this.http.get(this.url + 'salidas/')
+  getSalidas() {
+    return this.http.get(this.url + 'salidas/')
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+
+  createSalida(salida) {
+    return this.http.post(this.url + 'create_salida', { salida: salida })
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  updateSalida(id, salida) {
+    return this.http.post(this.url + 'update_salida/' + id, { salida: salida })
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  delSalida(id) {
+    return this.http.get(this.url + 'del_salida/' + id)
       .map(this.extractData)
       .catch(this.handleError);
   }
