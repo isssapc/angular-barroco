@@ -35,6 +35,12 @@ import { EditarSalidaAlmacenDialogoComponent } from './components/editar-salida-
 import { EditarSalidaAlmacenComponent } from './components/editar-salida-almacen/editar-salida-almacen.component';
 import { VerCategoriasComponent } from './components/ver-categorias/ver-categorias.component';
 import { AgregarCategoriaDialogoComponent } from './components/agregar-categoria-dialogo/agregar-categoria-dialogo.component';
+import { OrdenService } from "app/services/orden.service";
+import { ProductoService } from "app/services/producto.service";
+import { SalidaService } from "app/services/salida.service";
+import { EntradaService } from "app/services/entrada.service";
+import { ClienteService } from "app/services/cliente.service";
+import { UsuarioService } from "app/services/usuario.service";
 
 
 
@@ -76,7 +82,14 @@ import { AgregarCategoriaDialogoComponent } from './components/agregar-categoria
     EditarUsuarioDialogComponent,
     EditarInventarioDialogoComponent
   ],
-  providers: [],
+  providers: [
+    UsuarioService,
+    ClienteService,
+    EntradaService,
+    SalidaService,
+    ProductoService,
+    OrdenService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
