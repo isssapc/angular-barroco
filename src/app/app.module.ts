@@ -22,7 +22,7 @@ import { NuevoProductoComponent } from './components/nuevo-producto/nuevo-produc
 import { InventarioComponent } from './components/inventario/inventario.component';
 import { EntradaAlmacenComponent } from './components/entrada-almacen/entrada-almacen.component';
 import { SalidaAlmacenComponent } from './components/salida-almacen/salida-almacen.component';
-import { OrdenPedidoComponent } from './components/orden-pedido/orden-pedido.component';
+import { OrdenCompraComponent } from './components/orden-compra/orden-compra.component';
 import { ReportesComponent } from './components/reportes/reportes.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { SalidasAlmacenComponent } from './components/salidas-almacen/salidas-almacen.component';
@@ -33,8 +33,9 @@ import { EditarInventarioDialogoComponent } from './components/editar-inventario
 import { EditarOrdenPedidoDialogoComponent } from './components/editar-orden-pedido-dialogo/editar-orden-pedido-dialogo.component';
 import { EditarSalidaAlmacenDialogoComponent } from './components/editar-salida-almacen-dialogo/editar-salida-almacen-dialogo.component';
 import { EditarSalidaAlmacenComponent } from './components/editar-salida-almacen/editar-salida-almacen.component';
-import { VerCategoriasComponent } from './components/ver-categorias/ver-categorias.component';
+import { ProductoCategoriasComponent } from './components/producto-categorias/producto-categorias.component';
 import { AgregarCategoriaDialogoComponent } from './components/agregar-categoria-dialogo/agregar-categoria-dialogo.component';
+import { EditarEntradaDialogoComponent } from './components/editar-entrada-dialogo/editar-entrada-dialogo.component';
 
 
 
@@ -49,7 +50,7 @@ import { AgregarCategoriaDialogoComponent } from './components/agregar-categoria
     InventarioComponent,
     EntradaAlmacenComponent,
     SalidaAlmacenComponent,
-    OrdenPedidoComponent,
+    OrdenCompraComponent,
     ReportesComponent,
     UsuariosComponent,
     SalidasAlmacenComponent,
@@ -60,8 +61,9 @@ import { AgregarCategoriaDialogoComponent } from './components/agregar-categoria
     EditarOrdenPedidoDialogoComponent,
     EditarSalidaAlmacenDialogoComponent,
     EditarSalidaAlmacenComponent,
-    VerCategoriasComponent,
-    AgregarCategoriaDialogoComponent
+    ProductoCategoriasComponent,
+    AgregarCategoriaDialogoComponent,
+    EditarEntradaDialogoComponent
   ],
   imports: [
     BrowserModule,

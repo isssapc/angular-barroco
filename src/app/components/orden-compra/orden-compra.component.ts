@@ -4,11 +4,11 @@ import { EditarOrdenPedidoDialogoComponent } from "app/components/editar-orden-p
 
 
 @Component({
-  selector: 'app-orden-pedido',
-  templateUrl: './orden-pedido.component.html',
-  styleUrls: ['./orden-pedido.component.scss']
+  selector: 'app-orden-compra',
+  templateUrl: './orden-compra.component.html',
+  styleUrls: ['./orden-compra.component.scss']
 })
-export class OrdenPedidoComponent implements OnInit {
+export class OrdenCompraComponent implements OnInit {
 
   constructor(public dialog: MdDialog) { }
 

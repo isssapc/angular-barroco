@@ -15,7 +15,7 @@ export class InventarioComponent implements OnInit {
 
   ngOnInit() {
   }
-
+ 
   editarinventario() {
     this.dialog.open(EditarInventarioDialogoComponent);
   }

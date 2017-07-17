@@ -3,11 +3,11 @@ import {MdDialog} from '@angular/material';
 import { AgregarCategoriaDialogoComponent } from "app/components/agregar-categoria-dialogo/agregar-categoria-dialogo.component";
 
 @Component({
-  selector: 'app-ver-categorias',
-  templateUrl: './ver-categorias.component.html',
-  styleUrls: ['./ver-categorias.component.scss']
+  selector: 'app-producto-categorias',
+  templateUrl: './producto-categorias.component.html',
+  styleUrls: ['./producto-categorias.component.scss']
 })
-export class VerCategoriasComponent implements OnInit {
+export class ProductoCategoriasComponent implements OnInit {
 
   constructor(public dialog: MdDialog) { }
 
