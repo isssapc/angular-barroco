@@ -6,16 +6,23 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class ProductoService {
-  url: string = "http://localhost:8080/barroco/api/index.php/";
+  url: string = "http://localhost:8080/barroco/api/index.php/productos/";
 
   constructor(private http: Http) { }
 
 
   getProductos() {
-    return this.http.get(this.url + 'productos/')
+    return this.http.get(this.url )
       .map(this.extractData)
       .catch(this.handleError);
   }
+
+    getProductoCategorias() {
+    return this.http.get(this.url + 'get_categorias')
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
 
 
   createProducto(producto) {
