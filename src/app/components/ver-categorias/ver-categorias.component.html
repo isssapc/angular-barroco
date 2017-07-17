@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="card my-5">
+        <div class="card-header">
+          Categorias
+          <button md-icon-button class="margin" (click)="agregarcategoria()">
+          <md-icon>add</md-icon>
+          </button>
+        </div>
+        <div>
+          <table class="table table-hover table-striped">
+            <thead>
+              <tr>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Material eléctrico</td>
+                <td>
+                  <button md-icon-button [mdMenuTriggerFor]="menu4">
+                   <md-icon>more_vert</md-icon>
+                  </button>
+                  <md-menu #menu4="mdMenu">
+                    <button md-menu-item>
+                      <md-icon>delete</md-icon>
+                        <span>Eliminar</span>
+                     </button>
+                  </md-menu>
+                </td>
+              </tr>
+              <tr>
+                <td>Material De construcción</td>
+                 <td>
+                  <button md-icon-button [mdMenuTriggerFor]="menu4">
+                   <md-icon>more_vert</md-icon>
+                  </button>
+                  <md-menu #menu4="mdMenu">
+                    <button md-menu-item>
+                      <md-icon>delete</md-icon>
+                        <span>Eliminar</span>
+                     </button>
+                  </md-menu>
+                </td>
+              </tr>
+            </tbody>

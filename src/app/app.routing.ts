@@ -20,6 +20,8 @@ import { EditarInventarioDialogoComponent } from "app/components/editar-inventar
 import { EditarOrdenPedidoDialogoComponent } from "app/components/editar-orden-pedido-dialogo/editar-orden-pedido-dialogo.component";
 import { EditarSalidaAlmacenDialogoComponent } from "app/components/editar-salida-almacen-dialogo/editar-salida-almacen-dialogo.component";
 import { EditarSalidaAlmacenComponent } from "app/components/editar-salida-almacen/editar-salida-almacen.component";
+import { VerCategoriasComponent } from "app/components/ver-categorias/ver-categorias.component";
+import { AgregarCategoriaDialogoComponent } from "app/components/agregar-categoria-dialogo/agregar-categoria-dialogo.component";
 
 
 
@@ -44,7 +46,9 @@ export const ROUTES: Routes = [
     { path: 'editar-inventario-dialogo', component: EditarInventarioDialogoComponent  },
     { path: 'editar-orden-pedido-dialogo', component: EditarOrdenPedidoDialogoComponent  },
     { path: 'editar-salida-almacen-dialogo', component: EditarSalidaAlmacenDialogoComponent  },
-    { path: 'editar-salida-almacen', component: EditarSalidaAlmacenComponent  }
+    { path: 'editar-salida-almacen', component: EditarSalidaAlmacenComponent  },
+    { path: 'ver-categorias', component: VerCategoriasComponent  },
+    { path: 'agregar-categoria-dialogo', component: AgregarCategoriaDialogoComponent  }
 
 
 
