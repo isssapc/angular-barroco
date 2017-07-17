@@ -6,7 +6,7 @@
 
       <div class="card my-5">
         <div class="card-header">
-         Salida de almacen
+          Salida de almacen
         </div>
         <div>
           <div class="table-responsive">
@@ -28,7 +28,7 @@
                   <td>Categoria 1</td>
                   <td>0000000</td>
                   <td>1</td>
-                  <td><input class="form-control" type="text" value=""></td> 
+                  <td><input class="form-control" type="text" value=""></td>
                   <td>
                     <button md-icon-button [mdMenuTriggerFor]="menu1">
                    <md-icon>more_vert</md-icon>
@@ -72,7 +72,7 @@
                       <md-icon>delete</md-icon>
                         <span>Eliminar</span>
                      </button>
-                    </md-menu> 
+                    </md-menu>
                   </td>
                 </tr>
                 <tr>
@@ -133,10 +133,30 @@
             </table>
           </div>
         </div>
-        
+
         <div class="card-footer">
-           <form>
+          <form>
             <div class="form-group row">
+              <label for="3" class="col-sm-2 col-form-label">Tipo</label>
+              <div class="col-sm-10">
+                <div class="form-check">
+                  <label class="form-check-label">
+               <input type="radio" class="form-check-input" name="tipo" value="M" [(ngModel)]="tipo_salida">
+               Muestreo
+              </label>
+                </div>
+              </div>
+              <div class="col-sm-10 offset-sm-2">
+                <div class="form-check">
+                  <label class="form-check-label">
+               <input type="radio" class="form-check-input" name="tipo" value="O" [(ngModel)]="tipo_salida">
+                Orden de compra
+              </label>
+                </div>
+              </div>
+
+            </div>
+            <div class="form-group row" *ngIf="tipo_salida==='O'">
               <label for="1" class="col-sm-2 col-form-label">Cliente</label>
               <div class="col-sm-10">
                 <input class="form-control" type="text" value="" id="1">
@@ -149,7 +169,7 @@
                 <input class="form-control" type="text" value="" id="3">
               </div>
             </div>
-           </form>
+          </form>
           <div>
             <button type="button" class="btn btn-primary">Aceptar</button>
           </div>
