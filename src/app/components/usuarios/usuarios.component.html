@@ -22,11 +22,11 @@
             </thead>
 
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>Nombre</td>
-                <td>ejemplo@ejemplo.com</td>
-                <td>Comercial</td>
+              <tr *ngFor="let usuario of usuarios">
+                <td>{{usuario.id_usuario}}</td>
+                <td>{{usuario.nombre}}</td>
+                <td>{{usuario.email}}</td>
+                <td>{{usuario.rol}}</td>
                 <td>
                   <button md-icon-button [mdMenuTriggerFor]="menu1">
                    <md-icon>more_vert</md-icon>
@@ -46,57 +46,7 @@
                      </button>
                   </md-menu>
                 </td>
-              </tr>
-               <tr>
-                <td>1</td>
-                <td>Nombre</td>
-                <td>ejemplo@ejemplo.com</td>
-                <td>Comercial</td>
-                <td>
-                  <button md-icon-button [mdMenuTriggerFor]="menu2">
-                   <md-icon>more_vert</md-icon>
-                  </button>
-                  <md-menu #menu2="mdMenu">
-                    <button md-menu-item (click)="abrirdialogo()">
-                     <md-icon>create</md-icon>
-                      <span>Editar</span>
-                    </button>
-                    <button md-menu-item>
-                     <md-icon>attach_file</md-icon>
-                      <span>Ficha técnica</span>
-                   </button>
-                    <button md-menu-item>
-                      <md-icon>delete</md-icon>
-                        <span>Eliminar</span>
-                     </button>
-                  </md-menu>
-                </td>
-              </tr>
-               <tr>
-                <td>1</td>
-                <td>Nombre</td>
-                <td>ejemplo@ejemplo.com</td>
-                <td>Comercial</td>
-                <td>
-                  <button md-icon-button [mdMenuTriggerFor]="menu3">
-                   <md-icon>more_vert</md-icon>
-                  </button>
-                  <md-menu #menu3="mdMenu">
-                    <button md-menu-item (click)="abrirdialogo()">
-                     <md-icon>create</md-icon>
-                      <span>Editar</span>
-                    </button>
-                    <button md-menu-item>
-                     <md-icon>attach_file</md-icon>
-                      <span>Ficha técnica</span>
-                   </button>
-                    <button md-menu-item>
-                      <md-icon>delete</md-icon>
-                        <span>Eliminar</span>
-                     </button>
-                  </md-menu>
-                </td>
-              </tr>
+              </tr>         
               
             </tbody>
           </table>

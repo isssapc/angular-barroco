@@ -4,15 +4,22 @@ import { Observable } from "rxjs/Observable";
 
 @Injectable()
 export class UsuarioService {
-  url: string = "http://localhost:8080/barroco/api/index.php/";
+  url: string = "http://localhost:8080/barroco/api/index.php/usuarios/";
 
   constructor(private http: Http) { }
 
   getUsuarios() {
-    return this.http.get(this.url + 'usuarios/')
+    return this.http.get(this.url)
       .map(this.extractData)
       .catch(this.handleError);
   }
+
+  getRoles() {
+    return this.http.get(this.url + 'get_roles')
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
 
 
   createUsuario(usuario) {
