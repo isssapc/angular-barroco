@@ -9,68 +9,68 @@
           Nuevo producto
         </div>
         <div class="card-block">
-          <form>
+          <form #formCreateProducto="ngForm" id="formCreateProducto" (ngSubmit)="createProducto()">
             <div class="form-group row">
-              <label for="1" class="col-sm-2 col-form-label">Nombre</label>
+              <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
               <div class="col-sm-10">
-                <input class="form-control" type="text" value="" id="1">
+                <input class="form-control" type="text" name="nombre" id="nombre" [(ngModel)]="producto.nombre">
               </div>
             </div>
 
             <div class="form-group row">
-              <label for="2" class="col-sm-2 col-form-label">Unidad</label>
+              <label for="unidad" class="col-sm-2 col-form-label">Unidad</label>
               <div class="col-sm-10">
-                <input class="form-control" type="text" value="" id="2">
+                <input class="form-control" type="text" name="unidad" id="unidad" [(ngModel)]="producto.unidad">
               </div>
             </div>
 
             <div class="form-group row">
-              <label for="3" class="col-sm-2 col-form-label">Cantidad</label>
+              <label for="cantidad" class="col-sm-2 col-form-label">Cantidad</label>
               <div class="col-sm-10">
-                <input class="form-control" type="text" value="" id="3">
+                <input class="form-control" type="text" name="cantidad" id="cantidad" [(ngModel)]="producto.cantidad">
               </div>
             </div>
 
             <div class="form-group row">
-              <label for="4" class="col-sm-2 col-form-label">Número de factura</label>
+              <label for="num_factura" class="col-sm-2 col-form-label">Número de factura</label>
               <div class="col-sm-10">
-                <input class="form-control" type="text" value="" id="4">
+                <input class="form-control" type="text" name="num_factura" id="num_factura" [(ngModel)]="producto.num_factura">
               </div>
             </div>
 
             <div class="form-group row">
-              <label for="5" class="col-sm-2 col-form-label">Categoría</label>
+              <label for="id_producto_categoria" class="col-sm-2 col-form-label">Categoría</label>
               <div class="col-sm-10">
-                <select class="form-control" id="5">
-                  <option value="1">Material eléctrico</option>
-                  <option value="2">Construccion</option>
+                <select class="form-control" name="id_producto_categoria" id="id_producto_categoria" [(ngModel)]="producto.id_producto_categoria">
+                  <option value="">Seleccionar...</option>
+                  <option [value]="categoria.id_producto_categoria" *ngFor="let categoria of categorias">{{categoria.nombre}}</option>
                 </select>
               </div>
             </div>
 
             <div class="form-group row">
-              <label for="6" class="col-sm-2 col-form-label">Costo</label>
+              <label for="costo" class="col-sm-2 col-form-label">Costo</label>
               <div class="col-sm-10">
-                <input class="form-control" type="text" value="" id="6">
+                <input class="form-control" type="text" name="costo" id="costo" [(ngModel)]="producto.costo">
               </div>
             </div>
 
             <div class="form-group row">
-              <label for="7" class="col-sm-2 col-form-label">Precio venta</label>
+              <label for="precio_venta" class="col-sm-2 col-form-label">Precio venta</label>
               <div class="col-sm-10">
-                <input class="form-control" type="text" value="" id="7">
+                <input class="form-control" type="text" name="precio_venta" id="precio_venta" [(ngModel)]="producto.precio_venta">
               </div>
             </div>
             <div class="form-group row">
-              <label for="1" class="col-sm-2 col-form-label">Descripción géneral</label>
+              <label for="descripcion" class="col-sm-2 col-form-label">Descripción géneral</label>
               <div class="col-sm-10">
-                <textarea class="form-control" rows="5"></textarea>
+                <textarea class="form-control" rows="5" name="descripcion" id="descripcion" [(ngModel)]="producto.descripcion"></textarea>
               </div>
             </div>
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label">Especificaciones</label>
+              <label for="especificaciones" class="col-sm-2 col-form-label">Especificaciones</label>
               <div class="col-sm-10">
-                <textarea class="form-control" rows="5"></textarea>
+                <textarea class="form-control" rows="5" name="especificaciones" id="especificaciones" [(ngModel)]="producto.especificaciones"></textarea>
               </div>
             </div>
           </form>
@@ -78,7 +78,7 @@
         <div class="card-footer">
           <div>
             <div class="col-sm-10 offset-sm-2">
-              <button type="button" class="btn btn-primary">Aceptar</button>
+              <button type="sbmit" form="formCreateProducto" class="btn btn-primary">Aceptar</button>
             </div>
           </div>
         </div>

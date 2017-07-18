@@ -4,7 +4,8 @@ import { Observable } from "rxjs/Observable";
 
 @Injectable()
 export class EntradaService {
-  url: string = "http://localhost:8080/barroco/api/index.php/entradas/";
+  url: string = "http://192.168.0.107:8080/barroco/api/index.php/entradas/";
+  //url: string = "http://localhost:8080/barroco/api/index.php/entradas/";
 
   constructor(private http: Http) { }
 

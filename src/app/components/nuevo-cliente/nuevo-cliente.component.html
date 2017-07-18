@@ -6,32 +6,32 @@
           Nuevo cliente
         </div>
         <div class="card-block">
-          <form>
+          <form #formCreateCliente="ngForm" id="formCreateCliente" (ngSubmit)="createCliente()">
             <div class="form-group row">
-              <label for="1" class="col-sm-2 col-form-label">Nombre</label>
+              <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
               <div class="col-sm-10">
-                <input class="form-control" type="text" value="" id="1">
+                <input class="form-control" type="text" name="nombre" id="nombre" [(ngModel)]="cliente.nombre" >
               </div>
             </div>
 
             <div class="form-group row">
-              <label for="2" class="col-sm-2 col-form-label">Email</label>
+              <label for="email" class="col-sm-2 col-form-label">Email</label>
               <div class="col-sm-10">
-                <input class="form-control" type="text" value="" id="2">
+                <input class="form-control" type="text"name="email" id="email" [(ngModel)]="cliente.email" >
               </div>
             </div>
 
             <div class="form-group row">
-              <label for="3" class="col-sm-2 col-form-label">Teléfono</label>
+              <label for="telefono" class="col-sm-2 col-form-label">Teléfono</label>
               <div class="col-sm-10">
-                <input class="form-control" type="text" value="" id="3">
+                <input class="form-control" type="text" name="telefono" id="telefono" [(ngModel)]="cliente.telefono">
               </div>
             </div>
 
             <div class="form-group row">
               <label for="4" class="col-sm-2 col-form-label">Contacto</label>
               <div class="col-sm-10">
-                <input class="form-control" type="text" value="" id="4">
+                <input class="form-control" type="text" name="cliente" id="cliente" [(ngModel)]="cliente.contacto">
               </div>
             </div>
 
@@ -39,88 +39,84 @@
             <h5 class="padding">Datos de facturación</h5>
 
             <div class="form-group row">
-              <label for="1" class="col-sm-2 col-form-label">RFC</label>
+              <label for="rfc" class="col-sm-2 col-form-label">RFC</label>
               <div class="col-sm-10">
-                <input class="form-control" type="text" value="" id="1">
+                <input class="form-control" type="text" name="rfc" id="rfc" [(ngModel)]="cliente.rfc">
               </div>
             </div>
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label">Calle</label>
-              <div class="col-sm-3">
-                <input class="form-control" type="text" value="">
-              </div>
-              <label class="col-sm-2 col-form-label"></label>
+              <label for="calle_fiscal" class="col-sm-2 col-form-label">Calle</label>
+              <div class="col-sm-6">
+                <input class="form-control" type="text" name="calle_fiscal" id="calle_fiscal" [(ngModel)]="cliente.calle_fiscal">
+              </div>              
               <div class="col-sm-2">
-                <input class="form-control" type="text" placeholder="Núm. Ext.">
-              </div>
-              <label class="col-sm-1 col-form-label"></label>
+                <input class="form-control" type="text" placeholder="Núm. Ext." name="num_ext_fiscal" id="num_ext_fiscal" [(ngModel)]="cliente.num_ext_fiscal">
+              </div>              
               <div class="col-sm-2">
-                <input class="form-control" type="text" placeholder="Núm. Int.">
+                <input class="form-control" type="text" placeholder="Núm. Int." name="num_int_fiscal" id="num_int_fiscal" [(ngModel)]="cliente.num_int_fiscal">
               </div>
             </div>
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label">Colonia</label>
+              <label for="colonia_fiscal" class="col-sm-2 col-form-label">Colonia</label>
               <div class="col-sm-10">
-                <input class="form-control" type="text" value="">
+                <input class="form-control" type="text" name="colonia_fiscal" id="colonia_fiscal" [(ngModel)]="cliente.colonia_fiscal">
               </div>
             </div>
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label">C.P.</label>
+              <label for="cp_fiscal" class="col-sm-2 col-form-label">C.P.</label>
               <div class="col-sm-10">
-                <input class="form-control" type="text" value="">
+                <input class="form-control" type="text" name="cp_fiscal" id="cp_fiscal" [(ngModel)]="cliente.cp_fiscal">
               </div>
             </div>
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label">Municipio</label>
+              <label for="municipio_fiscal" class="col-sm-2 col-form-label">Municipio</label>
               <div class="col-sm-10">
-                <input class="form-control" type="text" value="">
+                <input class="form-control" type="text" name="municipio_fiscal" id="municipio_fiscal" [(ngModel)]="cliente.municipio_fiscal">
               </div>
             </div>
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label">Estado</label>
+              <label for="estado_fiscal" class="col-sm-2 col-form-label">Estado</label>
               <div class="col-sm-10">
-                <input class="form-control" type="text" value="">
+                <input class="form-control" type="text" name="estado_fiscal" id="estado_fiscal" [(ngModel)]="cliente.estado_fiscal">
               </div>
             </div>
 
             <h5 class="padding">Datos de envio</h5>
 
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label">Calle</label>
-              <div class="col-sm-3">
-                <input class="form-control" type="text" value="">
-              </div>
-              <label class="col-sm-2 col-form-label"></label>
-              <div class="col-sm-1">
-                <input class="form-control" type="text" placeholder="Núm. Ext.">
-              </div>
-              <label class="col-sm-2 col-form-label"></label>
-              <div class="col-sm-1">
-                <input class="form-control" type="text" placeholder="Núm. Int.">
+              <label for="calle_envio" class="col-sm-2 col-form-label">Calle</label>
+              <div class="col-sm-6">
+                <input class="form-control" type="text" name="calle_envio" id="calle_envio" [(ngModel)]="cliente.calle_envio">
+              </div>             
+              <div class="col-sm-2">
+                <input class="form-control" type="text" placeholder="Núm. Ext." name="num_ext_envio" id="num_ext_envio" [(ngModel)]="cliente.num_ext_envio">
+              </div>             
+              <div class="col-sm-2">
+                <input class="form-control" type="text" placeholder="Núm. Int." name="num:int_envio" id="num_int_envio" [(ngModel)]="cliente.num_int_envio">
               </div>
             </div>
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label">Colonia</label>
+              <label for="colonia_envio" class="col-sm-2 col-form-label">Colonia</label>
               <div class="col-sm-10">
-                <input class="form-control" type="text" value="">
+                <input class="form-control" type="text" name="colonia_envio" id="colonia_envio" [(ngModel)]="cliente.colonia_envio">
               </div>
             </div>
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label">C.P.</label>
+              <label for="cp_envio" class="col-sm-2 col-form-label">C.P.</label>
               <div class="col-sm-10">
-                <input class="form-control" type="text" value="">
+                <input class="form-control" type="text" name="cp_envio" id="cp_envio" [(ngModel)]="cliente.cp_envio">
               </div>
             </div>
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label">Municipio</label>
+              <label for="municipio_envio" class="col-sm-2 col-form-label">Municipio</label>
               <div class="col-sm-10">
-                <input class="form-control" type="text" value="">
+                <input class="form-control" type="text" name="municipio_envio" id="municipio_envio" [(ngModel)]="cliente.municipio_envio">
               </div>
             </div>
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label">Estado</label>
+              <label for="estado_envio" class="col-sm-2 col-form-label">Estado</label>
               <div class="col-sm-10">
-                <input class="form-control" type="text" value="">
+                <input class="form-control" type="text" name="estado_envio" id="estado_envio" [(ngModel)]="cliente.estado_envio">
               </div>
             </div>
 
@@ -128,7 +124,7 @@
         </div>
         <div class="card-footer">
           <div class="col-sm-10 offset-sm-2">
-            <button type="button" class="btn btn-primary">Aceptar</button>
+            <button type="submit" form="formCreateCliente" class="btn btn-primary" [disabled]="!formCreateCliente.form.valid">Aceptar</button>
           </div>
         </div>
       </div>

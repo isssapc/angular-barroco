@@ -14,7 +14,7 @@ export class EntradasAlmacenComponent implements OnInit {
   ngOnInit() {
   }
 
-    editarentradadialogo() {
+    editarEntradaDialogo() {
     this.dialog.open(EditarEntradaDialogoComponent);
   }
 
