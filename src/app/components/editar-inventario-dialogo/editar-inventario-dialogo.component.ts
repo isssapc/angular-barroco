@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject} from '@angular/core';
+import { MD_DIALOG_DATA, MdDialogRef } from "@angular/material";
+import { Producto } from "app/model/producto";
 
 @Component({
   selector: 'app-editar-inventario-dialogo',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditarInventarioDialogoComponent implements OnInit {
 
-  constructor() { }
+  producto:Producto 
+
+  constructor(
+    @Inject(MD_DIALOG_DATA) public data: any,
+    public dialogRef: MdDialogRef<EditarInventarioDialogoComponent>
+  ) { }
 
   ngOnInit() {
+    this.producto= this.data.producto;
   }
 
 }

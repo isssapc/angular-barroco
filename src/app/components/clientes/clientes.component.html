@@ -1,5 +1,11 @@
 <div class="container">
 
+   <div *ngIf="loading">
+
+    <md-spinner class="loading"></md-spinner>
+
+  </div>
+
   <div class="row">
 
     <div class="col-12">
@@ -27,11 +33,11 @@
                 <td>{{cliente.email}}</td>
                 <td>{{cliente.rfc}}</td>
                 <td>
-                  <button md-icon-button [mdMenuTriggerFor]="menu1">
+                  <button md-icon-button [mdMenuTriggerFor]="menu">
                    <md-icon>more_vert</md-icon>
                   </button>
-                  <md-menu #menu1="mdMenu">
-                    <button md-menu-item (click)="editarclientedialogo()">
+                  <md-menu #menu="mdMenu">
+                    <button md-menu-item (click)="editarCliente(cliente)">
                      <md-icon>create</md-icon>
                       <span>Editar</span>
                     </button>
