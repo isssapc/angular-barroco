@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditarUsuarioDialogComponent } from './editar-usuario-dialog.component';
+import { EditarUsuarioDialogoComponent } from './editar-usuario-dialogo.component';
 
 describe('EditarUsuarioDialogComponent', () => {
-  let component: EditarUsuarioDialogComponent;
-  let fixture: ComponentFixture<EditarUsuarioDialogComponent>;
+  let component: EditarUsuarioDialogoComponent;
+  let fixture: ComponentFixture<EditarUsuarioDialogoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditarUsuarioDialogComponent ]
+      declarations: [ EditarUsuarioDialogoComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EditarUsuarioDialogComponent);
+    fixture = TestBed.createComponent(EditarUsuarioDialogoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

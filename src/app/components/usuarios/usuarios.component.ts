@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MdDialog } from '@angular/material';
-import { EditarUsuarioDialogComponent } from "app/components/editar-usuario-dialog/editar-usuario-dialog.component";
+import { MdDialog, MdDialogRef, MdSnackBar } from '@angular/material';
+import { EditarUsuarioDialogoComponent } from "app/components/editar-usuario-dialog/editar-usuario-dialogo.component";
 import { Usuario } from "app/model/usuario";
 import { UsuarioService } from "app/services/usuario.service";
 
@@ -13,15 +13,42 @@ import { UsuarioService } from "app/services/usuario.service";
 export class UsuariosComponent implements OnInit {
   usuarios: Usuario[];
 
-  constructor(private usuarioSrv: UsuarioService, public dialog: MdDialog) { }
+  constructor(private usuarioSrv: UsuarioService, public dialog: MdDialog, public snackBar:MdSnackBar) { }
 
   ngOnInit() {
     this.usuarioSrv.getUsuarios()
       .subscribe(res => this.usuarios = res);
   }
 
-  abrirdialogo() {
-    this.dialog.open(EditarUsuarioDialogComponent);
+  editarUsuario(usuario: Usuario) {
+
+    let copia = Usuario.copiar(usuario);    
+
+    let dialogRef= this.dialog.open(EditarUsuarioDialogoComponent, {
+      data: {usuario:copia}
+    });
+
+    dialogRef.afterClosed().subscribe(result=>{
+     
+      if(result===true){
+
+        this.usuarioSrv.updateUsuario(usuario.id_usuario, copia)
+        .subscribe(res=>{
+
+          let i= this.usuarios.indexOf(usuario);
+          this.usuarios[i]= res;
+          this.snackBar.open("Usuario Actualizado", "Cerrar",{
+            duration:2000
+          });
+
+        });
+
+
+      }
+
+    });
+
+
   }
 
 }

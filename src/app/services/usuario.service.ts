@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from "@angular/http";
 import { Observable } from "rxjs/Observable";
+import { Usuario } from "app/model/usuario";
 
 @Injectable()
 export class UsuarioService {
@@ -9,7 +10,7 @@ export class UsuarioService {
 
   constructor(private http: Http) { }
 
-  getUsuarios() {
+  getUsuarios():Observable<Usuario[]> {
     return this.http.get(this.url)
       .map(this.extractData)
       .catch(this.handleError);

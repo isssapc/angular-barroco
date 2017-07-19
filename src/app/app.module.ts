@@ -27,7 +27,7 @@ import { ReportesComponent } from './components/reportes/reportes.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { SalidasAlmacenComponent } from './components/salidas-almacen/salidas-almacen.component';
 import { EntradasAlmacenComponent } from './components/entradas-almacen/entradas-almacen.component';
-import { EditarUsuarioDialogComponent } from './components/editar-usuario-dialog/editar-usuario-dialog.component';
+import { EditarUsuarioDialogoComponent } from './components/editar-usuario-dialog/editar-usuario-dialogo.component';
 import { EditarClienteDialogoComponent } from './components/editar-cliente-dialogo/editar-cliente-dialogo.component';
 import { EditarInventarioDialogoComponent } from './components/editar-inventario-dialogo/editar-inventario-dialogo.component';
 import { EditarOrdenPedidoDialogoComponent } from './components/editar-orden-pedido-dialogo/editar-orden-pedido-dialogo.component';
@@ -61,7 +61,7 @@ import { UsuarioService } from "app/services/usuario.service";
     UsuariosComponent,
     SalidasAlmacenComponent,
     EntradasAlmacenComponent,
-    EditarUsuarioDialogComponent,
+    EditarUsuarioDialogoComponent,
     EditarClienteDialogoComponent,
     EditarInventarioDialogoComponent,
     EditarOrdenPedidoDialogoComponent,
@@ -81,7 +81,7 @@ import { UsuarioService } from "app/services/usuario.service";
     FlexLayoutModule
   ],
   entryComponents:[
-    EditarUsuarioDialogComponent,
+    EditarUsuarioDialogoComponent,
     EditarInventarioDialogoComponent
   ],
   providers: [
