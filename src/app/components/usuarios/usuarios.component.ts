@@ -36,12 +36,14 @@ export class UsuariosComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
 
       if (result === true) {
+        this.loading=true;
 
         this.usuarioSrv.updateUsuario(usuario.id_usuario, copia)
           .subscribe(res => {
 
             let i = this.usuarios.indexOf(usuario);
             this.usuarios[i] = res;
+            this.loading=false;
             this.snackBar.open("Usuario Actualizado", "Cerrar", {
               duration: 2000
             });
