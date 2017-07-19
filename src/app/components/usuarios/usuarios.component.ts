@@ -11,37 +11,42 @@ import { UsuarioService } from "app/services/usuario.service";
   styleUrls: ['./usuarios.component.scss']
 })
 export class UsuariosComponent implements OnInit {
+  loading: boolean;
   usuarios: Usuario[];
 
-  constructor(private usuarioSrv: UsuarioService, public dialog: MdDialog, public snackBar:MdSnackBar) { }
+  constructor(private usuarioSrv: UsuarioService, public dialog: MdDialog, public snackBar: MdSnackBar) { }
 
   ngOnInit() {
+    this.loading = true;
     this.usuarioSrv.getUsuarios()
-      .subscribe(res => this.usuarios = res);
+      .subscribe(res => {
+        this.usuarios = res;
+        this.loading = false;
+      });
   }
 
   editarUsuario(usuario: Usuario) {
 
-    let copia = Usuario.copiar(usuario);    
+    let copia = Usuario.copiar(usuario);
 
-    let dialogRef= this.dialog.open(EditarUsuarioDialogoComponent, {
-      data: {usuario:copia}
+    let dialogRef = this.dialog.open(EditarUsuarioDialogoComponent, {
+      data: { usuario: copia }
     });
 
-    dialogRef.afterClosed().subscribe(result=>{
-     
-      if(result===true){
+    dialogRef.afterClosed().subscribe(result => {
+
+      if (result === true) {
 
         this.usuarioSrv.updateUsuario(usuario.id_usuario, copia)
-        .subscribe(res=>{
+          .subscribe(res => {
 
-          let i= this.usuarios.indexOf(usuario);
-          this.usuarios[i]= res;
-          this.snackBar.open("Usuario Actualizado", "Cerrar",{
-            duration:2000
+            let i = this.usuarios.indexOf(usuario);
+            this.usuarios[i] = res;
+            this.snackBar.open("Usuario Actualizado", "Cerrar", {
+              duration: 2000
+            });
+
           });
-
-        });
 
 
       }
