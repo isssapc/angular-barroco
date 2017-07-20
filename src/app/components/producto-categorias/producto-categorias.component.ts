@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {MdDialog} from '@angular/material';
+import { MdDialog, MdSnackBar } from '@angular/material';
 import { AgregarCategoriaDialogoComponent } from "app/components/agregar-categoria-dialogo/agregar-categoria-dialogo.component";
 import { ProductoService } from "app/services/producto.service";
+import { Categoria } from "app/model/categoria";
 
 @Component({
   selector: 'app-producto-categorias',
@@ -9,20 +10,48 @@ import { ProductoService } from "app/services/producto.service";
   styleUrls: ['./producto-categorias.component.scss']
 })
 export class ProductoCategoriasComponent implements OnInit {
-  categorias;
+  categorias: Categoria[];
+  loading: boolean;
 
-  constructor(private productoSrv:ProductoService ,public dialog: MdDialog) { }
+
+  constructor(private productoSrv: ProductoService, public dialog: MdDialog, public snackBar: MdSnackBar) { }
 
   ngOnInit() {
-     this.productoSrv.getProductoCategorias()
+    this.productoSrv.getProductoCategorias()
       .subscribe(res => this.categorias = res);
 
+
   }
 
-  agregarcategoria() {
-    this.dialog.open(AgregarCategoriaDialogoComponent);
-  }
+  agregarCategoria() {
+    let copia = Categorias.copiar(categorias);
 
+    let dialogRef = this.dialog.open(AgregarCategoriaDialogoComponent, {
+      data: { cliente: copia }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+      if (result === true) {
+        this.loading = true;
+
+        this.categoriaSrv.updateCliente(cliente.id_cliente, copia)
+          .subscribe(res => {
+
+            let i = this.categoria.indexOf(categoria);
+            this.categoria[i] = res;
+            this.loading = false;
+            this.snackBar.open("Categoria Actualizada", "Cerrar", {
+              duration: 2000
+            });
+
+          });
+
+
+      }
+
+    });
+  }
 
 
 }

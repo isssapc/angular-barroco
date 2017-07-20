@@ -12,7 +12,7 @@ import { ProductoService } from "app/services/producto.service";
   styleUrls: ['./inventario.component.scss']
 })
 export class InventarioComponent implements OnInit {
-  loading: boolean
+  loading: boolean;
   productos: Producto[];
 
   constructor(private productoSrv: ProductoService, public dialog: MdDialog, public snackBar: MdSnackBar) { }
