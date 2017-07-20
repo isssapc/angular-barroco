@@ -43,6 +43,7 @@ import { SalidaService } from "app/services/salida.service";
 import { EntradaService } from "app/services/entrada.service";
 import { ClienteService } from "app/services/cliente.service";
 import { UsuarioService } from "app/services/usuario.service";
+import { OrdenesComponent } from './components/ordenes/ordenes.component';
 
 
 
@@ -70,7 +71,9 @@ import { UsuarioService } from "app/services/usuario.service";
     EditarSalidaAlmacenComponent,
     ProductoCategoriasComponent,
     AgregarCategoriaDialogoComponent,
-    EditarEntradaDialogoComponent
+    EditarEntradaDialogoComponent,
+    OrdenesComponent
+    
   ],
   imports: [
     BrowserModule,

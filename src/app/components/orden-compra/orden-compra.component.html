@@ -10,7 +10,7 @@
           Orden de compra
         </div>
         <div class="card-block">
-          <form>
+          <form #formCreateOrden="ngForm" id="formCreateOrden" (ngSubmit)="createOrden()">
 
             <ng-template #rt let-r="result" let-t="term">
               <span>{{r.nombre}}</span>
@@ -29,23 +29,23 @@
             <pre>Model: {{ model | json }}</pre>
 
             <div class="form-group row">
-              <label for="1" class="col-sm-2 col-form-label">Cliente</label>
+              <label for="id_cliente" class="col-sm-2 col-form-label">Cliente</label>
               <div class="col-sm-10">
-                <input class="form-control" type="text" value="" id="1">
+                <input class="form-control" type="text" name="id_cliente" id="id_cliente" [(ngModel)]="orden.id_cliente">
               </div>
             </div>
 
             <div class="form-group row">
-              <label for="3" class="col-sm-2 col-form-label">Fecha Entrega</label>
+              <label for="fecha_entrega" class="col-sm-2 col-form-label">Fecha Entrega</label>
               <div class="col-sm-10">
-                <input class="form-control" type="text" value="" id="3">
+                <input class="form-control" type="text" name="fecha_entrega" id="fecha_entrega" [(ngModel)]="orden.fecha_entrega">
               </div>
             </div>
 
             <div class="form-group row">
-              <label for="5" class="col-sm-2 col-form-label">Lugar Entrega</label>
+              <label for="lugar_entrega" class="col-sm-2 col-form-label">Lugar Entrega</label>
               <div class="col-sm-10">
-                <select class="form-control" id="5">
+                <select class="form-control" name="lugar_entrega" id="lugar_entrega" [(ngModel)]="orden.lugar_entrega">
                   <option value="1">Obra</option>
                   <option value="2">Sucursal</option>
                   <option value="3">CDIS</option>                    
@@ -54,25 +54,25 @@
             </div>
 
             <div class="form-group row">
-              <label for="3" class="col-sm-2 col-form-label">Dirección Entrega</label>
+              <label for="direccion_entrega" class="col-sm-2 col-form-label">Dirección Entrega</label>
               <div class="col-sm-10">
-                <input class="form-control" type="text" value="" id="3">
+                <input class="form-control" type="text" name="direccion_entrega" id="direccion_entrega" [(ngModel)]="orden.direccion_entrega">
               </div>
             </div>
 
             <div class="form-group row">
-              <label for="5" class="col-sm-2 col-form-label">Condiciones de compra</label>
+              <label for="condiciones_compra" class="col-sm-2 col-form-label">Condiciones de compra</label>
               <div class="col-sm-10">
-                <select class="form-control" id="5">
+                <select class="form-control" name="condiciones_compra" id="condiciones_compra" [(ngModel)]="orden.condiciones_compra">
                   <option value="1">Contado</option>
                   <option value="2">Crédito</option>                  
                 </select>
               </div>
             </div>
             <div class="form-group row">
-              <label for="5" class="col-sm-2 col-form-label">Nota</label>
+              <label for="nota" class="col-sm-2 col-form-label">Nota</label>
               <div class="col-sm-10">
-                <textarea class="form-control" rows="5" id="comment"></textarea>
+                <textarea class="form-control" rows="5" name="nota" id="nota" [(ngModel)]="orden.nota"></textarea>
               </div>
             </div>
           </form>
@@ -141,7 +141,7 @@
         </div>
         <div class="card-footer">
           <div>
-            <button type="button" class="btn btn-primary">Aceptar</button>
+            <button type="sbmit" form="formCreateOrden" class="btn btn-primary">Aceptar</button>
           </div>
         </div>
       </div>
