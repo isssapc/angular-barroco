@@ -11,7 +11,9 @@ export class Producto {
     descripcion?: string;
     especificaciones?: string;
 
-    constructor() { }
+    constructor() { 
+        this.id_producto_categoria=null;
+     }
 
     public static copiar(producto: Producto): Producto {
         let copia = new Producto();

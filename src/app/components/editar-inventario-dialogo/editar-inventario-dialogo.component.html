@@ -34,8 +34,8 @@
               <label for="id_producto_categoria" class="col-sm-4 col-form-label">Categoria</label>
               <div class="col-sm-8">
                 <select class="form-control" id="id_producto_categoria" name="id_producto_categoria" [(ngModel)]="producto.id_producto_categoria">
-                  <option value="1">Material eléctrico</option>
-                  <option value="2">Construccion</option>
+                  <option [value]="categoria.id_producto_categoria" *ngFor="let categoria of categorias">{{categoria.nombre}}</option>
+                  >
                 </select>
               </div>
             </div>

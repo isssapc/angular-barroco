@@ -3,6 +3,7 @@ import { ProductoService } from "app/services/producto.service";
 import { NgForm } from "@angular/forms";
 import { Producto } from "app/model/producto";
 import { Categoria } from "app/model/categoria";
+import { ProductoCategoriaService } from "app/services/producto-categoria.service";
 
 
 
@@ -17,11 +18,11 @@ export class NuevoProductoComponent implements OnInit {
     producto: Producto = new Producto();
     categorias: Categoria [];
 
-  constructor(private productoSrv: ProductoService) { }
+  constructor(private productoCategoriaSrv: ProductoCategoriaService, private productoSrv: ProductoService) { }
 
 
   ngOnInit() {
-    this.productoSrv.getProductoCategorias()
+    this.productoCategoriaSrv.getProductoCategorias()
     .subscribe(res=> this.categorias = res);
   }
 

@@ -42,7 +42,7 @@
               <label for="id_producto_categoria" class="col-sm-2 col-form-label">Categoría</label>
               <div class="col-sm-10">
                 <select class="form-control" name="id_producto_categoria" id="id_producto_categoria" [(ngModel)]="producto.id_producto_categoria">
-                  <option value="">Seleccionar...</option>
+                  <option  [value]="null">Seleccionar...</option>
                   <option [value]="categoria.id_producto_categoria" *ngFor="let categoria of categorias">{{categoria.nombre}}</option>
                 </select>
               </div>
@@ -73,6 +73,9 @@
                 <textarea class="form-control" rows="5" name="especificaciones" id="especificaciones" [(ngModel)]="producto.especificaciones"></textarea>
               </div>
             </div>
+
+
+            <div>Producto {{producto|json}}   </div>
           </form>
         </div>
         <div class="card-footer">

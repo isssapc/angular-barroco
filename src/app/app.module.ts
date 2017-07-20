@@ -44,6 +44,7 @@ import { EntradaService } from "app/services/entrada.service";
 import { ClienteService } from "app/services/cliente.service";
 import { UsuarioService } from "app/services/usuario.service";
 import { OrdenesComponent } from './components/ordenes/ordenes.component';
+import { ProductoCategoriaService } from "app/services/producto-categoria.service";
 
 
 
@@ -95,7 +96,8 @@ import { OrdenesComponent } from './components/ordenes/ordenes.component';
     EntradaService,
     SalidaService,
     ProductoService,
-    OrdenService
+    OrdenService,
+    ProductoCategoriaService
   ],
   bootstrap: [AppComponent]
 })
