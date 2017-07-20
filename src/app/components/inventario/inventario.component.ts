@@ -20,16 +20,18 @@ export class InventarioComponent implements OnInit {
   ngOnInit() {
     this.loading = true;
     this.productoSrv.getProductos()
-    .subscribe(res=> {
-      this.productos = res;
-      this.loading = false;
-  });
+      .subscribe(res => {
+        this.productos = res;
+        this.loading = false;
+      });
   }
- 
+
+  
+
   editarProducto(producto: Producto) {
 
 
-        let copia = Producto.copiar(producto);
+    let copia = Producto.copiar(producto);
 
     let dialogRef = this.dialog.open(EditarInventarioDialogoComponent, {
       data: { producto: copia }
@@ -38,14 +40,14 @@ export class InventarioComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
 
       if (result === true) {
-        this.loading=true;
+        this.loading = true;
 
         this.productoSrv.updateProducto(producto.id_producto, copia)
           .subscribe(res => {
 
             let i = this.productos.indexOf(producto);
             this.productos[i] = res;
-            this.loading=false;
+            this.loading = false;
             this.snackBar.open("Producto Actualizado", "Cerrar", {
               duration: 2000
             });
@@ -57,7 +59,7 @@ export class InventarioComponent implements OnInit {
 
     });
 
-   
+
   }
 
 }

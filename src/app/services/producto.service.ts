@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from "@angular/http";
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/catch';
+import { of } from 'rxjs/observable/of';
 
 
 @Injectable()
@@ -13,12 +14,12 @@ export class ProductoService {
 
 
   getProductos() {
-    return this.http.get(this.url )
+    return this.http.get(this.url)
       .map(this.extractData)
       .catch(this.handleError);
   }
 
-    getProductoCategorias() {
+  getProductoCategorias() {
     return this.http.get(this.url + 'get_categorias')
       .map(this.extractData)
       .catch(this.handleError);
@@ -42,6 +43,21 @@ export class ProductoService {
     return this.http.get(this.url + 'del_producto/' + id)
       .map(this.extractData)
       .catch(this.handleError);
+  }
+
+
+  searchProducto(term: string) {
+    if (term === "" ) {
+      console.log("term null2");
+      return of.call([]); 
+           
+       
+    }
+
+    return this.http.get(this.url + "search_producto/" + term)
+      .map(this.extractData)
+      .catch(this.handleError);
+
   }
 
 

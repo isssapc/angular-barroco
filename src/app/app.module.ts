@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AngularMaterialModule } from "app/angular-material/angular-material.module";
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import 'hammerjs';
 
 //routing
@@ -78,7 +79,8 @@ import { UsuarioService } from "app/services/usuario.service";
     RoutingModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    NgbModule.forRoot()
   ],
   entryComponents:[
     EditarUsuarioDialogoComponent,
