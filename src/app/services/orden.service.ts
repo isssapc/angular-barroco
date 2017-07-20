@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from "@angular/http";
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs/Observable";  
+
 
 @Injectable()
 export class OrdenService {
-  url: string = "http://192.168.0.107:8080/barroco/api/index.php/";
+  url: string = "http://192.168.0.107:8080/barroco/api/index.php/ordenes/";
   //url: string = "http://localhost:8080/barroco/api/index.php/";
 
   constructor(private http: Http) { }
 
 
   getOrdenes() {
-    return this.http.get(this.url + 'ordenes/')
+    return this.http.get(this.url)
       .map(this.extractData)
       .catch(this.handleError);
   }

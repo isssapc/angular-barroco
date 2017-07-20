@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MdDialog } from '@angular/material';
 import { EditarOrdenPedidoDialogoComponent } from "app/components/editar-orden-pedido-dialogo/editar-orden-pedido-dialogo.component";
 import { ProductoService } from "app/services/producto.service";
@@ -10,6 +10,11 @@ import { of } from "rxjs/observable/of";
 import { distinctUntilChanged } from 'rxjs/operator/distinctUntilChanged';
 import { _catch } from 'rxjs/operator/catch';
 import { Producto } from "app/model/producto";
+import { NgForm } from "@angular/forms";
+import { OrdenService } from "app/services/orden.service";
+import { Orden } from "app/model/orden";
+
+
 
 
 
@@ -19,12 +24,16 @@ import { Producto } from "app/model/producto";
   styleUrls: ['./orden-compra.component.scss']
 })
 export class OrdenCompraComponent implements OnInit {
+  @ViewChild('formCreateOrden') formCreateOrden: NgForm;
 
+
+
+  orden: Orden = new Orden();
   searching = false;
   searchFailed = false;
   model: any;
 
-  constructor(private productoSrv: ProductoService, public dialog: MdDialog) { }
+  constructor(private productoSrv: ProductoService, public dialog: MdDialog, private ordenSrv: OrdenService) { }
 
   ngOnInit() {
   }
@@ -40,7 +49,7 @@ export class OrdenCompraComponent implements OnInit {
         _do.call(distinctUntilChanged.call(debounceTime.call(text$, 300)),
           () => this.searching = true),
         term =>
-     
+
           _catch.call(
             _do.call(this.productoSrv.searchProducto(term), () => { this.searchFailed = false; console.log("complete1"); }, () => { console.log("hola"); this.searching = false; }),
             () => {
@@ -49,14 +58,27 @@ export class OrdenCompraComponent implements OnInit {
               return of.call([]);
             }
           )
-         
+
       ),
       () => {
         console.log("complete2");
-        this.searching = false;        
+        this.searching = false;
       }
     );
 
   formatter = (producto: Producto) => producto.nombre;
+
+  createOrden() {
+    console.log("createOrden");
+
+    this.ordenSrv.createOrden(this.orden)
+      .subscribe(res => {
+        console.log("response", res);
+
+        this.orden = new Orden();
+        this.formCreateOrden.reset();
+      });
+  }
+
 
 }
