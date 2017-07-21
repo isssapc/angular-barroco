@@ -13,11 +13,16 @@ import { UsuarioService } from "app/services/usuario.service";
 export class UsuariosComponent implements OnInit {
   loading: boolean;
   usuarios: Usuario[];
+  roles: any[];
 
   constructor(private usuarioSrv: UsuarioService, public dialog: MdDialog, public snackBar: MdSnackBar) { }
 
   ngOnInit() {
     this.loading = true;
+
+    this.usuarioSrv.getRoles()
+      .subscribe(res => this.roles = res);
+
     this.usuarioSrv.getUsuarios()
       .subscribe(res => {
         this.usuarios = res;
@@ -30,20 +35,23 @@ export class UsuariosComponent implements OnInit {
     let copia = Usuario.copiar(usuario);
 
     let dialogRef = this.dialog.open(EditarUsuarioDialogoComponent, {
-      data: { usuario: copia }
+      data: {
+        usuario: copia,
+        roles: this.roles
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
 
       if (result === true) {
-        this.loading=true;
+        this.loading = true;
 
         this.usuarioSrv.updateUsuario(usuario.id_usuario, copia)
           .subscribe(res => {
 
             let i = this.usuarios.indexOf(usuario);
             this.usuarios[i] = res;
-            this.loading=false;
+            this.loading = false;
             this.snackBar.open("Usuario Actualizado", "Cerrar", {
               duration: 2000
             });

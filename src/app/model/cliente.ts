@@ -21,7 +21,9 @@ export class Cliente {
     municipio_envio?: string;
     estado_envio?: string;
 
-    constructor() { }
+    constructor() {
+        this.nombre=null;
+     }
 
     public static copiar(cliente: Cliente): Cliente {
         let copia = new Cliente();

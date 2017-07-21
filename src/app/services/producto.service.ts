@@ -47,11 +47,9 @@ export class ProductoService {
 
 
   searchProducto(term: string) {
-    if (term === "" ) {
+    if (term === "") {
       console.log("term null2");
-      return of.call([]); 
-           
-       
+      return of.call([]);
     }
 
     return this.http.get(this.url + "search_producto/" + term)

@@ -20,11 +20,9 @@
     <div class="form-group row">
       <label for="id_rol" class="col-sm-3 col-form-label">Rol</label>
       <div class="col-sm-9">
-        <select class="form-control" id="id_rol"  name="id_rol" [(ngModel)]="usuario.id_rol">
-                  <option value="1">Administrativo</option>
-                  <option value="2">Comercial</option>
-                  <option value="3">Almacen</option>
-                </select>
+        <select class="form-control" id="id_rol" name="id_rol" [(ngModel)]="usuario.id_rol">
+          <option [value]="rol.id_rol" *ngFor="let rol of roles">{{rol.nombre}}</option>                 
+        </select>
       </div>
     </div>
     <div>data {{data|json}}</div>

@@ -13,6 +13,8 @@ import { Producto } from "app/model/producto";
 import { NgForm } from "@angular/forms";
 import { OrdenService } from "app/services/orden.service";
 import { Orden } from "app/model/orden";
+import { ClienteService } from "app/services/cliente.service";
+import { Cliente } from "app/model/cliente";
 
 
 
@@ -31,11 +33,17 @@ export class OrdenCompraComponent implements OnInit {
   orden: Orden = new Orden();
   searching = false;
   searchFailed = false;
-  model: any;
+  producto: Producto = new Producto();
+  cliente: Cliente = new Cliente();
+  formas_pago: any[];
 
-  constructor(private productoSrv: ProductoService, public dialog: MdDialog, private ordenSrv: OrdenService) { }
+  productos_orden: any[] = [];
+
+  constructor(private productoSrv: ProductoService, private clienteSrv: ClienteService, public dialog: MdDialog, private ordenSrv: OrdenService) { }
 
   ngOnInit() {
+    this.ordenSrv.getFormasPago()
+      .subscribe(res => this.formas_pago = res);
   }
 
   editarorden() {
@@ -43,7 +51,7 @@ export class OrdenCompraComponent implements OnInit {
   }
 
 
-  search = (text$: Observable<string>) =>
+  searchProducto = (text$: Observable<string>) =>
     _do.call(
       switchMap.call(
         _do.call(distinctUntilChanged.call(debounceTime.call(text$, 300)),
@@ -66,7 +74,49 @@ export class OrdenCompraComponent implements OnInit {
       }
     );
 
-  formatter = (producto: Producto) => producto.nombre;
+  formatterProducto = (producto: Producto) => producto.nombre;
+
+  searchCliente = (text$: Observable<string>) =>
+    _do.call(
+      switchMap.call(
+        _do.call(distinctUntilChanged.call(debounceTime.call(text$, 300)),
+          () => this.searching = true),
+        term =>
+
+          _catch.call(
+            _do.call(this.clienteSrv.searchCliente(term), () => { this.searchFailed = false; console.log("complete1"); }),
+            () => {
+              console.log("error");
+              this.searchFailed = true;
+              return of.call([]);
+            }
+          )
+
+      ),
+      () => {
+        console.log("complete2");
+        this.searching = false;
+      }
+    );
+
+  formatterCliente = (cliente: Cliente) => cliente.nombre;
+
+  agregarProducto() {
+    console.log("agregar producto");
+    let producto = {
+      id_producto: this.producto.id_producto,
+      nombre: this.producto.nombre,
+      unidad: this.producto.unidad,
+      cantidad: this.producto.cantidad
+    }
+    this.productos_orden.unshift(producto);
+    this.producto = new Producto();
+  }
+
+  delProducto(producto) {
+    let i = this.productos_orden.indexOf(producto);
+    this.productos_orden.splice(i, 1);
+  }
 
   createOrden() {
     console.log("createOrden");

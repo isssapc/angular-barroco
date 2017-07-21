@@ -7,7 +7,9 @@ export class Usuario {
     rol?: string;
 
 
-    constructor() { }
+    constructor() { 
+        this.id_rol=null;
+    }
 
     public static copiar(usuario:Usuario):Usuario{
         let copia = new Usuario();

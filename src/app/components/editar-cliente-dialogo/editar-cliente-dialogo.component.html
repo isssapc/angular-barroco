@@ -1,30 +1,30 @@
-<h1 md-dialog-title>Editar usuario</h1>
+<h1 md-dialog-title>Editar cliente</h1>
 <div md-dialog-content>
   <form>
     <div class="form-group row">
-      <label for="nombre" class="col-sm-3 col-form-label">Nombre</label>
-      <div class="col-sm-9">
+      <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
+      <div class="col-sm-10">
         <input class="form-control" type="text" id="nombre" name="nombre" [(ngModel)]="cliente.nombre">
       </div>
     </div>
 
     <div class="form-group row">
-      <label for="email" class="col-sm-3 col-form-label">Email</label>
-      <div class="col-sm-9">
+      <label for="email" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
         <input class="form-control" type="text" id="email" name="email" [(ngModel)]="cliente.email">
       </div>
     </div>
 
     <div class="form-group row">
-      <label for="telefono" class="col-sm-3 col-form-label">Teléfono</label>
-      <div class="col-sm-9">
+      <label for="telefono" class="col-sm-2 col-form-label">Teléfono</label>
+      <div class="col-sm-10">
         <input class="form-control" type="text" id="telefono" name="telefono" [(ngModel)]="cliente.telefono">
       </div>
     </div>
 
     <div class="form-group row">
-      <label for="contacto" class="col-sm-3 col-form-label">Contacto</label>
-      <div class="col-sm-9">
+      <label for="contacto" class="col-sm-2 col-form-label">Contacto</label>
+      <div class="col-sm-10">
         <input class="form-control" type="text" id="contacto" name="contacto" [(ngModel)]="cliente.contacto">
       </div>
     </div>
@@ -39,15 +39,13 @@
     </div>
     <div class="form-group row">
       <label for="calle_fiscal" class="col-sm-2 col-form-label">Calle</label>
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <input class="form-control" type="text" id="calle_fiscal" name="calle_fiscal" [(ngModel)]="cliente.calle_fiscal">
-      </div>
-      <label class="col-sm-2 col-form-label"></label>
-      <div class="col-sm-2">
+      </div>      
+      <div class="col-sm-3">
         <input class="form-control" type="text" placeholder="Núm. Ext." id="num_ext_fiscal" name="num_ext_fiscal" [(ngModel)]="cliente.num_ext_fiscal">
-      </div>
-      <label class="col-sm-1 col-form-label"></label>
-      <div class="col-sm-2">
+      </div>      
+      <div class="col-sm-3">
         <input class="form-control" type="text" placeholder="Num. Int." id="num_int_fiscal" name="num_int_fiscal" [(ngModel)]="cliente.num_int_fiscal">
       </div>
     </div>

@@ -10,6 +10,7 @@ import { Usuario } from "app/model/usuario";
 export class EditarUsuarioDialogoComponent implements OnInit {
 
   usuario:Usuario;
+  roles:any[];
 
   constructor(
     @Inject(MD_DIALOG_DATA) public data: any,
@@ -17,6 +18,7 @@ export class EditarUsuarioDialogoComponent implements OnInit {
 
   ngOnInit() {
     this.usuario= this.data.usuario;
+    this.roles=this.data.roles;
   }
 
 }

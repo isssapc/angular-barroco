@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from "@angular/http";
 import { Observable } from "rxjs/Observable";
+import { of } from "rxjs/observable/of";
 
 
 @Injectable()
 export class ClienteService {
-url: string = "http://192.168.0.107:8080/barroco/api/index.php/clientes/";
-//url: string = "http://localhost:8080/barroco/api/index.php/clientes/";
+  url: string = "http://192.168.0.107:8080/barroco/api/index.php/clientes/";
+  //url: string = "http://localhost:8080/barroco/api/index.php/clientes/";
 
   constructor(private http: Http) { }
 
@@ -21,6 +22,7 @@ url: string = "http://192.168.0.107:8080/barroco/api/index.php/clientes/";
     return this.http.post(this.url + 'create_cliente', { cliente: cliente })
       .map(this.extractData)
       .catch(this.handleError);
+
   }
 
   updateCliente(id, cliente) {
@@ -33,6 +35,17 @@ url: string = "http://192.168.0.107:8080/barroco/api/index.php/clientes/";
     return this.http.get(this.url + 'del_cliente/' + id)
       .map(this.extractData)
       .catch(this.handleError);
+  }
+
+  searchCliente(term: string) {
+    if (term === "") {     
+      return of.call([]);
+    }
+
+    return this.http.get(this.url + "search_cliente/" + term)
+      .map(this.extractData)
+      .catch(this.handleError);
+
   }
 
 

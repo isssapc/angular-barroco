@@ -13,20 +13,33 @@
           <form #formCreateOrden="ngForm" id="formCreateOrden" (ngSubmit)="createOrden()">
 
             <ng-template #rt let-r="result" let-t="term">
-              <span>{{r.nombre}}</span>
+              <span>{{r.nombre || ""}}</span>
             </ng-template>
 
             <div class="form-group row" [class.has-danger]="searchFailed">
               <label for="typeahead-http" class="col-sm-2 col-form-label">Buscar producto</label>
               <div class="col-sm-10">
-                <input id="typeahead-http" name="typeahead-http" type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search"
-                  [resultTemplate]="rt" [inputFormatter]="formatter" placeholder="" />
+                <input id="typeahead-http" name="typeahead-http" type="text" class="form-control" [(ngModel)]="producto" [ngbTypeahead]="searchProducto"
+                  [resultTemplate]="rt" [inputFormatter]="formatterProducto" placeholder="" />
                 <span *ngIf="searching">buscando...</span>
                 <div class="form-control-feedback" *ngIf="searchFailed">No se encontraron productos.</div>
               </div>
             </div>
+
+            <div class="form-group row" [class.has-danger]="searchFailed">
+              <label for="typeahead-cliente" class="col-sm-2 col-form-label">Buscar cliente</label>
+              <div class="col-sm-10">
+                <input id="typeahead-cliente" name="typeahead-cliente" type="text" class="form-control" [(ngModel)]="cliente" [ngbTypeahead]="searchCliente"
+                  [resultTemplate]="rt" [inputFormatter]="formatterCliente" placeholder="" />
+                <span *ngIf="searching">buscando...</span>
+                <div class="form-control-feedback" *ngIf="searchFailed">No se encontraron clientes.</div>
+              </div>
+            </div>
+
+
             <hr>
-            <pre>Model: {{ model | json }}</pre>
+            <pre>Producto: {{ producto | json }}</pre>
+            <pre>Cliente: {{ cliente | json }}</pre>
 
             <div class="form-group row">
               <label for="id_cliente" class="col-sm-2 col-form-label">Cliente</label>
@@ -61,11 +74,10 @@
             </div>
 
             <div class="form-group row">
-              <label for="condiciones_compra" class="col-sm-2 col-form-label">Condiciones de compra</label>
+              <label for="id_forma_pago" class="col-sm-2 col-form-label">Forma de pago</label>
               <div class="col-sm-10">
-                <select class="form-control" name="condiciones_compra" id="condiciones_compra" [(ngModel)]="orden.condiciones_compra">
-                  <option value="1">Contado</option>
-                  <option value="2">Crédito</option>                  
+                <select class="form-control" name="id_forma_pago" id="id_forma_pago" [(ngModel)]="orden.id_forma_pago">
+                  <option [value]="forma.id_forma_pago" *ngFor="let forma of formas_pago">{{forma.nombre}}</option>                                 
                 </select>
               </div>
             </div>
@@ -75,6 +87,9 @@
                 <textarea class="form-control" rows="5" name="nota" id="nota" [(ngModel)]="orden.nota"></textarea>
               </div>
             </div>
+
+            <div>Orden: {{orden|json}}</div>
+
           </form>
         </div>
         <div>
@@ -87,55 +102,29 @@
                 <th></th>
               </tr>
               <tr>
-                <td><input class="form-control" type="text" value=""></td>
-                <td><input class="form-control" type="text" value=""></td>
-                <td><input class="form-control" type="text" value=""></td>
-                <td><button type="button" class="btn btn-primary">Agregar</button></td>
+                <td>
+                  <input id="typeahead-http" name="typeahead-http" type="text" class="form-control" [(ngModel)]="producto" [ngbTypeahead]="searchProducto"
+                    [resultTemplate]="rt" [inputFormatter]="formatterProducto" placeholder="" />
+                </td>
+                <td><input class="form-control" type="text" [(ngModel)]="producto.unidad" readonly></td>
+                <td><input class="form-control" type="text" [(ngModel)]="producto.cantidad"></td>
+                <td><button type="button" class="btn btn-primary" (click)="agregarProducto()">Agregar</button></td>
               </tr>
             </thead>
 
             <tbody>
-              <tr>
-                <td>producto</td>
-
-                <td>bultos</td>
-                <td>1000</td>
+              <tr *ngFor="let producto of productos_orden">
+                <td>{{producto.nombre}}</td>
+                <td>{{producto.unidad}}</td>
                 <td>
-                  <button md-icon-button [mdMenuTriggerFor]="menu1">
-                   <md-icon>more_vert</md-icon>
-                  </button>
-                  <md-menu #menu1="mdMenu">
-                    <button md-menu-item (click)="editarorden()">
-                     <md-icon>create</md-icon>
-                      <span>Editar</span>
-                    </button>
-                    <button md-menu-item>
-                      <md-icon>delete</md-icon>
-                        <span>Eliminar</span>
-                     </button>
-                  </md-menu>
+                  <input type="number" class="form-control" [(ngModel)]="producto.cantidad">
                 </td>
-              </tr>
-              <tr>
-                <td>producto</td>
-                <td>bultos</td>
-                <td>1000</td>
                 <td>
-                  <button md-icon-button [mdMenuTriggerFor]="menu2">
-                   <md-icon>more_vert</md-icon>
-                  </button>
-                  <md-menu #menu2="mdMenu">
-                    <button md-menu-item (click)="editarorden()">
-                     <md-icon>create</md-icon>
-                      <span>Editar</span>
-                    </button>
-                    <button md-menu-item>
-                      <md-icon>delete</md-icon>
-                        <span>Eliminar</span>
-                     </button>
-                  </md-menu>
+                  <button md-icon-button (click)="delProducto(producto)">
+                   <md-icon>delete</md-icon>
+                  </button>                 
                 </td>
-              </tr>
+              </tr>             
             </tbody>
           </table>
         </div>
