@@ -3,6 +3,7 @@ import { MdDialog, MdDialogRef, MdSnackBar } from '@angular/material';
 import { EditarUsuarioDialogoComponent } from "app/components/editar-usuario-dialog/editar-usuario-dialogo.component";
 import { Usuario } from "app/model/usuario";
 import { UsuarioService } from "app/services/usuario.service";
+import { CambiarContraseñaDialogoComponent } from "app/components/cambiar-contrase\u00F1a-dialogo/cambiar-contrase\u00F1a-dialogo.component";
 
 
 @Component({
@@ -29,6 +30,7 @@ export class UsuariosComponent implements OnInit {
         this.loading = false;
       });
   }
+
 
   editarUsuario(usuario: Usuario) {
 
@@ -65,5 +67,6 @@ export class UsuariosComponent implements OnInit {
 
 
   }
+
 
 }

@@ -45,6 +45,8 @@ import { ClienteService } from "app/services/cliente.service";
 import { UsuarioService } from "app/services/usuario.service";
 import { OrdenesComponent } from './components/ordenes/ordenes.component';
 import { ProductoCategoriaService } from "app/services/producto-categoria.service";
+import { CambiarContraseñaDialogoComponent } from './components/cambiar-contraseña-dialogo/cambiar-contraseña-dialogo.component';
+import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 
 
 
@@ -73,7 +75,10 @@ import { ProductoCategoriaService } from "app/services/producto-categoria.servic
     ProductoCategoriasComponent,
     AgregarCategoriaDialogoComponent,
     EditarEntradaDialogoComponent,
-    OrdenesComponent
+    OrdenesComponent,
+    CambiarContraseñaDialogoComponent,
+    PerfilUsuarioComponent
+
     
   ],
   imports: [
@@ -88,7 +93,8 @@ import { ProductoCategoriaService } from "app/services/producto-categoria.servic
   ],
   entryComponents:[
     EditarUsuarioDialogoComponent,
-    EditarInventarioDialogoComponent
+    EditarInventarioDialogoComponent,
+    CambiarContraseñaDialogoComponent
   ],
   providers: [
     UsuarioService,
