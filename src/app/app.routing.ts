@@ -24,8 +24,8 @@ import { ProductoCategoriasComponent } from "app/components/producto-categorias/
 import { AgregarCategoriaDialogoComponent } from "app/components/agregar-categoria-dialogo/agregar-categoria-dialogo.component";
 import { EditarEntradaDialogoComponent } from "app/components/editar-entrada-dialogo/editar-entrada-dialogo.component";
 import { OrdenesComponent } from "app/components/ordenes/ordenes.component";
-import { CambiarContraseñaDialogoComponent } from "app/components/cambiar-contrase\u00F1a-dialogo/cambiar-contrase\u00F1a-dialogo.component";
 import { PerfilUsuarioComponent } from "app/components/perfil-usuario/perfil-usuario.component";
+import { CambiarContraseñaDialogoComponent } from "app/components/cambiar-contrase\u00F1a-dialogo/cambiar-contrase\u00F1a-dialogo.component";
 
 
 

@@ -10,7 +10,7 @@ export class UsuarioService {
 
   constructor(private http: Http) { }
 
-  getUsuarios():Observable<Usuario[]> {
+  getUsuarios(): Observable<Usuario[]> {
     return this.http.get(this.url)
       .map(this.extractData)
       .catch(this.handleError);
@@ -32,6 +32,12 @@ export class UsuarioService {
 
   updateUsuario(id, usuario) {
     return this.http.post(this.url + 'update_usuario/' + id, { usuario: usuario })
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  updatePassword(id, password) {
+    return this.http.post(this.url + 'update_password/' + id, { password: password })
       .map(this.extractData)
       .catch(this.handleError);
   }

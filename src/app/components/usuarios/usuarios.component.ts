@@ -32,6 +32,40 @@ export class UsuariosComponent implements OnInit {
   }
 
 
+  cambiarPasswordUsuario(usuario: Usuario) {
+
+   let newpassword:string;
+
+    let dialogRef = this.dialog.open(CambiarContraseñaDialogoComponent, {
+      data: {
+        usuario: usuario,
+        password:newpassword      
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+      if (result === true) {
+        this.loading = true;
+
+        this.usuarioSrv.updatePassword(usuario.id_usuario, newpassword )
+          .subscribe(res => {
+            
+            this.loading = false;
+            this.snackBar.open("Usuario Actualizado", "Cerrar", {
+              duration: 2000
+            });
+
+          });
+
+
+      }
+
+    });
+
+  }
+
+
   editarUsuario(usuario: Usuario) {
 
     let copia = Usuario.copiar(usuario);

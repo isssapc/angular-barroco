@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MD_DIALOG_DATA, MdDialogRef } from "@angular/material";
 
 @Component({
   selector: 'app-cambiar-contraseña-dialogo',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CambiarContraseñaDialogoComponent implements OnInit {
 
-  constructor() { }
+  usuario:any;
+  password:string;
+
+  constructor(
+    @Inject(MD_DIALOG_DATA) public data: any,
+    public dialogRef: MdDialogRef<CambiarContraseñaDialogoComponent>
+  ) { }
 
   ngOnInit() {
+    this.usuario=this.data.usuario;
+    this.password=this.data.password;
   }
 
 }
