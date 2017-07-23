@@ -16,7 +16,7 @@
               <span>{{r.nombre || ""}}</span>
             </ng-template>
 
-            <div class="form-group row" [class.has-danger]="searchFailed">
+            <!--    <div class="form-group row" [class.has-danger]="searchFailed">
               <label for="typeahead-http" class="col-sm-2 col-form-label">Buscar producto</label>
               <div class="col-sm-10">
                 <input id="typeahead-http" name="typeahead-http" type="text" class="form-control" [(ngModel)]="producto" [ngbTypeahead]="searchProducto"
@@ -24,14 +24,14 @@
                 <span *ngIf="searching">buscando...</span>
                 <div class="form-control-feedback" *ngIf="searchFailed">No se encontraron productos.</div>
               </div>
-            </div>
+            </div> -->
 
             <div class="form-group row" [class.has-danger]="searchFailed">
               <label for="typeahead-cliente" class="col-sm-2 col-form-label">Buscar cliente</label>
               <div class="col-sm-10">
-                <input id="typeahead-cliente" name="typeahead-cliente" type="text" class="form-control" [(ngModel)]="cliente" [ngbTypeahead]="searchCliente"
-                  [resultTemplate]="rt" [inputFormatter]="formatterCliente" placeholder="" />
-                <span *ngIf="searching">buscando...</span>
+                <input #typeCliente id="typeahead-cliente" name="typeahead-cliente" type="text" class="form-control" [(ngModel)]="cliente" [ngbTypeahead]="searchCliente"
+                  [resultTemplate]="rt" [inputFormatter]="formatterCliente" placeholder="" (selectItem)="selectClienteOrden($event,typeCliente)" />
+                <span *ngIf="searching">buscando...</span> 
                 <div class="form-control-feedback" *ngIf="searchFailed">No se encontraron clientes.</div>
               </div>
             </div>
@@ -41,10 +41,31 @@
             <pre>Producto: {{ producto | json }}</pre>
             <pre>Cliente: {{ cliente | json }}</pre>
 
-            <div class="form-group row">
+            <!--   <div class="form-group row">
               <label for="id_cliente" class="col-sm-2 col-form-label">Cliente</label>
               <div class="col-sm-10">
                 <input class="form-control" type="text" name="id_cliente" id="id_cliente" [(ngModel)]="orden.id_cliente">
+              </div>
+            </div> -->
+
+            <div class="form-group row">
+              <label for="rfc" class="col-sm-2 col-form-label">RFC</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" name="rfc" id="rfc" [(ngModel)]="cliente.rfc" readonly>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="dir_fiscal" class="col-sm-2 col-form-label">Dirección Fiscal</label>
+              <div class="col-sm-10">
+                <textarea class="form-control" rows="5" name="dir_fiscal" id="dir_fiscal" [(ngModel)]="cliente.calle_fiscal"></textarea>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="dir_envio" class="col-sm-2 col-form-label">Dirección Envío</label>
+              <div class="col-sm-10">
+                <textarea class="form-control" rows="5" name="dir_envio" id="dir_envio" [(ngModel)]="cliente.calle_envio"></textarea>
               </div>
             </div>
 
@@ -122,9 +143,9 @@
                 <td>
                   <button md-icon-button (click)="delProducto(producto)">
                    <md-icon>delete</md-icon>
-                  </button>                 
+                  </button>
                 </td>
-              </tr>             
+              </tr>
             </tbody>
           </table>
         </div>

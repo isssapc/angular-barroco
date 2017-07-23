@@ -13,6 +13,7 @@ export class Orden {
 
     constructor() {
         //1= Contado
+        //this.id_cliente=null;
         this.id_forma_pago = 1;
     }
 

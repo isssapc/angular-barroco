@@ -15,6 +15,7 @@ import { OrdenService } from "app/services/orden.service";
 import { Orden } from "app/model/orden";
 import { ClienteService } from "app/services/cliente.service";
 import { Cliente } from "app/model/cliente";
+import { NgbTypeaheadSelectItemEvent } from "@ng-bootstrap/ng-bootstrap";
 
 
 
@@ -27,8 +28,6 @@ import { Cliente } from "app/model/cliente";
 })
 export class OrdenCompraComponent implements OnInit {
   @ViewChild('formCreateOrden') formCreateOrden: NgForm;
-
-
 
   orden: Orden = new Orden();
   searching = false;
@@ -101,6 +100,18 @@ export class OrdenCompraComponent implements OnInit {
 
   formatterCliente = (cliente: Cliente) => cliente.nombre;
 
+
+
+
+  selectClienteOrden(event: NgbTypeaheadSelectItemEvent, self) {
+    console.log("selectItem", event.item);
+    event.preventDefault();
+    self.value = "";
+    
+    this.orden.id_cliente = event.item.id_cliente;
+    
+  }
+
   agregarProducto() {
     console.log("agregar producto");
     let producto = {
@@ -120,6 +131,8 @@ export class OrdenCompraComponent implements OnInit {
 
   createOrden() {
     console.log("createOrden");
+
+    //this.orden.id_cliente=this.cliente.id_cliente;
 
     this.ordenSrv.createOrden(this.orden)
       .subscribe(res => {
