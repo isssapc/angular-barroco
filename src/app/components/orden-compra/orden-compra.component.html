@@ -65,14 +65,13 @@
             <div class="form-group row">
               <label for="fecha_entrega" class="col-sm-2 col-form-label">Fecha Entrega</label>
               <div class="input-group col-sm-10">
-                <input class="form-control"
-                placeholder="yyyy-mm-dd" ngbDatepicker #d="ngbDatepicker"
-                type="text" name="fecha_entrega" id="fecha_entrega" [(ngModel)]="fecha_entrega" (ngModelChange)="onDateChange($event)">
+                <input class="form-control" placeholder="yyyy-mm-dd" ngbDatepicker #d="ngbDatepicker" type="text" name="fecha_entrega" id="fecha_entrega"
+                  [(ngModel)]="fecha_entrega" (ngModelChange)="onDateChange($event)">
                 <span class="input-group-btn">
                   <button class="btn btn-secondary" type="button" (click)="d.toggle()">
                     <!-- <span class="material-icons" style="font-size: 14px">date_range</span> -->
-                    <i class="fa fa-calendar"></i>
-                  </button>
+                <i class="fa fa-calendar"></i>
+                </button>
                 </span>
               </div>
             </div>
@@ -111,6 +110,7 @@
             </div>
 
             <div>Orden: {{orden|json}}</div>
+            <pre>Productos {{productos_orden|json}}</pre>
 
           </form>
         </div>
@@ -121,15 +121,18 @@
                 <th>Producto</th>
                 <th>Unidad</th>
                 <th>Cantidad</th>
+                <th>Precio</th>
                 <th></th>
               </tr>
               <tr>
                 <td>
                   <input id="typeahead-http" name="typeahead-http" type="text" class="form-control" [(ngModel)]="producto" [ngbTypeahead]="searchProducto"
-                    [resultTemplate]="rt" [inputFormatter]="formatterProducto" placeholder="" />
+                    [resultTemplate]="rt" [inputFormatter]="formatterProducto" placeholder="" (selectItem)="selectProductoOrden($event,inputCantidad)"
+                  />
                 </td>
                 <td><input class="form-control" type="text" [(ngModel)]="producto.unidad" readonly></td>
-                <td><input class="form-control" type="text" [(ngModel)]="producto.cantidad"></td>
+                <td><input #inputCantidad class="form-control" type="text" [(ngModel)]="producto.cantidad"></td>
+                <td><input class="form-control" type="text" [(ngModel)]="producto.precio_venta"></td>
                 <td><button type="button" class="btn btn-primary" (click)="agregarProducto()">Agregar</button></td>
               </tr>
             </thead>
@@ -140,6 +143,9 @@
                 <td>{{producto.unidad}}</td>
                 <td>
                   <input type="number" class="form-control" [(ngModel)]="producto.cantidad">
+                </td>
+                <td>
+                  <input type="number" class="form-control" [(ngModel)]="producto.precio_venta">
                 </td>
                 <td>
                   <button md-icon-button (click)="delProducto(producto)">

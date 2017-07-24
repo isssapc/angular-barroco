@@ -4,6 +4,7 @@ import { EditarUsuarioDialogoComponent } from "app/components/editar-usuario-dia
 import { Usuario } from "app/model/usuario";
 import { UsuarioService } from "app/services/usuario.service";
 import { CambiarPasswordDialogoComponent } from "app/components/cambiar-password-dialogo/cambiar-password-dialogo.component";
+import { ConfirmarBorradoDialogoComponent } from "app/components/confirmar-borrado-dialogo/confirmar-borrado-dialogo.component";
 
 
 @Component({
@@ -32,14 +33,14 @@ export class UsuariosComponent implements OnInit {
   }
 
 
-  cambiarPasswordUsuario(usuario: Usuario) {
+  changePassword(usuario: Usuario) {
 
-   let newpassword:string;
+    let newpassword: string;
 
     let dialogRef = this.dialog.open(CambiarPasswordDialogoComponent, {
       data: {
         usuario: usuario,
-        password:newpassword      
+        password: newpassword
       }
     });
 
@@ -48,11 +49,47 @@ export class UsuariosComponent implements OnInit {
       if (result === true) {
         this.loading = true;
 
-        this.usuarioSrv.updatePassword(usuario.id_usuario, newpassword )
+        this.usuarioSrv.updatePassword(usuario.id_usuario, newpassword)
           .subscribe(res => {
-            
+
             this.loading = false;
             this.snackBar.open("Usuario Actualizado", "Cerrar", {
+              duration: 2000
+            });
+
+          });
+
+
+      }
+
+    });
+
+  }
+
+  delUsuario(usuario: Usuario) {
+
+    let newpassword: string;
+
+    let dialogRef = this.dialog.open(ConfirmarBorradoDialogoComponent, {
+      data: {
+        title: "Eliminar usuario",
+        content: `¿Desea eliminar el usuario: ${usuario.nombre}?`
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+      if (result === true) {
+        this.loading = true;
+
+        this.usuarioSrv.delUsuario(usuario.id_usuario)
+          .subscribe(res => {
+
+            let i= this.usuarios.indexOf(usuario);
+            this.usuarios.splice(i,1);
+
+            this.loading = false;
+            this.snackBar.open("Usuario Eliminado", "Cerrar", {
               duration: 2000
             });
 

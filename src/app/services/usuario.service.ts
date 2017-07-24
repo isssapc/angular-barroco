@@ -43,7 +43,7 @@ export class UsuarioService {
   }
 
   delUsuario(id) {
-    return this.http.get(this.url + 'del_usuario/' + id)
+    return this.http.post(this.url + 'del_usuario/' + id,{})
       .map(this.extractData)
       .catch(this.handleError);
   }

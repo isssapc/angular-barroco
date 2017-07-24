@@ -31,6 +31,7 @@ export class OrdenCompraComponent implements OnInit {
   @ViewChild('formCreateOrden') formCreateOrden: NgForm;
   //@ViewChild('dirEnvio') dirEnvio:ElementRef;
   //@ViewChild('dirFiscal') dirFiscal:ElementRef;
+  @ViewChild('inputCantidad') inputCantidad: any;
 
   orden: Orden = new Orden();
   searching = false;
@@ -41,11 +42,16 @@ export class OrdenCompraComponent implements OnInit {
   formas_pago: any[];
 
   productos_orden: any[] = [];
-  fecha_entrega:NgbDateStruct;
+  fecha_entrega: NgbDateStruct;
 
-  dateParser:NgbDateISOParserFormatter= new NgbDateISOParserFormatter();
+  dateParser: NgbDateISOParserFormatter = new NgbDateISOParserFormatter();
 
-  constructor(private productoSrv: ProductoService, private clienteSrv: ClienteService, public dialog: MdDialog, private ordenSrv: OrdenService) { }
+  constructor(
+    private productoSrv: ProductoService,
+    private clienteSrv: ClienteService,
+    public dialog: MdDialog,
+
+    private ordenSrv: OrdenService) { }
 
   ngOnInit() {
     this.ordenSrv.getFormasPago()
@@ -129,9 +135,19 @@ export class OrdenCompraComponent implements OnInit {
 
 
   }
-  
+
+  selectProductoOrden(event: NgbTypeaheadSelectItemEvent, inputCantidad) {
+    console.log("selectItem", event.item);
+    //event.preventDefault();
+    //typeahead.value = "";
+
+    inputCantidad.focus();
+
+
+  }
+
   onDateChange(date: NgbDateStruct) {
-    this.orden.fecha_entrega= this.dateParser.format(date);
+    this.orden.fecha_entrega = this.dateParser.format(date);
   }
 
 
@@ -141,7 +157,8 @@ export class OrdenCompraComponent implements OnInit {
       id_producto: this.producto.id_producto,
       nombre: this.producto.nombre,
       unidad: this.producto.unidad,
-      cantidad: this.producto.cantidad
+      cantidad: this.producto.cantidad,
+      precio_venta: this.producto.precio_venta
     }
     this.productos_orden.unshift(producto);
     this.producto = new Producto();
@@ -157,11 +174,12 @@ export class OrdenCompraComponent implements OnInit {
 
     //this.orden.id_cliente=this.cliente.id_cliente;
 
-    this.ordenSrv.createOrden(this.orden)
+    this.ordenSrv.createOrden(this.orden, this.productos_orden)
       .subscribe(res => {
         console.log("response", res);
 
         this.orden = new Orden();
+        this.productos_orden=[];
         this.formCreateOrden.reset();
       });
   }

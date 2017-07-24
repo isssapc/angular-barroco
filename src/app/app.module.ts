@@ -48,6 +48,7 @@ import { ProductoCategoriaService } from "app/services/producto-categoria.servic
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 import { CambiarPasswordDialogoComponent } from "app/components/cambiar-password-dialogo/cambiar-password-dialogo.component";
 import { SpanishDatepickerI18nService, I18n } from "app/services/spanish-datepicker-i18n.service";
+import { ConfirmarBorradoDialogoComponent } from './components/confirmar-borrado-dialogo/confirmar-borrado-dialogo.component';
 
 
 
@@ -78,7 +79,8 @@ import { SpanishDatepickerI18nService, I18n } from "app/services/spanish-datepic
     EditarEntradaDialogoComponent,
     OrdenesComponent,
     CambiarPasswordDialogoComponent,
-    PerfilUsuarioComponent
+    PerfilUsuarioComponent,
+    ConfirmarBorradoDialogoComponent
 
     
   ],
@@ -95,7 +97,8 @@ import { SpanishDatepickerI18nService, I18n } from "app/services/spanish-datepic
   entryComponents:[
     EditarUsuarioDialogoComponent,
     EditarInventarioDialogoComponent,
-    CambiarPasswordDialogoComponent
+    CambiarPasswordDialogoComponent,
+    ConfirmarBorradoDialogoComponent
   ],
   providers: [
     I18n,
