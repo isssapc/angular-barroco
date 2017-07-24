@@ -3,7 +3,7 @@ import { MdDialog, MdDialogRef, MdSnackBar } from '@angular/material';
 import { EditarUsuarioDialogoComponent } from "app/components/editar-usuario-dialog/editar-usuario-dialogo.component";
 import { Usuario } from "app/model/usuario";
 import { UsuarioService } from "app/services/usuario.service";
-import { CambiarContraseñaDialogoComponent } from "app/components/cambiar-contrase\u00F1a-dialogo/cambiar-contrase\u00F1a-dialogo.component";
+import { CambiarPasswordDialogoComponent } from "app/components/cambiar-password-dialogo/cambiar-password-dialogo.component";
 
 
 @Component({
@@ -36,7 +36,7 @@ export class UsuariosComponent implements OnInit {
 
    let newpassword:string;
 
-    let dialogRef = this.dialog.open(CambiarContraseñaDialogoComponent, {
+    let dialogRef = this.dialog.open(CambiarPasswordDialogoComponent, {
       data: {
         usuario: usuario,
         password:newpassword      

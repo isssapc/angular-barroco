@@ -29,50 +29,51 @@
             <div class="form-group row" [class.has-danger]="searchFailed">
               <label for="typeahead-cliente" class="col-sm-2 col-form-label">Buscar cliente</label>
               <div class="col-sm-10">
-                <input #typeCliente id="typeahead-cliente" name="typeahead-cliente" type="text" class="form-control" [(ngModel)]="cliente" [ngbTypeahead]="searchCliente"
-                  [resultTemplate]="rt" [inputFormatter]="formatterCliente" placeholder="" (selectItem)="selectClienteOrden($event,typeCliente)" />
-                <span *ngIf="searching">buscando...</span> 
+                <!--  [(ngModel)]="tacliente" -->
+                <input #typeCliente id="typeahead-cliente" name="typeahead-cliente" type="text" class="form-control" [(ngModel)]="cliente"
+                  [ngbTypeahead]="searchCliente" [resultTemplate]="rt" [inputFormatter]="formatterCliente" placeholder="" (selectItem)="selectClienteOrden($event,typeCliente,dirFiscal,dirEnvio,inputCliente)"
+                />
+                <span *ngIf="searching">buscando...</span>
                 <div class="form-control-feedback" *ngIf="searchFailed">No se encontraron clientes.</div>
               </div>
             </div>
 
-
-            <hr>
-            <pre>Producto: {{ producto | json }}</pre>
-            <pre>Cliente: {{ cliente | json }}</pre>
-
-            <!--   <div class="form-group row">
-              <label for="id_cliente" class="col-sm-2 col-form-label">Cliente</label>
-              <div class="col-sm-10">
-                <input class="form-control" type="text" name="id_cliente" id="id_cliente" [(ngModel)]="orden.id_cliente">
-              </div>
-            </div> -->
+            <!--       <hr>            
+            <pre>Cliente: {{ cliente | json }}</pre> -->
 
             <div class="form-group row">
-              <label for="rfc" class="col-sm-2 col-form-label">RFC</label>
+              <label for="cliente" class="col-sm-2 col-form-label">Cliente</label>
               <div class="col-sm-10">
-                <input class="form-control" type="text" name="rfc" id="rfc" [(ngModel)]="cliente.rfc" readonly>
+                <input #inputCliente class="form-control" type="text" name="cliente" id="cliente" readonly>
               </div>
             </div>
 
             <div class="form-group row">
               <label for="dir_fiscal" class="col-sm-2 col-form-label">Dirección Fiscal</label>
               <div class="col-sm-10">
-                <textarea class="form-control" rows="5" name="dir_fiscal" id="dir_fiscal" [(ngModel)]="cliente.calle_fiscal"></textarea>
+                <textarea #dirFiscal class="form-control" rows="5" name="dir_fiscal" id="dir_fiscal" readonly></textarea>
               </div>
             </div>
 
             <div class="form-group row">
               <label for="dir_envio" class="col-sm-2 col-form-label">Dirección Envío</label>
               <div class="col-sm-10">
-                <textarea class="form-control" rows="5" name="dir_envio" id="dir_envio" [(ngModel)]="cliente.calle_envio"></textarea>
+                <textarea #dirEnvio class="form-control" rows="5" name="dir_envio" id="dir_envio" readonly></textarea>
               </div>
             </div>
 
             <div class="form-group row">
               <label for="fecha_entrega" class="col-sm-2 col-form-label">Fecha Entrega</label>
-              <div class="col-sm-10">
-                <input class="form-control" type="text" name="fecha_entrega" id="fecha_entrega" [(ngModel)]="orden.fecha_entrega">
+              <div class="input-group col-sm-10">
+                <input class="form-control"
+                placeholder="yyyy-mm-dd" ngbDatepicker #d="ngbDatepicker"
+                type="text" name="fecha_entrega" id="fecha_entrega" [(ngModel)]="fecha_entrega" (ngModelChange)="onDateChange($event)">
+                <span class="input-group-btn">
+                  <button class="btn btn-secondary" type="button" (click)="d.toggle()">
+                    <!-- <span class="material-icons" style="font-size: 14px">date_range</span> -->
+                    <i class="fa fa-calendar"></i>
+                  </button>
+                </span>
               </div>
             </div>
 

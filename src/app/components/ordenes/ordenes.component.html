@@ -15,9 +15,9 @@
             <thead>
               <tr>
                 <th>Id</th>
+                <th>Creación</th>
                 <th>Cliente</th>
-                <th>F.Creación</th>
-                <th>F.Entrega</th>
+                <th>Entrega</th>
                 <th>Forma de pago</th>
                 <th>Lugar de entrega</th>
                 <th></th>
@@ -27,8 +27,8 @@
             <tbody>
               <tr *ngFor="let orden of ordenes">
                 <td>{{orden.id_orden_compra}}</td>
-                <td>{{orden.cliente}}</td>
                 <td>{{orden.fecha_creacion}}</td>
+                <td>{{orden.cliente}}</td>
                 <td>{{orden.fecha_entrega}}</td>
                 <td>{{orden.forma_pago}}</td>
                 <td></td>

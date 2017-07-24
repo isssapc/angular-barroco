@@ -25,7 +25,7 @@ import { AgregarCategoriaDialogoComponent } from "app/components/agregar-categor
 import { EditarEntradaDialogoComponent } from "app/components/editar-entrada-dialogo/editar-entrada-dialogo.component";
 import { OrdenesComponent } from "app/components/ordenes/ordenes.component";
 import { PerfilUsuarioComponent } from "app/components/perfil-usuario/perfil-usuario.component";
-import { CambiarContraseñaDialogoComponent } from "app/components/cambiar-contrase\u00F1a-dialogo/cambiar-contrase\u00F1a-dialogo.component";
+import { CambiarPasswordDialogoComponent } from "app/components/cambiar-password-dialogo/cambiar-password-dialogo.component";
 
 
 
@@ -55,7 +55,7 @@ export const ROUTES: Routes = [
     { path: 'agregar-categoria-dialogo', component: AgregarCategoriaDialogoComponent  },
     { path: 'editar-entrada-dialogo', component: EditarEntradaDialogoComponent  },
     { path: 'ordenes', component: OrdenesComponent  },
-    { path: 'cambiar-contraseña-dialogo', component: CambiarContraseñaDialogoComponent  },
+    { path: 'cambiar-password', component: CambiarPasswordDialogoComponent  },
     { path: 'perfil-usuario', component: PerfilUsuarioComponent  }
 
 

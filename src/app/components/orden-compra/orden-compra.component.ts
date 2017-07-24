@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MdDialog } from '@angular/material';
 import { EditarOrdenPedidoDialogoComponent } from "app/components/editar-orden-pedido-dialogo/editar-orden-pedido-dialogo.component";
 import { ProductoService } from "app/services/producto.service";
@@ -15,7 +15,8 @@ import { OrdenService } from "app/services/orden.service";
 import { Orden } from "app/model/orden";
 import { ClienteService } from "app/services/cliente.service";
 import { Cliente } from "app/model/cliente";
-import { NgbTypeaheadSelectItemEvent } from "@ng-bootstrap/ng-bootstrap";
+import { NgbTypeaheadSelectItemEvent, NgbDateStruct } from "@ng-bootstrap/ng-bootstrap";
+import { NgbDateISOParserFormatter } from "@ng-bootstrap/ng-bootstrap/datepicker/ngb-date-parser-formatter";
 
 
 
@@ -28,15 +29,21 @@ import { NgbTypeaheadSelectItemEvent } from "@ng-bootstrap/ng-bootstrap";
 })
 export class OrdenCompraComponent implements OnInit {
   @ViewChild('formCreateOrden') formCreateOrden: NgForm;
+  //@ViewChild('dirEnvio') dirEnvio:ElementRef;
+  //@ViewChild('dirFiscal') dirFiscal:ElementRef;
 
   orden: Orden = new Orden();
   searching = false;
   searchFailed = false;
   producto: Producto = new Producto();
   cliente: Cliente = new Cliente();
+  taCliente: Cliente;
   formas_pago: any[];
 
   productos_orden: any[] = [];
+  fecha_entrega:NgbDateStruct;
+
+  dateParser:NgbDateISOParserFormatter= new NgbDateISOParserFormatter();
 
   constructor(private productoSrv: ProductoService, private clienteSrv: ClienteService, public dialog: MdDialog, private ordenSrv: OrdenService) { }
 
@@ -103,14 +110,30 @@ export class OrdenCompraComponent implements OnInit {
 
 
 
-  selectClienteOrden(event: NgbTypeaheadSelectItemEvent, self) {
+  selectClienteOrden(event: NgbTypeaheadSelectItemEvent, typeahead, textDirFiscal, textDirEnvio, inputCliente) {
     console.log("selectItem", event.item);
     event.preventDefault();
-    self.value = "";
-    
+    typeahead.value = "";
+
+
+
     this.orden.id_cliente = event.item.id_cliente;
-    
+
+    //this.dirFiscal.nativeElement.value = Cliente.getDireccionFiscal(event.item);
+    //this.dirEnvio.nativeElement.value = Cliente.getDireccionEnvio(event.item);
+
+
+    inputCliente.value = "(" + event.item.id_cliente + ") " + event.item.nombre;
+    textDirFiscal.value = Cliente.getDireccionFiscal(event.item);
+    textDirEnvio.value = Cliente.getDireccionEnvio(event.item);
+
+
   }
+  
+  onDateChange(date: NgbDateStruct) {
+    this.orden.fecha_entrega= this.dateParser.format(date);
+  }
+
 
   agregarProducto() {
     console.log("agregar producto");

@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AngularMaterialModule } from "app/angular-material/angular-material.module";
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { NgbModule, NgbDatepickerI18n } from "@ng-bootstrap/ng-bootstrap";
 import 'hammerjs';
 
 //routing
@@ -45,8 +45,9 @@ import { ClienteService } from "app/services/cliente.service";
 import { UsuarioService } from "app/services/usuario.service";
 import { OrdenesComponent } from './components/ordenes/ordenes.component';
 import { ProductoCategoriaService } from "app/services/producto-categoria.service";
-import { CambiarContraseñaDialogoComponent } from './components/cambiar-contraseña-dialogo/cambiar-contraseña-dialogo.component';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
+import { CambiarPasswordDialogoComponent } from "app/components/cambiar-password-dialogo/cambiar-password-dialogo.component";
+import { SpanishDatepickerI18nService, I18n } from "app/services/spanish-datepicker-i18n.service";
 
 
 
@@ -76,7 +77,7 @@ import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuar
     AgregarCategoriaDialogoComponent,
     EditarEntradaDialogoComponent,
     OrdenesComponent,
-    CambiarContraseñaDialogoComponent,
+    CambiarPasswordDialogoComponent,
     PerfilUsuarioComponent
 
     
@@ -94,9 +95,11 @@ import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuar
   entryComponents:[
     EditarUsuarioDialogoComponent,
     EditarInventarioDialogoComponent,
-    CambiarContraseñaDialogoComponent
+    CambiarPasswordDialogoComponent
   ],
   providers: [
+    I18n,
+    {provide:NgbDatepickerI18n, useClass:SpanishDatepickerI18nService},
     UsuarioService,
     ClienteService,
     EntradaService,

@@ -60,7 +60,7 @@ export class ProductoService {
 
 
   private extractData(res: Response) {
-    console.log("response", res);
+    //console.log("response", res);
     let body = res.json();
     console.log("response.json", body);
 
