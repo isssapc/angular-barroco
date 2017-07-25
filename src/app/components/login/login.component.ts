@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
           this.alert = res.error;
         } else {
           console.log("login", res);
+          localStorage.setItem('token', res.token);
           this.usuario = { email: "", password: "" };
           this.alert = "";
           this.router.navigate(['/usuarios']);

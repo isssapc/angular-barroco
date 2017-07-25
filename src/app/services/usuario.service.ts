@@ -12,7 +12,7 @@ export class UsuarioService {
   constructor(private http: Http, private authHttp:AuthHttp) { }
 
   getUsuarios(): Observable<Usuario[]> {
-    return this.http.get(this.url)
+    return this.authHttp.get(this.url)
       .map(this.extractData)
       .catch(this.handleError);
   }
