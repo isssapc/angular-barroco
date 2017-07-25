@@ -13,9 +13,9 @@ export class LoginComponent implements OnInit {
 
   usuario: any = { email: "", password: "" };
   alert: string;
-  jwtHelper: JwtHelper= new JwtHelper();
+  jwtHelper: JwtHelper = new JwtHelper();
 
-  constructor(private auth: AuthService, private router:Router) { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -28,9 +28,22 @@ export class LoginComponent implements OnInit {
         } else {
           console.log("login", res);
           localStorage.setItem('token', res.token);
+          localStorage.setItem('usuario', JSON.stringify(res.usuario));
           this.usuario = { email: "", password: "" };
           this.alert = "";
-          this.router.navigate(['/usuarios']);
+
+          if (Number(res.usuario.id_rol) === this.auth.Rol.Administrador) {
+            this.router.navigate(['/reportes']);
+          } else if (Number(res.usuario.id_rol) === this.auth.Rol.Ventas) {
+            this.router.navigate(['/ordenes']);
+          } else if (Number(res.usuario.id_rol) === this.auth.Rol.Almacen) {
+            this.router.navigate(['/inventario']);
+          } else {
+            //rol no valido
+          }
+
+
+
         }
       });
   }

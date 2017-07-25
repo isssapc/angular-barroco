@@ -3,10 +3,24 @@ import { tokenNotExpired } from "angular2-jwt/angular2-jwt";
 import { Observable } from "rxjs/Observable";
 import { Http, Response } from "@angular/http";
 
+/* export const ROLES = {
+  Administrador: 1,
+  Ventas: 2,
+  Almacen: 3
+} */
+
+
 @Injectable()
 export class AuthService {
   url: string = "http://192.168.0.107:8080/barroco/api/index.php/auth/";
   //url: string = "http://localhost:8080/barroco/api/index.php/auth/";
+
+  Rol = {
+    Administrador: 1,
+    Ventas: 2,
+    Almacen: 3
+  }
+
 
   constructor(private http: Http) { }
 
@@ -16,8 +30,46 @@ export class AuthService {
       .catch(this.handleError);
   }
 
+  logout(){
+    localStorage.removeItem("token");
+    localStorage.removeItem("usuario");
+    console.log("loggedout");
+  }
+
   loggedIn() {
     return tokenNotExpired();
+  }
+
+  getRolUsuario() {
+   
+    let strUsuario = localStorage.getItem("usuario");
+
+    if (strUsuario) {      
+      let usuario = JSON.parse(strUsuario); 
+      return  Number(usuario.id_rol);   
+    } else {       
+      return -1;
+    }
+
+  }
+
+  hasRole(roles: any[]) {
+    var visible = false;
+    var mi_rol = this.getRolUsuario();
+
+    var i = roles.indexOf(mi_rol);
+
+    if (i >= 0) {
+      visible = true;
+    }
+/*     console.log("------------------------------");
+    console.log("roles", roles);
+    console.log("mi rol ", mi_rol);
+    console.log("index ", i);
+    console.log("visible ", visible);
+    console.log("------------------------------"); */
+    return visible;
+
   }
 
 

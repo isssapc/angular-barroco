@@ -1,7 +1,7 @@
 <md-sidenav-container>
   <md-sidenav #navLeft class="sidenav-start" mode="over" align="start" opened="false">
 
-    <md-nav-list>
+    <md-nav-list *ngIf="auth.hasRole([auth.Rol.Administrador])">
       <h3 class="sidenav-title">Administración</h3>
 
       <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/login']" routerLinkActive="active">Login</a>
@@ -124,7 +124,7 @@
 
       <md-menu #userMenu="mdMenu">
         <button md-menu-item routerLink="/perfil-usuario"> Perfil </button>
-        <button md-menu-item> Cerrar sesión </button>
+        <button md-menu-item (click)="logout()"> Cerrar sesión </button>
       </md-menu>
 
     </md-toolbar>

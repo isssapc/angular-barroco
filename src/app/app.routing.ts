@@ -32,7 +32,7 @@ import { CambiarPasswordDialogoComponent } from "app/components/cambiar-password
 
 
 export const ROUTES: Routes = [
-    { path: '', redirectTo: 'nuevo-usuario', pathMatch: 'full' },
+    { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: 'nuevo-usuario', component: NuevoUsuarioComponent },
     { path: 'clientes', component: ClientesComponent  },
     { path: 'entrada-almacen', component: EntradaAlmacenComponent  },
