@@ -30,7 +30,7 @@ export class AuthService {
       .catch(this.handleError);
   }
 
-  logout(){
+  logout() {
     localStorage.removeItem("token");
     localStorage.removeItem("usuario");
     console.log("loggedout");
@@ -40,14 +40,32 @@ export class AuthService {
     return tokenNotExpired();
   }
 
-  getRolUsuario() {
-   
+  getUsuario() {
     let strUsuario = localStorage.getItem("usuario");
 
-    if (strUsuario) {      
-      let usuario = JSON.parse(strUsuario); 
-      return  Number(usuario.id_rol);   
-    } else {       
+    if (strUsuario) {
+      let usuario = JSON.parse(strUsuario);
+      return usuario;
+    } else {
+      return null;
+    }
+  }
+
+  getRolUsuario() {
+
+    /*  let strUsuario = localStorage.getItem("usuario");
+ 
+     if (strUsuario) {
+       let usuario = JSON.parse(strUsuario);
+       return Number(usuario.id_rol);
+     } else {
+       return -1;
+     } */
+
+    let usuario = this.getUsuario();
+    if (usuario) {
+      return Number(usuario.id_rol);
+    } else {
       return -1;
     }
 
@@ -62,12 +80,12 @@ export class AuthService {
     if (i >= 0) {
       visible = true;
     }
-/*     console.log("------------------------------");
-    console.log("roles", roles);
-    console.log("mi rol ", mi_rol);
-    console.log("index ", i);
-    console.log("visible ", visible);
-    console.log("------------------------------"); */
+    /*     console.log("------------------------------");
+        console.log("roles", roles);
+        console.log("mi rol ", mi_rol);
+        console.log("index ", i);
+        console.log("visible ", visible);
+        console.log("------------------------------"); */
     return visible;
 
   }
@@ -84,7 +102,7 @@ export class AuthService {
   }
 
   private handleError(error: Response | any) {
-    // In a real world app, you might use a remote logging infrastructure
+    // In a real world app, you might use a remote logging infrastructure     
     let errMsg: string;
     if (error instanceof Response) {
       const body = error.json() || '';
@@ -93,8 +111,9 @@ export class AuthService {
     } else {
       errMsg = error.message ? error.message : error.toString();
     }
+
     console.error(errMsg);
-    return Observable.throw(errMsg);
+    return Observable.throw(error);
   }
 
 }

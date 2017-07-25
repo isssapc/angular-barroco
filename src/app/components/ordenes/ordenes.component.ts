@@ -23,4 +23,23 @@ export class OrdenesComponent implements OnInit {
       });
   }
 
+  delOrden(orden: Orden) {
+    //console.log("delOrden", orden.id_orden_compra);
+    this.ordenSrv.delOrden(orden.id_orden_compra)
+      .subscribe(res => {
+        if (res.count === 1) {
+
+          let i = this.ordenes.indexOf(orden);
+          this.ordenes.splice(i, 1);
+
+        } else {
+          //todo
+        }
+      });
+  }
+
+  editarOrden(orden: Orden) {
+    console.log("editarOrden", orden.id_orden_compra);
+  }
+
 }

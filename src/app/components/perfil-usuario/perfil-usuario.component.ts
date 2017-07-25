@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from "app/services/auth.service";
+import { Usuario } from "app/model/usuario";
 
 @Component({
   selector: 'app-perfil-usuario',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilUsuarioComponent implements OnInit {
 
-  constructor() { }
+  usuario: Usuario;
+  constructor(private auth: AuthService) { }
 
   ngOnInit() {
+    this.usuario = this.auth.getUsuario();
   }
 
 }

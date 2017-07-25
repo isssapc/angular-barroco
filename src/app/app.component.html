@@ -38,7 +38,7 @@
 
     </md-nav-list>
 
-    <md-nav-list>
+    <md-nav-list *ngIf="auth.hasRole([auth.Rol.Ventas])">
       <h3 class="sidenav-title">Ventas</h3>      
 
       <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/clientes']" routerLinkActive="active">Clientes</a>
@@ -63,7 +63,7 @@
 
     </md-nav-list>
 
-    <md-nav-list>
+    <md-nav-list *ngIf="auth.hasRole([auth.Rol.Almacen])">
       <h3 class="sidenav-title">Almacén</h3>
 
       <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/entrada-almacen']" routerLinkActive="active">Entrada almacén</a>

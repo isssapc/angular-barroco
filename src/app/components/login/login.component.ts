@@ -3,6 +3,7 @@ import { UsuarioService } from "app/services/usuario.service";
 import { Router } from "@angular/router";
 import { JwtHelper } from "angular2-jwt/angular2-jwt";
 import { AuthService } from "app/services/auth.service";
+import "rxjs/add/operator/catch";
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit {
   login(usuario) {
     this.auth.login(usuario)
       .subscribe(res => {
-        if (res.error) {
+        if (res.error) {          
           this.alert = res.error;
         } else {
           console.log("login", res);
@@ -41,8 +42,6 @@ export class LoginComponent implements OnInit {
           } else {
             //rol no valido
           }
-
-
 
         }
       });

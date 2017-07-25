@@ -30,7 +30,7 @@ export class OrdenService {
   }
 
   delOrden(id) {
-    return this.http.get(this.url + 'del_orden/' + id)
+    return this.http.post(this.url + 'del_orden/' + id,{})
       .map(this.extractData)
       .catch(this.handleError);
   }

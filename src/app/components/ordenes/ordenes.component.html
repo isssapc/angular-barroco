@@ -20,7 +20,7 @@
                   <th>Cliente</th>
                   <th>Entrega</th>
                   <th>Pago</th>
-                  <th>Lugar de entrega</th>
+                  <th>Entrega</th>
                   <th></th>
                 </tr>
               </thead>
@@ -35,21 +35,17 @@
                   <td></td>
                   <td>
                     <button md-icon-button [mdMenuTriggerFor]="menu">
-                   <md-icon>more_vert</md-icon>
-                  </button>
-                    <md-menu #menu="mdMenu">
-                      <button md-menu-item (click)="editarProducto(producto)">
-                     <md-icon>create</md-icon>
-                      <span>Editar</span>
+                      <md-icon>more_vert</md-icon>
                     </button>
-                      <button md-menu-item>
-                     <md-icon>attach_file</md-icon>
-                      <span>Ficha técnica</span>
-                   </button>
-                      <button md-menu-item>
-                      <md-icon>delete</md-icon>
+                    <md-menu #menu="mdMenu">
+                      <button md-menu-item (click)="editarOrden(orden)">
+                        <md-icon>create</md-icon>
+                        <span>Editar</span>
+                      </button>
+                      <button md-menu-item (click)="delOrden(orden)">
+                        <md-icon>delete</md-icon>
                         <span>Eliminar</span>
-                     </button>
+                      </button>
                     </md-menu>
                   </td>
                 </tr>
