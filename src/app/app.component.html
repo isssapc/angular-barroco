@@ -1,8 +1,8 @@
-
 <md-sidenav-container>
   <md-sidenav #navLeft class="sidenav-start" mode="over" align="start" opened="false">
+
     <md-nav-list>
-      <h3 md-subheader>Navegación</h3>
+      <h3 class="sidenav-title">Administración</h3>
 
       <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/login']" routerLinkActive="active">Login</a>
 
@@ -12,31 +12,76 @@
 
       <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/clientes']" routerLinkActive="active">Clientes</a>
 
-      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/entrada-almacen']" routerLinkActive="active">Entrada almacen</a>
+      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/entrada-almacen']" routerLinkActive="active">Entrada almacén</a>
 
-      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/inventario']" routerLinkActive="active">Inventario</a> 
+      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/inventario']" routerLinkActive="active">Inventario</a>
 
-      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/nuevo-cliente']" routerLinkActive="active">Nuevo Cliente</a>     
+      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/nuevo-cliente']" routerLinkActive="active">Nuevo Cliente</a>
 
-      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/nuevo-producto']" routerLinkActive="active">Nuevo producto</a>     
-      
-      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/orden-compra']" routerLinkActive="active">Orden de compra</a>     
+      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/nuevo-producto']" routerLinkActive="active">Nuevo producto</a>
 
-      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/reportes']" routerLinkActive="active">Reportes</a>     
+      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/orden-compra']" routerLinkActive="active">Orden de compra</a>
 
-      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/salida-almacen']" routerLinkActive="active">Salida almacen</a>  
-      
-      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/salidas-almacen']" routerLinkActive="active">Salidas almacen</a>
+      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/reportes']" routerLinkActive="active">Reportes</a>
 
-      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/entradas-almacen']" routerLinkActive="active">Entradas almacen</a>
+      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/salida-almacen']" routerLinkActive="active">Salida almacén</a>
 
-      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/producto-categorias']" routerLinkActive="active">Producto categorias</a>
+      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/salidas-almacen']" routerLinkActive="active">Salidas almacén</a>
 
-      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/ordenes']" routerLinkActive="active">Ordenes</a>
+      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/entradas-almacen']" routerLinkActive="active">Entradas almacén</a>
 
-       
+      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/producto-categorias']" routerLinkActive="active">Producto categorías</a>
+
+      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/ordenes']" routerLinkActive="active">Órdenes</a>
+
+
 
     </md-nav-list>
+
+    <md-nav-list>
+      <h3 class="sidenav-title">Ventas</h3>      
+
+      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/clientes']" routerLinkActive="active">Clientes</a>
+
+      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/entrada-almacen']" routerLinkActive="active">Entrada almacén</a>
+
+      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/inventario']" routerLinkActive="active">Inventario</a>
+
+      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/nuevo-cliente']" routerLinkActive="active">Nuevo Cliente</a>
+
+      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/nuevo-producto']" routerLinkActive="active">Nuevo producto</a>
+
+      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/orden-compra']" routerLinkActive="active">Orden de compra</a>         
+
+      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/salidas-almacen']" routerLinkActive="active">Salidas almacén</a>
+
+      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/entradas-almacen']" routerLinkActive="active">Entradas almacén</a>
+
+      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/producto-categorias']" routerLinkActive="active">Producto categorías</a>
+
+      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/ordenes']" routerLinkActive="active">Órdenes</a>
+
+    </md-nav-list>
+
+    <md-nav-list>
+      <h3 class="sidenav-title">Almacén</h3>
+
+      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/entrada-almacen']" routerLinkActive="active">Entrada almacén</a>
+
+      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/inventario']" routerLinkActive="active">Inventario</a>
+
+      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/salida-almacen']" routerLinkActive="active">Salida almacén</a>
+
+      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/salidas-almacen']" routerLinkActive="active">Salidas almacén</a>
+
+      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/entradas-almacen']" routerLinkActive="active">Entradas almacén</a>
+
+      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/ordenes']" routerLinkActive="active">Órdenes</a>
+
+
+    </md-nav-list>
+
+
   </md-sidenav>
 
   <md-sidenav #navRight class="sidenav-end" mode="over" align="end" opened="false">

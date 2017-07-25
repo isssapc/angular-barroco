@@ -49,6 +49,8 @@ import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuar
 import { CambiarPasswordDialogoComponent } from "app/components/cambiar-password-dialogo/cambiar-password-dialogo.component";
 import { SpanishDatepickerI18nService, I18n } from "app/services/spanish-datepicker-i18n.service";
 import { ConfirmarBorradoDialogoComponent } from './components/confirmar-borrado-dialogo/confirmar-borrado-dialogo.component';
+import { AuthService } from "app/services/auth.service";
+import { AuthModule } from "app/auth.module";
 
 
 
@@ -92,7 +94,8 @@ import { ConfirmarBorradoDialogoComponent } from './components/confirmar-borrado
     BrowserAnimationsModule,
     AngularMaterialModule,
     FlexLayoutModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    AuthModule
   ],
   entryComponents:[
     EditarUsuarioDialogoComponent,
@@ -109,7 +112,8 @@ import { ConfirmarBorradoDialogoComponent } from './components/confirmar-borrado
     SalidaService,
     ProductoService,
     OrdenService,
-    ProductoCategoriaService
+    ProductoCategoriaService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
