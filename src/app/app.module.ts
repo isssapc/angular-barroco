@@ -49,8 +49,10 @@ import { CambiarPasswordDialogoComponent } from "app/components/cambiar-password
 import { SpanishDatepickerI18nService, I18n } from "app/services/spanish-datepicker-i18n.service";
 import { ConfirmarBorradoDialogoComponent } from './components/confirmar-borrado-dialogo/confirmar-borrado-dialogo.component';
 import { AuthService } from "app/services/auth.service";
-import { AuthModule } from "app/auth.module";
+
 import { EditarProductoDialogoComponent } from "app/components/editar-producto-dialogo/editar-producto-dialogo.component";
+import { AuthModule } from "app/auth/auth.module";
+import { LayoutComponent } from './components/layout/layout.component';
 
 
 
@@ -82,7 +84,8 @@ import { EditarProductoDialogoComponent } from "app/components/editar-producto-d
     OrdenesComponent,
     CambiarPasswordDialogoComponent,
     PerfilUsuarioComponent,
-    ConfirmarBorradoDialogoComponent
+    ConfirmarBorradoDialogoComponent,
+    LayoutComponent
 
     
   ],

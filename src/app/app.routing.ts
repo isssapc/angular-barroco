@@ -26,39 +26,50 @@ import { OrdenesComponent } from "app/components/ordenes/ordenes.component";
 import { PerfilUsuarioComponent } from "app/components/perfil-usuario/perfil-usuario.component";
 import { CambiarPasswordDialogoComponent } from "app/components/cambiar-password-dialogo/cambiar-password-dialogo.component";
 import { EditarProductoDialogoComponent } from "app/components/editar-producto-dialogo/editar-producto-dialogo.component";
+import { LayoutComponent } from "app/components/layout/layout.component";
 
 
 
 
 
 export const ROUTES: Routes = [
-    { path: '', redirectTo: 'login', pathMatch: 'full' },
-    { path: 'nuevo-usuario', component: NuevoUsuarioComponent },
-    { path: 'clientes', component: ClientesComponent  },
-    { path: 'entrada-almacen', component: EntradaAlmacenComponent  },
-    { path: 'inventario', component: InventarioComponent  },
+
+    {
+        path: '',
+        component: LayoutComponent,
+        children: [
+            { path: '', redirectTo:'usuarios', pathMatch:'full' },
+            { path: 'nuevo-usuario', component: NuevoUsuarioComponent },
+            { path: 'clientes', component: ClientesComponent },
+            { path: 'entrada-almacen', component: EntradaAlmacenComponent },
+            { path: 'inventario', component: InventarioComponent },           
+            { path: 'nuevo-cliente', component: NuevoClienteComponent },
+            { path: 'nuevo-producto', component: NuevoProductoComponent },
+            { path: 'orden-compra', component: OrdenCompraComponent },
+            { path: 'reportes', component: ReportesComponent },
+            { path: 'salida-almacen', component: SalidaAlmacenComponent },
+            { path: 'usuarios', component: UsuariosComponent },
+            { path: 'salidas-almacen', component: SalidasAlmacenComponent },
+            { path: 'entradas-almacen', component: EntradasAlmacenComponent },
+            { path: 'editar-cliente-dialogo', component: EditarClienteDialogoComponent },
+            { path: 'editar-producto-dialogo', component: EditarProductoDialogoComponent },
+            { path: 'editar-orden-pedido-dialogo', component: EditarOrdenPedidoDialogoComponent },
+            { path: 'editar-salida-almacen-dialogo', component: EditarSalidaAlmacenDialogoComponent },
+            { path: 'editar-salida-almacen', component: EditarSalidaAlmacenComponent },
+            { path: 'producto-categorias', component: ProductoCategoriasComponent },
+            { path: 'agregar-categoria-dialogo', component: AgregarCategoriaDialogoComponent },
+            { path: 'editar-entrada-dialogo', component: EditarEntradaDialogoComponent },
+            { path: 'ordenes', component: OrdenesComponent },
+            { path: 'cambiar-password', component: CambiarPasswordDialogoComponent },
+            { path: 'perfil-usuario', component: PerfilUsuarioComponent },
+        ]
+    },
+
+
     { path: 'login', component: LoginComponent },
-    { path: 'nuevo-cliente', component: NuevoClienteComponent },
-    { path: 'nuevo-producto', component: NuevoProductoComponent },
-    { path: 'orden-compra', component: OrdenCompraComponent },
-    { path: 'reportes', component: ReportesComponent },
-    { path: 'salida-almacen', component: SalidaAlmacenComponent  },
-    { path: 'usuarios', component: UsuariosComponent  },
-    { path: 'salidas-almacen', component: SalidasAlmacenComponent  },
-    { path: 'entradas-almacen', component: EntradasAlmacenComponent  },
-    { path: 'editar-cliente-dialogo', component: EditarClienteDialogoComponent  },
-    { path: 'editar-producto-dialogo', component: EditarProductoDialogoComponent  },
-    { path: 'editar-orden-pedido-dialogo', component: EditarOrdenPedidoDialogoComponent  },
-    { path: 'editar-salida-almacen-dialogo', component: EditarSalidaAlmacenDialogoComponent  },
-    { path: 'editar-salida-almacen', component: EditarSalidaAlmacenComponent  },
-    { path: 'producto-categorias', component: ProductoCategoriasComponent  },
-    { path: 'agregar-categoria-dialogo', component: AgregarCategoriaDialogoComponent  },
-    { path: 'editar-entrada-dialogo', component: EditarEntradaDialogoComponent  },
-    { path: 'ordenes', component: OrdenesComponent  },
-    { path: 'cambiar-password', component: CambiarPasswordDialogoComponent  },
-    { path: 'perfil-usuario', component: PerfilUsuarioComponent  }
 
-
+    //not found
+    { path: '**', redirectTo: 'usuarios' }
 
 
 ];

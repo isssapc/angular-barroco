@@ -1,4 +1,4 @@
-<!-- <md-sidenav-container>
+<md-sidenav-container>
   <md-sidenav #navLeft class="sidenav-start" mode="over" align="start" opened="false">
 
     <md-nav-list *ngIf="auth.hasRole([auth.Rol.Administrador])">
@@ -39,7 +39,7 @@
     </md-nav-list>
 
     <md-nav-list *ngIf="auth.hasRole([auth.Rol.Ventas])">
-      <h3 class="sidenav-title">Ventas</h3>      
+      <h3 class="sidenav-title">Ventas</h3>
 
       <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/clientes']" routerLinkActive="active">Clientes</a>
 
@@ -51,7 +51,7 @@
 
       <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/nuevo-producto']" routerLinkActive="active">Nuevo producto</a>
 
-      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/orden-compra']" routerLinkActive="active">Orden de compra</a>         
+      <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/orden-compra']" routerLinkActive="active">Orden de compra</a>
 
       <a md-list-item href="" (click)="navLeft.toggle()" [routerLink]="['/salidas-almacen']" routerLinkActive="active">Salidas almacén</a>
 
@@ -92,7 +92,7 @@
       </md-tab>
       <md-tab>
         <ng-template md-tab-label>
-         Tab 2
+          <!-- <md-icon>thumb_down</md-icon> -->Tab 2
         </ng-template>
         <h3>Encabezado</h3>
         <p>Contenido dos</p>
@@ -106,7 +106,9 @@
 
       <button md-icon-button (click)="navLeft.toggle()">
           <md-icon>menu</md-icon>
-        </button>      
+        </button>
+
+      <!--<md-icon class="icon-20">pets</md-icon>-->
 
       <span> Barroco</span>
 
@@ -132,6 +134,4 @@
 
   </div>
 
-</md-sidenav-container> -->
-
-<router-outlet></router-outlet>
+</md-sidenav-container>
