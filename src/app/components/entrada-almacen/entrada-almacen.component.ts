@@ -24,11 +24,16 @@ export class EntradaAlmacenComponent implements OnInit {
     this.productoCategoriaSrv.getProductoCategorias()
       .subscribe(res => this.categorias = res);
 
-    this.productoSrv.getProductos()
+    this.productoSrv.getAlmacenEntrada()
       .subscribe(res => {
         this.productos = res;
         this.loading = false;
       });
+  }
+
+  addEntradaAlmacen() {
+    let entrada = this.productos.filter(item => item.cantidad && item.num_factura);
+    console.log("productos entrada", entrada);
   }
 
 }

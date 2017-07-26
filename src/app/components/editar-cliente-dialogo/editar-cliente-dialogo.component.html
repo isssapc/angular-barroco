@@ -41,10 +41,10 @@
       <label for="calle_fiscal" class="col-sm-2 col-form-label">Calle</label>
       <div class="col-sm-4">
         <input class="form-control" type="text" id="calle_fiscal" name="calle_fiscal" [(ngModel)]="cliente.calle_fiscal">
-      </div>      
+      </div>
       <div class="col-sm-3">
         <input class="form-control" type="text" placeholder="Núm. Ext." id="num_ext_fiscal" name="num_ext_fiscal" [(ngModel)]="cliente.num_ext_fiscal">
-      </div>      
+      </div>
       <div class="col-sm-3">
         <input class="form-control" type="text" placeholder="Num. Int." id="num_int_fiscal" name="num_int_fiscal" [(ngModel)]="cliente.num_int_fiscal">
       </div>
@@ -74,7 +74,7 @@
       </div>
     </div>
 
-    <h5 class="padding">Datos de envio</h5>
+    <h5 class="padding">Datos de envío</h5>
 
     <div class="form-group row">
       <label for="calle_envio" class="col-sm-2 col-form-label">Calle</label>
@@ -118,6 +118,6 @@
   </form>
 </div>
 <div md-dialog-actions>
-  <button md-button [md-dialog-close]="true">ACEPTAR</button>
   <button md-button [md-dialog-close]="false">CANCELAR</button>
+  <button md-button [md-dialog-close]="true">ACEPTAR</button>
 </div>

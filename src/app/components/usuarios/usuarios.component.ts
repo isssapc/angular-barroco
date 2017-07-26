@@ -85,13 +85,21 @@ export class UsuariosComponent implements OnInit {
         this.usuarioSrv.delUsuario(usuario.id_usuario)
           .subscribe(res => {
 
-            let i= this.usuarios.indexOf(usuario);
-            this.usuarios.splice(i,1);
+            if (res.count === 1) {
 
-            this.loading = false;
-            this.snackBar.open("Usuario Eliminado", "Cerrar", {
-              duration: 2000
-            });
+              let i = this.usuarios.indexOf(usuario);
+              this.usuarios.splice(i, 1);
+
+              this.loading = false;
+              this.snackBar.open("Usuario Eliminado", "Cerrar", {
+                duration: 2000
+              });
+
+            } else {
+              this.snackBar.open("Ha ocurrido un error", "Cerrar", {
+                duration: 2000
+              });
+            }
 
           });
 

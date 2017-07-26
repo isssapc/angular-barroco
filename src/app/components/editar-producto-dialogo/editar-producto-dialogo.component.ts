@@ -4,18 +4,18 @@ import { Producto } from "app/model/producto";
 import { Categoria } from "app/model/categoria";
 
 @Component({
-  selector: 'app-editar-inventario-dialogo',
-  templateUrl: './editar-inventario-dialogo.component.html',
-  styleUrls: ['./editar-inventario-dialogo.component.scss']
+  selector: 'app-editar-producto-dialogo',
+  templateUrl: './editar-producto-dialogo.component.html',
+  styleUrls: ['./editar-producto-dialogo.component.scss']
 })
-export class EditarInventarioDialogoComponent implements OnInit {
+export class EditarProductoDialogoComponent implements OnInit {
 
   producto:Producto;
   categorias:Categoria[];
 
   constructor(
     @Inject(MD_DIALOG_DATA) public data: any,
-    public dialogRef: MdDialogRef<EditarInventarioDialogoComponent>
+    public dialogRef: MdDialogRef<EditarProductoDialogoComponent>
   ) { }
 
   ngOnInit() {

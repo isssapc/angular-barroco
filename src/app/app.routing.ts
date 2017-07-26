@@ -16,7 +16,6 @@ import { UsuariosComponent } from "app/components/usuarios/usuarios.component";
 import { SalidasAlmacenComponent } from "app/components/salidas-almacen/salidas-almacen.component";
 import { EntradasAlmacenComponent } from "app/components/entradas-almacen/entradas-almacen.component";
 import { EditarClienteDialogoComponent } from "app/components/editar-cliente-dialogo/editar-cliente-dialogo.component";
-import { EditarInventarioDialogoComponent } from "app/components/editar-inventario-dialogo/editar-inventario-dialogo.component";
 import { EditarOrdenPedidoDialogoComponent } from "app/components/editar-orden-pedido-dialogo/editar-orden-pedido-dialogo.component";
 import { EditarSalidaAlmacenDialogoComponent } from "app/components/editar-salida-almacen-dialogo/editar-salida-almacen-dialogo.component";
 import { EditarSalidaAlmacenComponent } from "app/components/editar-salida-almacen/editar-salida-almacen.component";
@@ -26,6 +25,7 @@ import { EditarEntradaDialogoComponent } from "app/components/editar-entrada-dia
 import { OrdenesComponent } from "app/components/ordenes/ordenes.component";
 import { PerfilUsuarioComponent } from "app/components/perfil-usuario/perfil-usuario.component";
 import { CambiarPasswordDialogoComponent } from "app/components/cambiar-password-dialogo/cambiar-password-dialogo.component";
+import { EditarProductoDialogoComponent } from "app/components/editar-producto-dialogo/editar-producto-dialogo.component";
 
 
 
@@ -47,7 +47,7 @@ export const ROUTES: Routes = [
     { path: 'salidas-almacen', component: SalidasAlmacenComponent  },
     { path: 'entradas-almacen', component: EntradasAlmacenComponent  },
     { path: 'editar-cliente-dialogo', component: EditarClienteDialogoComponent  },
-    { path: 'editar-inventario-dialogo', component: EditarInventarioDialogoComponent  },
+    { path: 'editar-producto-dialogo', component: EditarProductoDialogoComponent  },
     { path: 'editar-orden-pedido-dialogo', component: EditarOrdenPedidoDialogoComponent  },
     { path: 'editar-salida-almacen-dialogo', component: EditarSalidaAlmacenDialogoComponent  },
     { path: 'editar-salida-almacen', component: EditarSalidaAlmacenComponent  },

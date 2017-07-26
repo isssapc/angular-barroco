@@ -1,6 +1,6 @@
 <div class="container">
 
-   <div *ngIf="loading">
+  <div *ngIf="loading">
 
     <md-spinner class="loading"></md-spinner>
 
@@ -40,8 +40,8 @@
                     <button md-menu-item (click)="editarCliente(cliente)">
                      <md-icon>create</md-icon>
                       <span>Editar</span>
-                    </button>                 
-                    <button md-menu-item>
+                    </button>
+                    <button md-menu-item (click)="delCliente(cliente)">
                       <md-icon>delete</md-icon>
                         <span>Eliminar</span>
                      </button>

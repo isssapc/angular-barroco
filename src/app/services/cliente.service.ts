@@ -32,13 +32,13 @@ export class ClienteService {
   }
 
   delCliente(id) {
-    return this.http.get(this.url + 'del_cliente/' + id)
+    return this.http.post(this.url + 'del_cliente/' + id, {})
       .map(this.extractData)
       .catch(this.handleError);
   }
 
   searchCliente(term: string) {
-    if (term === "") {     
+    if (term === "") {
       return of.call([]);
     }
 

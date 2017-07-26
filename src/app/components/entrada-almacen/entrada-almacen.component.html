@@ -20,55 +20,28 @@
               <thead>
                 <tr>
                   <th>Id</th>
-                  <th>Producto</th>
                   <th>Categoría</th>
-                  <th>Núm. factura</th>
+                  <th>Producto</th>
+                  <th>Unidad</th>
                   <th style="width:150px">Cantidad</th>
-              <!--     <th>Estado</th>
-                  <th></th> -->
+                  <th>Núm. factura</th>
                 </tr>
               </thead>
-
               <tbody>
                 <tr *ngFor="let producto of productos">
                   <td>{{producto.id_producto}}</td>
-                  <td>{{producto.nombre}}</td>
                   <td>{{producto.categoria}}</td>
-                  <td><input class="form-control" type="text" value=""></td>
-                  <td><input class="form-control" type="text" value=""></td>
-          <!--         <td><select class="form-control" id="5">
-                  <option value="1">Bueno</option>
-                  <option value="2">Dañado</option>
-                  <option value="2">Mojado</option>
-                </select>
-                  </td>
-                  <td>
-                    <button md-icon-button [mdMenuTriggerFor]="menu1">
-                   <md-icon>more_vert</md-icon>
-                  </button>
-                    <md-menu #menu1="mdMenu">
-                      <button md-menu-item>
-                     <md-icon>create</md-icon>
-                      <span>Editar</span>
-                    </button>
-                      <button md-menu-item>
-                     <md-icon>attach_file</md-icon>
-                      <span>Ficha técnica</span>
-                   </button>
-                      <button md-menu-item>
-                      <md-icon>delete</md-icon>
-                        <span>Eliminar</span>
-                     </button>
-                    </md-menu>
-                  </td> -->
+                  <td>{{producto.nombre}}</td>
+                  <td>{{producto.unidad}}</td>
+                  <td><input class="form-control" type="text" name="cantidad" [(ngModel)]="producto.cantidad"></td>
+                  <td><input class="form-control" type="text" name="num_factura" [(ngModel)]="producto.num_factura"></td>
                 </tr>
               </tbody>
-
             </table>
           </div>
         </div>
         <div class="card-footer">
-          <button type="button" class="btn btn-primary">Aceptar</button>
+          <button type="button" class="btn btn-primary" (click)="addEntradaAlmacen()">Aceptar</button>
         </div>
 
       </div>

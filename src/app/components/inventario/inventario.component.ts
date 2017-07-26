@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MdDialog, MdSnackBar } from '@angular/material';
-import { EditarInventarioDialogoComponent } from "app/components/editar-inventario-dialogo/editar-inventario-dialogo.component";
 import { Producto } from "app/model/producto";
 import { ProductoService } from "app/services/producto.service";
 import { ProductoCategoriaService } from "app/services/producto-categoria.service";
 import { Categoria } from "app/model/categoria";
+import { EditarProductoDialogoComponent } from "app/components/editar-producto-dialogo/editar-producto-dialogo.component";
 
 
 
@@ -42,7 +42,7 @@ export class InventarioComponent implements OnInit {
 
     let copia = Producto.copiar(producto);
 
-    let dialogRef = this.dialog.open(EditarInventarioDialogoComponent, {
+    let dialogRef = this.dialog.open(EditarProductoDialogoComponent, {
       data: { 
         producto: copia,
         categorias: this.categorias,

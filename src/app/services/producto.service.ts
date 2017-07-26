@@ -25,6 +25,11 @@ export class ProductoService {
       .catch(this.handleError);
   }
 
+  getAlmacenEntrada() {
+    return this.http.get(this.url + 'get_almacen_entrada')
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
 
 
   createProducto(producto) {

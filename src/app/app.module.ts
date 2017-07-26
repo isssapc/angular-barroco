@@ -30,7 +30,6 @@ import { SalidasAlmacenComponent } from './components/salidas-almacen/salidas-al
 import { EntradasAlmacenComponent } from './components/entradas-almacen/entradas-almacen.component';
 import { EditarUsuarioDialogoComponent } from './components/editar-usuario-dialog/editar-usuario-dialogo.component';
 import { EditarClienteDialogoComponent } from './components/editar-cliente-dialogo/editar-cliente-dialogo.component';
-import { EditarInventarioDialogoComponent } from './components/editar-inventario-dialogo/editar-inventario-dialogo.component';
 import { EditarOrdenPedidoDialogoComponent } from './components/editar-orden-pedido-dialogo/editar-orden-pedido-dialogo.component';
 import { EditarSalidaAlmacenDialogoComponent } from './components/editar-salida-almacen-dialogo/editar-salida-almacen-dialogo.component';
 import { EditarSalidaAlmacenComponent } from './components/editar-salida-almacen/editar-salida-almacen.component';
@@ -51,6 +50,7 @@ import { SpanishDatepickerI18nService, I18n } from "app/services/spanish-datepic
 import { ConfirmarBorradoDialogoComponent } from './components/confirmar-borrado-dialogo/confirmar-borrado-dialogo.component';
 import { AuthService } from "app/services/auth.service";
 import { AuthModule } from "app/auth.module";
+import { EditarProductoDialogoComponent } from "app/components/editar-producto-dialogo/editar-producto-dialogo.component";
 
 
 
@@ -72,7 +72,7 @@ import { AuthModule } from "app/auth.module";
     EntradasAlmacenComponent,
     EditarUsuarioDialogoComponent,
     EditarClienteDialogoComponent,
-    EditarInventarioDialogoComponent,
+    EditarProductoDialogoComponent,
     EditarOrdenPedidoDialogoComponent,
     EditarSalidaAlmacenDialogoComponent,
     EditarSalidaAlmacenComponent,
@@ -99,7 +99,7 @@ import { AuthModule } from "app/auth.module";
   ],
   entryComponents:[
     EditarUsuarioDialogoComponent,
-    EditarInventarioDialogoComponent,
+    EditarProductoDialogoComponent,
     CambiarPasswordDialogoComponent,
     ConfirmarBorradoDialogoComponent
   ],
