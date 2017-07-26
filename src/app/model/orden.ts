@@ -5,16 +5,17 @@ export class Orden {
     cliente?: string;
     fecha_creacion?: string;
     fecha_entrega?: string;
-    //lugar_entrega?: string;
+    id_compra_entrega?: number;
     //direccion_entrega?: string;
     id_forma_pago?: number;
     forma_pago?: string;
-    //nota?: string;
+    nota?: string;
 
     constructor() {
         //1= Contado
         //this.id_cliente=null;
         this.id_forma_pago = 1;
+        this.id_compra_entrega = null;
     }
 
 }

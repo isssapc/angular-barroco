@@ -17,8 +17,12 @@ export class ProductoCategoriasComponent implements OnInit {
   constructor(private categoriaSrv: ProductoCategoriaService, public dialog: MdDialog, public snackBar: MdSnackBar) { }
 
   ngOnInit() {
+    this.loading = true;
     this.categoriaSrv.getProductoCategorias()
-      .subscribe(res => this.categorias = res);
+      .subscribe(res => {
+        this.categorias = res;
+        this.loading = false;
+      });
 
 
   }

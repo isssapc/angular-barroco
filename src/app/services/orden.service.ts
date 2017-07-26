@@ -30,13 +30,19 @@ export class OrdenService {
   }
 
   delOrden(id) {
-    return this.http.post(this.url + 'del_orden/' + id,{})
+    return this.http.post(this.url + 'del_orden/' + id, {})
       .map(this.extractData)
       .catch(this.handleError);
   }
 
   getFormasPago() {
     return this.http.get(this.url + "get_formas_pago")
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  getLugaresEntrega() {
+    return this.http.get(this.url + "get_lugares_entrega")
       .map(this.extractData)
       .catch(this.handleError);
   }

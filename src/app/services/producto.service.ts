@@ -63,6 +63,17 @@ export class ProductoService {
 
   }
 
+  searchProductoOrden(term: string) {
+    if (term === "") {      
+      return of.call([]);
+    }
+
+    return this.http.get(this.url + "search_producto_orden/" + term)
+      .map(this.extractData)
+      .catch(this.handleError);
+
+  }
+
 
   private extractData(res: Response) {
     //console.log("response", res);

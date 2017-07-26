@@ -40,6 +40,7 @@ export class OrdenCompraComponent implements OnInit {
   cliente: Cliente = new Cliente();
   taCliente: Cliente;
   formas_pago: any[];
+  lugares_entrega: any[];
 
   productos_orden: any[] = [];
   fecha_entrega: NgbDateStruct;
@@ -56,6 +57,9 @@ export class OrdenCompraComponent implements OnInit {
   ngOnInit() {
     this.ordenSrv.getFormasPago()
       .subscribe(res => this.formas_pago = res);
+
+    this.ordenSrv.getLugaresEntrega()
+      .subscribe(res => this.lugares_entrega = res);
   }
 
   editarorden() {
@@ -71,7 +75,7 @@ export class OrdenCompraComponent implements OnInit {
         term =>
 
           _catch.call(
-            _do.call(this.productoSrv.searchProducto(term), () => { this.searchFailed = false; console.log("complete1"); }, () => { console.log("hola"); this.searching = false; }),
+            _do.call(this.productoSrv.searchProductoOrden(term), () => { this.searchFailed = false; console.log("complete1"); }, () => { console.log("hola"); this.searching = false; }),
             () => {
               console.log("error");
               this.searchFailed = true;
@@ -179,7 +183,7 @@ export class OrdenCompraComponent implements OnInit {
         console.log("response", res);
 
         this.orden = new Orden();
-        this.productos_orden=[];
+        this.productos_orden = [];
         this.formCreateOrden.reset();
       });
   }

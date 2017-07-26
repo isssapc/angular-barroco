@@ -52,16 +52,6 @@ export class AuthService {
   }
 
   getRolUsuario() {
-
-    /*  let strUsuario = localStorage.getItem("usuario");
- 
-     if (strUsuario) {
-       let usuario = JSON.parse(strUsuario);
-       return Number(usuario.id_rol);
-     } else {
-       return -1;
-     } */
-
     let usuario = this.getUsuario();
     if (usuario) {
       return Number(usuario.id_rol);
@@ -70,6 +60,12 @@ export class AuthService {
     }
 
   }
+
+/*   getUsername() {
+    let usuario = this.getUsuario();
+    return usuario.email.split('@')[0];
+
+  } */
 
   hasRole(roles: any[]) {
     var visible = false;
