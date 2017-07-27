@@ -53,6 +53,10 @@ import { AuthService } from "app/services/auth.service";
 import { EditarProductoDialogoComponent } from "app/components/editar-producto-dialogo/editar-producto-dialogo.component";
 import { AuthModule } from "app/auth/auth.module";
 import { LayoutComponent } from './components/layout/layout.component';
+import { AgregarFichaTecnicaDialogoComponent } from './components/agregar-ficha-tecnica-dialogo/agregar-ficha-tecnica-dialogo.component';
+import { EditarOrdenCompraComponent } from './components/editar-orden-compra/editar-orden-compra.component';
+import { TableroComponent } from './components/tablero/tablero.component';
+
 
 
 
@@ -85,7 +89,11 @@ import { LayoutComponent } from './components/layout/layout.component';
     CambiarPasswordDialogoComponent,
     PerfilUsuarioComponent,
     ConfirmarBorradoDialogoComponent,
-    LayoutComponent
+    LayoutComponent,
+    AgregarFichaTecnicaDialogoComponent,
+    EditarOrdenCompraComponent,
+    TableroComponent,
+   
 
     
   ],

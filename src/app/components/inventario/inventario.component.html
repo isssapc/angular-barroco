@@ -1,8 +1,6 @@
 <div class="container">
   <div *ngIf="loading">
-
     <md-spinner class="loading"></md-spinner>
-
   </div>
   <div class="row">
     <div class="col-12">
@@ -42,7 +40,7 @@
                      <md-icon>create</md-icon>
                       <span>Editar</span>
                     </button>
-                      <button md-menu-item>
+                      <button md-menu-item (click)="agregarFicha()">
                      <md-icon>attach_file</md-icon>
                       <span>Ficha técnica</span>
                    </button>

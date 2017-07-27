@@ -1,0 +1,71 @@
+<h1 md-dialog-title>Ficha técnica</h1>
+<div md-dialog-content>
+
+
+  <div class="table-responsive">
+    <table class="table table-hover table-striped">
+      <thead>
+        <tr>
+          <th>Archivos</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="input-group">
+              <input class="form-control" type="text" placeholder="Archivo 1" disabled>
+              <button class="btn btn-primary" type="button">                   
+                  <i class="fa fa-check"></i>
+                  </button>
+            </div>
+          </td>
+
+          <td>
+            <div class="btn-group">
+              <button class="btn btn-secondary" type="button">                  
+                 <i class="fa fa-edit"></i>
+                </button>
+              <button class="btn btn-secondary" type="button">                  
+                 <i class="fa fa-file-image-o"></i>
+                </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h5>Subir nuevo archivo</h5>
+
+  <hr>
+
+  <form>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Archivo</label>
+      <div class="col-sm-10">
+        <label class="custom-file">
+         <input type="file" id="file" class="custom-file-input">
+         <span class="custom-file-control"></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Nombre</label>
+      <div class="col-sm-10">
+        <textarea class="form-control" rows="1"></textarea>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-10 offset-sm-2">
+        <button type="submit" class="btn btn-primary">Subir</button>
+      </div>
+    </div>
+
+  </form>
+</div>
+<div md-dialog-actions>
+  <button md-button [md-dialog-close]="false">CERRAR</button>
+
+</div>

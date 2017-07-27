@@ -27,6 +27,9 @@ import { PerfilUsuarioComponent } from "app/components/perfil-usuario/perfil-usu
 import { CambiarPasswordDialogoComponent } from "app/components/cambiar-password-dialogo/cambiar-password-dialogo.component";
 import { EditarProductoDialogoComponent } from "app/components/editar-producto-dialogo/editar-producto-dialogo.component";
 import { LayoutComponent } from "app/components/layout/layout.component";
+import { AgregarFichaTecnicaDialogoComponent } from "app/components/agregar-ficha-tecnica-dialogo/agregar-ficha-tecnica-dialogo.component";
+import { EditarOrdenCompraComponent } from "app/components/editar-orden-compra/editar-orden-compra.component";
+import { TableroComponent } from "app/components/tablero/tablero.component";
 
 
 
@@ -62,6 +65,11 @@ export const ROUTES: Routes = [
             { path: 'ordenes', component: OrdenesComponent },
             { path: 'cambiar-password', component: CambiarPasswordDialogoComponent },
             { path: 'perfil-usuario', component: PerfilUsuarioComponent },
+            { path: 'agregar-ficha-tecnica-dialogo', component: AgregarFichaTecnicaDialogoComponent },
+            { path: 'editar-orden-compra/:id', component: EditarOrdenCompraComponent },
+             { path: 'tablero', component: TableroComponent },
+
+
         ]
     },
 
