@@ -5,6 +5,7 @@ import { ProductoService } from "app/services/producto.service";
 import { ProductoCategoriaService } from "app/services/producto-categoria.service";
 import { Categoria } from "app/model/categoria";
 import { EditarProductoDialogoComponent } from "app/components/editar-producto-dialogo/editar-producto-dialogo.component";
+import { AgregarFichaTecnicaDialogoComponent } from "app/components/agregar-ficha-tecnica-dialogo/agregar-ficha-tecnica-dialogo.component";
 
 
 
@@ -33,6 +34,10 @@ export class InventarioComponent implements OnInit {
         this.productos = res;
         this.loading = false;
       });
+  }
+
+  agregarFicha(){
+    this.dialog.open(AgregarFichaTecnicaDialogoComponent);
   }
 
 

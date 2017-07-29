@@ -11,7 +11,7 @@ import "rxjs/add/operator/catch";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+  loading: boolean = false;
   usuario: any = { email: "", password: "" };
   alert: string;
   jwtHelper: JwtHelper = new JwtHelper();
@@ -22,9 +22,12 @@ export class LoginComponent implements OnInit {
   }
 
   login(usuario) {
+
+    this.loading = true;
     this.auth.login(usuario)
       .subscribe(res => {
-        if (res.error) {          
+        this.loading = false;
+        if (res.error) {
           this.alert = res.error;
         } else {
           console.log("login", res);

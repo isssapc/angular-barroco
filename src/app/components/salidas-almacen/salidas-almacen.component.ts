@@ -8,12 +8,14 @@ import { Router } from "@angular/router";
 })
 export class SalidasAlmacenComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  loading: boolean = false;
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
-  editarsalida(){
+  editarsalida() {
     this.router.navigate(["/editar-salida-almacen"]);
   }
 

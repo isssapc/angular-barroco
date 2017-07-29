@@ -17,7 +17,8 @@ import {
   MdSelectModule,
   MdDialogModule,
   MdProgressSpinnerModule,
-  MdSnackBarModule
+  MdSnackBarModule,
+  MdGridListModule
 } from "@angular/material";
 
 @NgModule({
@@ -38,7 +39,8 @@ import {
     MdSelectModule,
     MdDialogModule,
     MdProgressSpinnerModule,
-    MdSnackBarModule
+    MdSnackBarModule,
+    MdGridListModule
   ],
   exports: [
     MdMenuModule,
@@ -57,7 +59,8 @@ import {
     MdSelectModule,
     MdDialogModule,
     MdProgressSpinnerModule,
-    MdSnackBarModule
+    MdSnackBarModule,
+    MdGridListModule
   ]
 })
 export class AngularMaterialModule { }
