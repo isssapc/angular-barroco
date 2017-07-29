@@ -5,8 +5,8 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class ProductoCategoriaService {
-  url: string = "http://192.168.0.107:8080/barroco/api/index.php/categorias/";
-  //url: string = "http://localhost:8080/barroco/api/index.php/categorias/";
+  //url: string = "http://192.168.0.107:8080/barroco/api/index.php/categorias/";
+  url: string = "http://localhost:8080/barroco/api/index.php/categorias/";
 
   constructor(private http: Http) { }
 
