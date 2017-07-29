@@ -162,7 +162,8 @@ export class OrdenCompraComponent implements OnInit {
       nombre: this.producto.nombre,
       unidad: this.producto.unidad,
       cantidad: this.producto.cantidad,
-      precio_venta: this.producto.precio_venta
+      precio_venta: this.producto.precio_venta,
+      descuento: this.producto.descuento
     }
     this.productos_orden.unshift(producto);
     this.producto = new Producto();
@@ -186,6 +187,14 @@ export class OrdenCompraComponent implements OnInit {
         this.productos_orden = [];
         this.formCreateOrden.reset();
       });
+  }
+
+  calcTotal() {
+    let total: number = 0;
+    this.productos_orden.forEach(p => {
+      total += (p.cantidad * p.precio_venta) * (1 - (p.descuento / 100));
+    });
+    return total;
   }
 
 

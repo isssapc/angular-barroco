@@ -5,11 +5,10 @@
   </div>
 
   <div class="row">
-
     <div class="col-12">
 
 
-      <div class="card mt-5">
+      <div class="card my-5">
         <div class="card-header">
           Usuarios
         </div>
@@ -34,21 +33,21 @@
                   <td>{{usuario.rol}}</td>
                   <td>
                     <button md-icon-button [mdMenuTriggerFor]="menu">
-                   <md-icon>more_vert</md-icon>
-                  </button>
+                      <md-icon>more_vert</md-icon>
+                    </button>
                     <md-menu #menu="mdMenu">
                       <button md-menu-item (click)="editarUsuario(usuario)">
-                     <md-icon>create</md-icon>
-                      <span>Editar</span>
-                    </button>
+                        <md-icon>create</md-icon>
+                        <span>Editar</span>
+                      </button>
                       <button md-menu-item (click)="changePassword(usuario)">
-                     <md-icon>lock</md-icon>
-                      <span>Cambiar contraseña</span>
-                   </button>
+                        <md-icon>lock</md-icon>
+                        <span>Cambiar contraseña</span>
+                      </button>
                       <button md-menu-item (click)="delUsuario(usuario)">
-                      <md-icon>delete</md-icon>
+                        <md-icon>delete</md-icon>
                         <span>Eliminar</span>
-                     </button>
+                      </button>
                     </md-menu>
                   </td>
                 </tr>

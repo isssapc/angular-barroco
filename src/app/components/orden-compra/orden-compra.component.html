@@ -137,52 +137,69 @@
               </div>
             </div>
 
-            <div>Orden: {{orden|json}}</div>
-            <pre>Productos {{productos_orden|json}}</pre>
+            <!--   <div>Orden: {{orden|json}}</div>
+            <pre>Productos {{productos_orden|json}}</pre> -->
 
           </form>
         </div>
         <div>
-          <table class="table table-hover table-striped">
-            <thead>
-              <tr>
-                <th>Producto</th>
-                <th>Unidad</th>
-                <th>Cantidad</th>
-                <th>Precio</th>
-                <th></th>
-              </tr>
-              <tr>
-                <td>
-                  <input id="typeahead-http" name="typeahead-http" type="text" class="form-control" [(ngModel)]="producto" [ngbTypeahead]="searchProducto"
-                    [resultTemplate]="rt" [inputFormatter]="formatterProducto" placeholder="" (selectItem)="selectProductoOrden($event,inputCantidad)"
-                  />
-                </td>
-                <td><input class="form-control" type="text" [(ngModel)]="producto.unidad" readonly></td>
-                <td><input #inputCantidad class="form-control" type="text" [(ngModel)]="producto.cantidad"></td>
-                <td><input class="form-control" type="text" [(ngModel)]="producto.precio_venta"></td>
-                <td><button type="button" class="btn btn-primary" (click)="agregarProducto()">Agregar</button></td>
-              </tr>
-            </thead>
+          <div class="table-responsive">
+            <table class="table table-hover table-striped">
+              <thead>
+                <tr>
+                  <th>Producto</th>
+                  <th>Unidad</th>
+                  <th>Cantidad</th>
+                  <th>Precio</th>
+                  <th>Descuento</th>
+                  <th></th>
+                </tr>
+                <tr>
+                  <td>
+                    <input id="typeahead-http" name="typeahead-http" type="text" class="form-control" [(ngModel)]="producto" [ngbTypeahead]="searchProducto"
+                      [resultTemplate]="rt" [inputFormatter]="formatterProducto" placeholder="" (selectItem)="selectProductoOrden($event,inputCantidad)"
+                    />
+                  </td>
+                  <td><input class="form-control" type="text" [(ngModel)]="producto.unidad" readonly></td>
+                  <td><input #inputCantidad class="form-control" type="text" [(ngModel)]="producto.cantidad"></td>
+                  <td><input class="form-control" type="text" [(ngModel)]="producto.precio_venta"></td>
+                  <td><input class="form-control" type="text" [(ngModel)]="producto.descuento"></td>
+                  <td><button type="button" class="btn btn-primary" (click)="agregarProducto()">Agregar</button></td>
+                </tr>
+              </thead>
 
-            <tbody>
-              <tr *ngFor="let producto of productos_orden">
-                <td>{{producto.nombre}}</td>
-                <td>{{producto.unidad}}</td>
-                <td>
-                  <input type="number" class="form-control" [(ngModel)]="producto.cantidad">
-                </td>
-                <td>
-                  <input type="number" class="form-control" [(ngModel)]="producto.precio_venta">
-                </td>
-                <td>
-                  <button md-icon-button (click)="delProducto(producto)">
+              <tbody>
+                <tr *ngFor="let producto of productos_orden">
+                  <td>{{producto.nombre}}</td>
+                  <td>{{producto.unidad}}</td>
+                  <td>
+                    <input type="number" class="form-control" [(ngModel)]="producto.cantidad">
+                  </td>
+                  <td>
+                    <input type="number" class="form-control" [(ngModel)]="producto.precio_venta">
+                  </td>
+                  <td>
+                    <input type="number" class="form-control" [(ngModel)]="producto.descuento">
+                  </td>
+                  <td>
+                    <button md-icon-button (click)="delProducto(producto)">
                    <md-icon>delete</md-icon>
                   </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>TOTAL</td>
+                  <td>{{calcTotal()|currency}}</td>
+                  <td></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
         </div>
         <div class="card-footer">
           <div>

@@ -1,4 +1,5 @@
-export class Producto {
+export class Producto {    
+
     id_producto?: number;
     nombre?: string;
     unidad?: string;
@@ -10,6 +11,7 @@ export class Producto {
     precio_venta?: number;
     descripcion?: string;
     especificaciones?: string;
+    descuento?: number;
 
     constructor() {
         this.nombre=null; 

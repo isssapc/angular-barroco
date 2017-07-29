@@ -1,22 +1,31 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { NgForm } from "@angular/forms";
 import { MdDialog } from '@angular/material';
-import { EditarOrdenPedidoDialogoComponent } from "app/components/editar-orden-pedido-dialogo/editar-orden-pedido-dialogo.component";
-import { ProductoService } from "app/services/producto.service";
 import { Observable } from "rxjs/Observable";
+import { Router, ActivatedRoute, ParamMap } from "@angular/router";
+
+
+import "rxjs/add/operator/switchMap";
 import { _do } from "rxjs/operator/do";
 import { switchMap } from "rxjs/operator/switchMap";
 import { debounceTime } from "rxjs/operator/debounceTime";
 import { of } from "rxjs/observable/of";
 import { distinctUntilChanged } from 'rxjs/operator/distinctUntilChanged';
 import { _catch } from 'rxjs/operator/catch';
-import { Producto } from "app/model/producto";
-import { NgForm } from "@angular/forms";
-import { OrdenService } from "app/services/orden.service";
-import { Orden } from "app/model/orden";
-import { ClienteService } from "app/services/cliente.service";
-import { Cliente } from "app/model/cliente";
+
 import { NgbTypeaheadSelectItemEvent, NgbDateStruct } from "@ng-bootstrap/ng-bootstrap";
 import { NgbDateISOParserFormatter } from "@ng-bootstrap/ng-bootstrap/datepicker/ngb-date-parser-formatter";
+
+import { Producto } from "app/model/producto";
+import { Cliente } from "app/model/cliente";
+import { Orden } from "app/model/orden";
+
+import { OrdenService } from "app/services/orden.service";
+import { ClienteService } from "app/services/cliente.service";
+import { ProductoService } from "app/services/producto.service";
+
+import { EditarOrdenPedidoDialogoComponent } from "app/components/editar-orden-pedido-dialogo/editar-orden-pedido-dialogo.component";
+
 
 
 
@@ -46,6 +55,8 @@ export class EditarOrdenCompraComponent implements OnInit {
   dateParser: NgbDateISOParserFormatter = new NgbDateISOParserFormatter();
 
   constructor(
+    private route: ActivatedRoute,
+    private router: Router,
     private productoSrv: ProductoService,
     private clienteSrv: ClienteService,
     public dialog: MdDialog,
@@ -58,6 +69,14 @@ export class EditarOrdenCompraComponent implements OnInit {
 
     this.ordenSrv.getLugaresEntrega()
       .subscribe(res => this.lugares_entrega = res);
+
+    this.route.paramMap
+      .switchMap((params: ParamMap) =>
+        this.ordenSrv.getOrden(params.get('id')))
+      .subscribe(res => {
+        this.orden = res.orden;
+        this.productos_orden = res.productos;
+      });
   }
 
   searchProducto = (text$: Observable<string>) =>

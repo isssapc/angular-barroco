@@ -17,6 +17,12 @@ export class OrdenService {
       .catch(this.handleError);
   }
 
+  getOrden(id) {
+    return this.http.get(this.url + 'get_orden/' + id)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
   createOrden(orden, productos) {
     return this.http.post(this.url + 'create_orden', { orden: orden, productos: productos })
       .map(this.extractData)

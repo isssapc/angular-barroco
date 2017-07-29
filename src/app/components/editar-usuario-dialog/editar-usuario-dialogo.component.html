@@ -1,7 +1,5 @@
 <h1 md-dialog-title>Editar usuario</h1>
 <div md-dialog-content>
-
-
   <form>
     <div class="form-group row">
       <label for="nombre" class="col-sm-3 col-form-label">Nombre</label>
@@ -13,7 +11,7 @@
     <div class="form-group row">
       <label for="email" class="col-sm-3 col-form-label">Email</label>
       <div class="col-sm-9">
-        
+
         <input class="form-control" type="text" id="email" name="email" [(ngModel)]="usuario.email">
       </div>
     </div>
@@ -26,12 +24,11 @@
         </select>
       </div>
     </div>
-    <div>data {{data|json}}</div>
+    <!--  <div>data {{data|json}}</div> -->
 
   </form>
 </div>
 <div md-dialog-actions>
   <button md-button [md-dialog-close]="false">CANCELAR</button>
   <button md-button [md-dialog-close]="true">ACEPTAR</button>
-  
 </div>
