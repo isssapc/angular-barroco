@@ -41,11 +41,11 @@ export const ROUTES: Routes = [
         path: '',
         component: LayoutComponent,
         children: [
-            { path: '', redirectTo:'usuarios', pathMatch:'full' },
+            { path: '', redirectTo: 'usuarios', pathMatch: 'full' },
             { path: 'nuevo-usuario', component: NuevoUsuarioComponent },
             { path: 'clientes', component: ClientesComponent },
             { path: 'entrada-almacen', component: EntradaAlmacenComponent },
-            { path: 'inventario', component: InventarioComponent },           
+            { path: 'inventario', component: InventarioComponent },
             { path: 'nuevo-cliente', component: NuevoClienteComponent },
             { path: 'nuevo-producto', component: NuevoProductoComponent },
             { path: 'orden-compra', component: OrdenCompraComponent },
@@ -67,7 +67,7 @@ export const ROUTES: Routes = [
             { path: 'perfil-usuario', component: PerfilUsuarioComponent },
             { path: 'agregar-ficha-tecnica-dialogo', component: AgregarFichaTecnicaDialogoComponent },
             { path: 'editar-orden-compra/:id', component: EditarOrdenCompraComponent },
-             { path: 'tablero', component: TableroComponent },
+            { path: 'tablero', component: TableroComponent },
 
 
         ]
@@ -77,7 +77,7 @@ export const ROUTES: Routes = [
     { path: 'login', component: LoginComponent },
 
     //not found
-    { path: '**', redirectTo: 'usuarios' }
+    { path: '**', redirectTo: 'login' }
 
 
 ];
