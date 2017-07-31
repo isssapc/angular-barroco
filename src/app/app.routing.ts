@@ -30,6 +30,7 @@ import { LayoutComponent } from "app/components/layout/layout.component";
 import { AgregarFichaTecnicaDialogoComponent } from "app/components/agregar-ficha-tecnica-dialogo/agregar-ficha-tecnica-dialogo.component";
 import { EditarOrdenCompraComponent } from "app/components/editar-orden-compra/editar-orden-compra.component";
 import { TableroComponent } from "app/components/tablero/tablero.component";
+import { EditarEntradaAlmacenComponent } from "app/components/editar-entrada-almacen/editar-entrada-almacen.component";
 
 
 
@@ -68,6 +69,7 @@ export const ROUTES: Routes = [
             { path: 'agregar-ficha-tecnica-dialogo', component: AgregarFichaTecnicaDialogoComponent },
             { path: 'editar-orden-compra/:id', component: EditarOrdenCompraComponent },
             { path: 'tablero', component: TableroComponent },
+            { path: 'editar-entrada-almacen/:id', component: EditarEntradaAlmacenComponent },
 
 
         ]

@@ -9,6 +9,7 @@
           Nuevo usuario
         </div>
         <div class="card-block">
+
           <form #formCreateUsuario="ngForm" id="formCreateUsuario" (ngSubmit)="createUsuario()">
             <div class="form-group row">
               <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
@@ -51,6 +52,7 @@
             <!-- <div>usuario: {{usuario|json}}</div> -->
 
           </form>
+          
         </div>
         <div class="card-footer">
           <div class="col-sm-10 offset-sm-2">

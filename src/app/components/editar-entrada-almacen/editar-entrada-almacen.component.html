@@ -1,0 +1,52 @@
+<div class="container">
+
+  <div *ngIf="loading">
+
+    <md-spinner class="loading"></md-spinner>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-12">
+
+      <div class="card my-5">
+        <div class="card-header">
+          Entrada almacén
+        </div>
+        <div>
+          <div class="table-responsive">
+            <table class="table table-hover table-striped">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Categoría</th>
+                  <th>Producto</th>
+                  <th>Unidad</th>
+                  <th style="width:150px">Cantidad</th>
+                  <th>Núm. factura</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let producto of productos">
+                  <td>{{producto.id_producto}}</td>
+                  <td>{{producto.categoria}}</td>
+                  <td>{{producto.nombre}}</td>
+                  <td>{{producto.unidad}}</td>
+                  <td><input class="form-control" type="text" name="cantidad" [(ngModel)]="producto.cantidad"></td>
+                  <td><input class="form-control" type="text" name="num_factura" [(ngModel)]="producto.num_factura"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button type="button" class="btn btn-primary">Aceptar</button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
