@@ -57,6 +57,7 @@ import { AgregarFichaTecnicaDialogoComponent } from './components/agregar-ficha-
 import { EditarOrdenCompraComponent } from './components/editar-orden-compra/editar-orden-compra.component';
 import { TableroComponent } from './components/tablero/tablero.component';
 import { EditarEntradaAlmacenComponent } from './components/editar-entrada-almacen/editar-entrada-almacen.component';
+import { FileSelectDirective } from "ng2-file-upload";
 
 
 
@@ -95,6 +96,7 @@ import { EditarEntradaAlmacenComponent } from './components/editar-entrada-almac
     EditarOrdenCompraComponent,
     TableroComponent,
     EditarEntradaAlmacenComponent,
+    FileSelectDirective
    
 
     
