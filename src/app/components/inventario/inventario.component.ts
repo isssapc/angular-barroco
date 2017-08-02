@@ -18,6 +18,7 @@ export class InventarioComponent implements OnInit {
   loading: boolean;
   productos: Producto[];
   categorias: Categoria[];
+  more: boolean[] = [];
 
   constructor(private productoCategoriaSrv: ProductoCategoriaService, private productoSrv: ProductoService, public dialog: MdDialog, public snackBar: MdSnackBar) { }
 
@@ -36,7 +37,7 @@ export class InventarioComponent implements OnInit {
       });
   }
 
-  agregarFicha(){
+  agregarFicha() {
     this.dialog.open(AgregarFichaTecnicaDialogoComponent);
   }
 
@@ -48,7 +49,7 @@ export class InventarioComponent implements OnInit {
     let copia = Producto.copiar(producto);
 
     let dialogRef = this.dialog.open(EditarProductoDialogoComponent, {
-      data: { 
+      data: {
         producto: copia,
         categorias: this.categorias,
       }

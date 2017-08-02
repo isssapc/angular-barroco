@@ -10,47 +10,92 @@
         </div>
         <div>
           <div class="table-responsive">
-            <table class="table table-hover table-striped">
+            <table class="table">
               <thead>
                 <tr>
+                  <th style="width:45px"></th>
                   <th>Id</th>
-                  <th>Producto</th>
-                  <th>Categoria</th>
+                  <th style="width:30%">Producto</th>
+                  <th>Categoría</th>
                   <th>Unidad</th>
-                  <th>Cantidad</th>
-                  <th>Venta</th>
-                  <th></th>
+                  <th>Precio</th>
+                  <th style="width:110px">Cantidad</th>
+                  <th style="width:65px"></th>
                 </tr>
               </thead>
 
               <tbody>
-                <tr *ngFor="let producto of productos">
-                  <td>{{producto.id_producto}}</td>
-                  <td>{{producto.nombre}}</td>
-                  <td>{{producto.categoria}}</td>
-                  <td>{{producto.unidad}}</td>
-                  <td>{{producto.cantidad}}</td>
-                  <td>{{producto.precio_venta}}</td>
-                  <td>
-                    <button md-icon-button [mdMenuTriggerFor]="menu">
+                <ng-container *ngFor="let producto of productos;let i= index">
+                  <tr>
+                    <td style="cursor: pointer;" (click)="more[i] =!more[i]">
+                      <!--  "{'fa fa-plus-square':more,'fa fa-plus-square':!more}" -->
+                      <i [ngClass]="more[i]?'fa fa-minus-square':'fa fa-plus-square'"></i>
+                    </td>
+                    <td>{{producto.id_producto}}</td>
+                    <td>{{producto.nombre}}</td>
+                    <td>{{producto.categoria}}</td>
+                    <td>{{producto.unidad}}</td>
+                    <td>{{producto.precio_venta}}</td>
+                    <td class="text-right">{{producto.cantidad}}</td>
+                    <td>
+                      <button md-icon-button [mdMenuTriggerFor]="menu">
                    <md-icon>more_vert</md-icon>
                   </button>
-                    <md-menu #menu="mdMenu">
-                      <button md-menu-item (click)="editarProducto(producto)">
+                      <md-menu #menu="mdMenu">
+                        <button md-menu-item (click)="editarProducto(producto)">
                      <md-icon>create</md-icon>
                       <span>Editar</span>
                     </button>
-                      <button md-menu-item (click)="agregarFicha()">
+                        <button md-menu-item (click)="agregarFicha()">
                      <md-icon>attach_file</md-icon>
                       <span>Ficha técnica</span>
                    </button>
-                      <button md-menu-item>
+                        <button md-menu-item>
                       <md-icon>delete</md-icon>
                         <span>Eliminar</span>
                      </button>
-                    </md-menu>
-                  </td>
-                </tr>
+                      </md-menu>
+                    </td>
+                  </tr>
+
+
+                  <tr *ngIf="more[i]">
+                    <td colspan="8" class="p-0">
+                      <table class="table table-striped mb-0">
+                 <!--        <tr>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <td style="width:150px">Factura</td>
+                          <td style="width:110px">Cantidad</td>
+                          <th style="width:65px"></th>
+                        </tr> -->
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td style="width:150px">FK34909090</td>
+                          <td class="text-right" style="width:110px">100000</td>
+                          <td style="width:65px"></td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td>FK34909090</td>
+                          <td class="text-right">100000</td>
+                          <td></td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </ng-container>
               </tbody>
             </table>
           </div>
