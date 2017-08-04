@@ -16,15 +16,14 @@
         </div>
         <div>
           <div class="table-responsive">
-            <table class="table table-hover table-striped">
+            <table class="table table-striped">
               <thead>
                 <tr>
                   <th>Id</th>
                   <th>Categoría</th>
-                  <th>Producto</th>
+                  <th >Producto</th>
                   <th>Unidad</th>
                   <th style="width:150px">Cantidad</th>
-                  <th>Núm. factura</th>
                 </tr>
               </thead>
               <tbody>
@@ -34,14 +33,61 @@
                   <td>{{producto.nombre}}</td>
                   <td>{{producto.unidad}}</td>
                   <td><input class="form-control" type="text" name="cantidad" [(ngModel)]="producto.cantidad"></td>
-                  <td><input class="form-control" type="text" name="num_factura" [(ngModel)]="producto.num_factura"></td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
         <div class="card-footer">
-          <button type="button" class="btn btn-primary" (click)="addEntradaAlmacen()">Aceptar</button>
+
+
+
+          <!--       <div class="form-inline">
+            <div class="mr-2 mb-5 mb-sm-0">
+              <input class="form-control" type="text" id="num_factura" name="num_factura" [(ngModel)]="num_factura" placeholder="Núm. Factura">
+            </div>
+            <button type="button" class="btn btn-primary" (click)="addEntradaAlmacen()">Aceptar</button>
+          </div> -->
+
+          <!-- <div class="form-group row">
+             <label for="num_factura" class="col-sm-2 col-form-label">Núm. Factura</label>
+            <div class="col-sm-10">
+              <div class="input-group">
+                <input class="form-control" type="text" id="num_factura" name="num_factura" [(ngModel)]="num_factura">
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-primary" (click)="addEntradaAlmacen()">Aceptar</button>
+                </span>
+              </div>
+            </div>          
+          </div> -->
+
+        <!--   <div class="form-inline">          
+            <div class="form-group mr-sm-3">
+              <label for="num_factura" class="sr-only">Factura</label>
+              <input type="text" class="form-control" id="num_factura" placeholder="Núm. Factura">
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div> -->
+
+
+          <div class="form-group row">
+
+            <div class="col-12 col-sm-6 mb-2 mb-sm-0">
+              <input placeholder="Núm. Factura" class="form-control" type="text" id="num_factura" name="num_factura" [(ngModel)]="num_factura">
+            </div>
+            <div class="col-12  col-sm-6">
+              <button type="button" class="btn btn-primary" (click)="addEntradaAlmacen()">Guardar</button>
+            </div>
+          </div>
+
+
+
+          <!--   <div class="form-group row">
+            <div class="offset-sm-2 col-sm-10">
+              <button type="button" class="btn btn-primary" (click)="addEntradaAlmacen()">Aceptar</button>
+            </div>
+          </div> -->
+
         </div>
 
       </div>

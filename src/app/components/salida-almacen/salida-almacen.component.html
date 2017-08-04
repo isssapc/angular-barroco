@@ -10,109 +10,70 @@
         </div>
         <div>
           <div class="table-responsive">
-            <table class="table table-hover table-striped">
+            <table class="table">
               <thead>
                 <tr>
+                  <th style="width:45px"></th>
+                  <th>Id</th>
+                  <th>Categoría</th>
                   <th>Producto</th>
-                  <th>Categoria</th>
-                  <th>Num. factura</th>
-                  <th>Existencias</th>
-                  <th style="width:100px">Salida</th>
-                  <th></th>
+                  <th>Unidad</th>
+                  <th>Factura</th>
+                  <th style="width:140px">Salida</th>
+                  <th style="width:65px"></th>
                 </tr>
               </thead>
 
               <tbody>
-                <tr>
-                  <td>Producto 1</td>
-                  <td>Categoria 1</td>
-                  <td>0000000</td>
-                  <td>1</td>
-                  <td><input class="form-control" type="text" value=""></td>
-                  <td>
-                    <button md-icon-button [mdMenuTriggerFor]="menu1">
-                   <md-icon>more_vert</md-icon>
-                  </button>
-                    <md-menu #menu1="mdMenu">                      
-                      <button md-menu-item>
-                     <md-icon>attach_file</md-icon>
-                      <span>Ficha técnica</span>
-                   </button>
-                      <button md-menu-item>
-                      <md-icon>delete</md-icon>
-                        <span>Eliminar</span>
-                     </button>
-                    </md-menu>
+                <!-- <ng-container *ngFor="let producto of productos;let i= index"> -->
+                <tr *ngFor="let producto of productos;let i= index">
+                  <td style="cursor: pointer;" (click)="more[i] =!more[i]">
+                    <i [ngClass]="more[i]?'fa fa-minus-square':'fa fa-plus-square'"></i>
                   </td>
-                </tr>
-                <tr>
-                  <td>Producto 1</td>
-                  <td>Categoria 1</td>
-                  <td>0000000</td>
-                  <td>1</td>
-                  <td><input class="form-control" type="text" value=""></td>
+                  <td>{{producto.id_producto}}</td>
+                  <td>{{producto.categoria}}</td>
+                  <td>{{producto.nombre}}</td>
+                  <td>{{producto.unidad}}</td>
+                  <td>{{producto.num_factura}}</td>
+                  <td><input type="text" class="form-control"></td>
                   <td>
-                    <button md-icon-button [mdMenuTriggerFor]="menu2">
-                   <md-icon>more_vert</md-icon>
-                  </button>
-                    <md-menu #menu2="mdMenu">
+                    <button md-icon-button [mdMenuTriggerFor]="menu">
+                        <md-icon>more_vert</md-icon>
+                      </button>
+                    <md-menu #menu="mdMenu">
+                      <button md-menu-item (click)="editarProducto(producto)">
+                          <md-icon>create</md-icon>
+                          <span>Editar</span>
+                        </button>
+                      <button md-menu-item (click)="agregarFicha()">
+                          <md-icon>attach_file</md-icon>
+                          <span>Ficha técnica</span>
+                        </button>
                       <button md-menu-item>
-                     <md-icon>attach_file</md-icon>
-                      <span>Ficha técnica</span>
-                   </button>
-                      <button md-menu-item>
-                      <md-icon>delete</md-icon>
-                        <span>Eliminar</span>
-                     </button>
-                    </md-menu>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Producto 1</td>
-                  <td>Categoria 1</td>
-                  <td>0000000</td>
-                  <td>1</td>
-                  <td><input class="form-control" type="text" value=""></td>
-                  <td>
-                    <button md-icon-button [mdMenuTriggerFor]="menu3">
-                   <md-icon>more_vert</md-icon>
-                  </button>
-                    <md-menu #menu3="mdMenu">                      
-                      <button md-menu-item>
-                     <md-icon>attach_file</md-icon>
-                      <span>Ficha técnica</span>
-                   </button>
-                      <button md-menu-item>
-                      <md-icon>delete</md-icon>
-                        <span>Eliminar</span>
-                     </button>
-                    </md-menu>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Producto 1</td>
-                  <td>Categoria 1</td>
-                  <td>0000000</td>
-                  <td>1</td>
-                  <td><input class="form-control" type="text" value=""></td>
-                  <td>
-                    <button md-icon-button [mdMenuTriggerFor]="menu4">
-                   <md-icon>more_vert</md-icon>
-                  </button>
-                    <md-menu #menu4="mdMenu">                      
-                      <button md-menu-item>
-                     <md-icon>attach_file</md-icon>
-                      <span>Ficha técnica</span>
-                   </button>
-                      <button md-menu-item>
-                      <md-icon>delete</md-icon>
-                        <span>Eliminar</span>
-                     </button>
+                          <md-icon>delete</md-icon>
+                          <span>Eliminar</span>
+                        </button>
                     </md-menu>
                   </td>
                 </tr>
 
 
+                <!--       <tr *ngIf="more[i]">
+                    <td colspan="6" class="p-0">
+                      <table class="table table-striped mb-0">                       
+                        <tr>                       
+                          <td></td>
+                          <td></td>
+                          <td style="width:150px">FK34909090</td>
+                          <td class="text-right" style="width:110px">100000</td>
+                          <td style="width:120px"><input type="text" class="form-control"></td>
+                          <td style="width:65px"></td>
+                        </tr>
+                   
+                      </table>
+                    </td>
+                  </tr>
+                </ng-container> -->
               </tbody>
             </table>
           </div>
@@ -153,9 +114,11 @@
                 <input class="form-control" type="text" value="" id="3">
               </div>
             </div>
-          </form> 
-          <div>
-            <button type="button" class="btn btn-primary">Aceptar</button>
+          </form>
+          <div class="form-group row">
+            <div class="offset-sm-2 col-sm-10">
+              <button type="button" class="btn btn-primary">Aceptar</button>
+            </div>
           </div>
         </div>
 

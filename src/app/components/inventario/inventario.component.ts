@@ -20,7 +20,11 @@ export class InventarioComponent implements OnInit {
   categorias: Categoria[];
   more: boolean[] = [];
 
-  constructor(private productoCategoriaSrv: ProductoCategoriaService, private productoSrv: ProductoService, public dialog: MdDialog, public snackBar: MdSnackBar) { }
+  constructor(
+    private productoCategoriaSrv: ProductoCategoriaService, 
+    private productoSrv: ProductoService, 
+    public dialog: MdDialog, public snackBar: MdSnackBar
+  ) { }
 
   ngOnInit() {
 
