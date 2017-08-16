@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
           this.alert = "";
 
           if (Number(res.usuario.id_rol) === this.auth.Rol.Administrador) {
-            this.router.navigate(['/reportes']);
+            this.router.navigate(['/tablero']);
           } else if (Number(res.usuario.id_rol) === this.auth.Rol.Ventas) {
             this.router.navigate(['/ordenes']);
           } else if (Number(res.usuario.id_rol) === this.auth.Rol.Almacen) {

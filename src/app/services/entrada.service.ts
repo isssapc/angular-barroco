@@ -16,9 +16,15 @@ export class EntradaService {
       .catch(this.handleError);
   }
 
+  getEntrada(id) {
+    return this.http.get(this.url + 'get_entrada/' + id)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
 
-  createEntrada(entrada) {
-    return this.http.post(this.url + 'create_entrada', { entrada: entrada })
+
+  createEntrada(num_factura, productos) {
+    return this.http.post(this.url + 'create_entrada', { num_factura: num_factura, productos: productos })
       .map(this.extractData)
       .catch(this.handleError);
   }

@@ -24,7 +24,6 @@
                   <th>Producto</th>
                   <th>Unidad</th>
                   <th style="width:150px">Cantidad</th>
-                  <th>Núm. factura</th>
                 </tr>
               </thead>
               <tbody>
@@ -34,14 +33,25 @@
                   <td>{{producto.nombre}}</td>
                   <td>{{producto.unidad}}</td>
                   <td><input class="form-control" type="text" name="cantidad" [(ngModel)]="producto.cantidad"></td>
-                  <td><input class="form-control" type="text" name="num_factura" [(ngModel)]="producto.num_factura"></td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
         <div class="card-footer">
-          <button type="button" class="btn btn-primary">Aceptar</button>
+
+          <div class="form-group row">
+
+            <div class="col-12 col-sm-6 mb-2 mb-sm-0">
+              <input placeholder="Núm. Factura" class="form-control" type="text" id="num_factura" name="num_factura" [(ngModel)]="entrada.num_factura">
+            </div>
+          
+            <div class="col-12  col-sm-6">
+              <button type="button" class="btn btn-primary" (click)="updateEntradaAlmacen()">Guardar</button>
+            </div>
+
+          </div>
+
         </div>
 
       </div>

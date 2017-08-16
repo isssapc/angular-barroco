@@ -15,23 +15,27 @@
                 <tr>
                   <th>Id salida</th>
                   <th>Fecha</th>
+                  <th>Tipo</th>
                   <th>Cliente</th>
+                  <th>Destino</th>
                   <th>Pedido</th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>0001</td>
-                  <td>12/02/17</td>
-                  <td>Cliente 1</td>
-                  <td>0002</td>
+
+                <tr *ngFor="let salida of salidas">
+                  <td>{{salida.id_salida}}</td>
+                  <td>{{salida.fecha}}</td>
+                  <td>{{salida.cliente}}</td>
+                  <td>{{salida.id_orden}}</td>
+                  <td>{{salida.id_orden}}</td>
                   <td>
                     <button md-icon-button [mdMenuTriggerFor]="menu1">
                    <md-icon>more_vert</md-icon>
                   </button>
                     <md-menu #menu1="mdMenu">
-                      <button md-menu-item (click)="editarsalida()">
+                      <button md-menu-item (click)="editSalida(salida)">
                      <md-icon>create</md-icon>
                       <span>Ver y Editar</span>
                     </button>
@@ -39,88 +43,14 @@
                      <md-icon>attach_file</md-icon>
                       <span>Ficha técnica</span>
                    </button>
-                      <button md-menu-item>
+                      <button md-menu-item (click)="delSalida(salida)">
                       <md-icon>delete</md-icon>
                         <span>Eliminar</span>
                      </button>
                     </md-menu>
                   </td>
                 </tr>
-                <tr>
-                  <td>0001</td>
-                  <td>12/02/17</td>
-                  <td>Cliente 1</td>
-                  <td>0002</td>
-                  <td>
-                    <button md-icon-button [mdMenuTriggerFor]="menu4">
-                   <md-icon>more_vert</md-icon>
-                  </button>
-                    <md-menu #menu4="mdMenu">
-                      <button md-menu-item>
-                     <md-icon>create</md-icon>
-                      <span>Editar</span>
-                    </button>
-                      <button md-menu-item>
-                     <md-icon>attach_file</md-icon>
-                      <span>Ficha técnica</span>
-                   </button>
-                      <button md-menu-item>
-                      <md-icon>delete</md-icon>
-                        <span>Eliminar</span>
-                     </button>
-                    </md-menu>
-                  </td>
-                </tr>
-                <tr>
-                  <td>0001</td>
-                  <td>12/02/17</td>
-                  <td>Cliente 1</td>
-                  <td>0002</td>
-                  <td>
-                    <button md-icon-button [mdMenuTriggerFor]="menu2">
-                   <md-icon>more_vert</md-icon>
-                  </button>
-                    <md-menu #menu2="mdMenu">
-                      <button md-menu-item>
-                     <md-icon>create</md-icon>
-                      <span>Editar</span>
-                    </button>
-                      <button md-menu-item>
-                     <md-icon>attach_file</md-icon>
-                      <span>Ficha técnica</span>
-                   </button>
-                      <button md-menu-item>
-                      <md-icon>delete</md-icon>
-                        <span>Eliminar</span>
-                     </button>
-                    </md-menu>
-                  </td>
-                </tr>
-                <tr>
-                  <td>0001</td>
-                  <td>12/02/17</td>
-                  <td>Cliente 1</td>
-                  <td>0002</td>
-                  <td>
-                    <button md-icon-button [mdMenuTriggerFor]="menu3">
-                   <md-icon>more_vert</md-icon>
-                  </button>
-                    <md-menu #menu3="mdMenu">
-                      <button md-menu-item>
-                     <md-icon>create</md-icon>
-                      <span>Editar</span>
-                    </button>
-                      <button md-menu-item>
-                     <md-icon>attach_file</md-icon>
-                      <span>Ficha técnica</span>
-                   </button>
-                      <button md-menu-item>
-                      <md-icon>delete</md-icon>
-                        <span>Eliminar</span>
-                     </button>
-                    </md-menu>
-                  </td>
-                </tr>
+
               </tbody>
             </table>
           </div>

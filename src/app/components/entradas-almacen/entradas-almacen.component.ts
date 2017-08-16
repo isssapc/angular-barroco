@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { EditarEntradaDialogoComponent } from "app/components/editar-entrada-dialogo/editar-entrada-dialogo.component";
 import { Router } from "@angular/router";
-import { Producto } from "app/model/producto";
-import { ProductoService } from "app/services/producto.service";
-import { ProductoCategoriaService } from "app/services/producto-categoria.service";
-import { Categoria } from "app/model/categoria";
+
+
+
 import { MdSnackBar } from '@angular/material';
+import { EntradaService } from "app/services/entrada.service";
+import { Entrada } from "app/model/entrada";
 
 
 @Component({
@@ -15,27 +16,31 @@ import { MdSnackBar } from '@angular/material';
 })
 export class EntradasAlmacenComponent implements OnInit {
   loading: boolean;
-  productos: Producto[];
-  categorias: Categoria[];
+  entradas: Entrada[];
 
-  constructor(private productoCategoriaSrv: ProductoCategoriaService, private productoSrv: ProductoService, public router: Router, public snackBar: MdSnackBar) { }
+
+  constructor(
+    private entradaSrv: EntradaService,
+    public router: Router,
+    public snackBar: MdSnackBar) { }
 
   ngOnInit() {
     this.loading = true;
 
-    this.productoCategoriaSrv.getProductoCategorias()
-      .subscribe(res => this.categorias = res);
-
-
-    this.productoSrv.getProductos()
+    this.entradaSrv.getEntradas()
       .subscribe(res => {
-        this.productos = res;
+
         this.loading = false;
+
+        this.entradas = res;
+
       });
+
+
   }
 
-  editarEntrada(productos) {
-    this.router.navigate(["/editar-entrada-almacen",productos.id_producto]);
+  editarEntrada(entrada) {
+    this.router.navigate(["/editar-entrada-almacen", entrada.id_entrada]);
   }
 
 

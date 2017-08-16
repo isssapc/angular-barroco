@@ -15,40 +15,35 @@
             <table class="table table-hover table-striped">
               <thead>
                 <tr>
-                  <th>Producto</th>
-                  <th>Categoria</th>
-                  <th>Num. factura</th>
-                  <th>Cantidad</th>
-                  <th>Estado</th>
+                  <th>Id</th>
+                  <th>Fecha</th>
+                  <th>Num. factura</th>                  
                   <th></th>
                 </tr>
               </thead>
 
               <tbody>
-                <tr *ngFor="let producto of productos">
-                  <td>{{producto.nombre}}</td>
-                  <td>{{producto.categoria}}</td>
-                  <td>{{producto.num_factura}}</td>
-                  <td>{{producto.cantidad}}</td>
-                  <td>Bueno</td>
+                <tr *ngFor="let entrada of entradas">
+                  <td>{{entrada.id_entrada}}</td>
+                  <td>{{entrada.fecha}}</td>
+                  <td>{{entrada.num_factura}}</td>                  
                   <td>
-                    <button md-icon-button [mdMenuTriggerFor]="menu1">
-                   <md-icon>more_vert</md-icon>
-                  </button>
-                    <md-menu #menu1="mdMenu" >
-                      <button md-menu-item (click)="editarEntrada(producto)">
-                     <md-icon>create</md-icon>
-                      <span>Editar</span>
+
+                    <button md-icon-button [mdMenuTriggerFor]="menu">
+                      <md-icon>more_vert</md-icon>
                     </button>
+                    
+                    <md-menu #menu="mdMenu" >
+                      <button md-menu-item (click)="editarEntrada(entrada)">
+                        <md-icon>create</md-icon>
+                        <span>Editar</span>
+                      </button>                      
                       <button md-menu-item>
-                     <md-icon>attach_file</md-icon>
-                      <span>Ficha técnica</span>
-                   </button>
-                      <button md-menu-item>
-                      <md-icon>delete</md-icon>
+                        <md-icon>delete</md-icon>
                         <span>Eliminar</span>
-                     </button>
+                      </button>
                     </md-menu>
+
                   </td>
                 </tr>                
               </tbody>

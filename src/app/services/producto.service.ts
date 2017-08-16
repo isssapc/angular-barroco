@@ -19,6 +19,12 @@ export class ProductoService {
       .catch(this.handleError);
   }
 
+  getProductosSalidas() {
+    return this.http.get(this.url + 'get_productos_salidas')
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
   getProductoCategorias() {
     return this.http.get(this.url + 'get_categorias')
       .map(this.extractData)
@@ -64,7 +70,7 @@ export class ProductoService {
   }
 
   searchProductoOrden(term: string) {
-    if (term === "") {      
+    if (term === "") {
       return of.call([]);
     }
 

@@ -15,16 +15,18 @@ export class SalidaAlmacenComponent implements OnInit {
   more: boolean[] = [];
 
   constructor(
-
     private productoSrv: ProductoService,
-    public dialog: MdDialog, public snackBar: MdSnackBar) { }
+    public dialog: MdDialog, public snackBar: MdSnackBar
+  ) { }
 
   ngOnInit() {
     this.loading = true;
     this.productoSrv.getProductos()
       .subscribe(res => {
-        this.productos = res;
         this.loading = false;
+
+        this.productos = res;
+
       });
   }
 

@@ -4,6 +4,9 @@ import { Producto } from "app/model/producto";
 import { ProductoService } from "app/services/producto.service";
 import { ProductoCategoriaService } from "app/services/producto-categoria.service";
 import { Categoria } from "app/model/categoria";
+import { EntradaService } from "app/services/entrada.service";
+import { ActivatedRoute, ParamMap } from "@angular/router";
+import { Entrada } from "app/model/entrada";
 
 @Component({
   selector: 'app-editar-entrada-almacen',
@@ -13,27 +16,36 @@ import { Categoria } from "app/model/categoria";
 export class EditarEntradaAlmacenComponent implements OnInit {
   loading: boolean;
   productos: Producto[];
-  categorias: Categoria[];
+  entrada: Entrada= new Entrada();
 
-  constructor(private productoCategoriaSrv: ProductoCategoriaService, private productoSrv: ProductoService, public dialog: MdDialog, public snackBar: MdSnackBar) { }
+  constructor(
+    private route: ActivatedRoute,
+    private entradaSrv: EntradaService,
+    public dialog: MdDialog,
+    public snackBar: MdSnackBar) { }
 
   ngOnInit() {
     this.loading = true;
 
-    this.productoCategoriaSrv.getProductoCategorias()
-      .subscribe(res => this.categorias = res);
 
-    this.productoSrv.getAlmacenEntrada()
+    this.route.paramMap.switchMap((params: ParamMap) =>
+      this.entradaSrv.getEntrada(params.get('id')))
       .subscribe(res => {
-        this.productos = res;
+
         this.loading = false;
+
+
+        this.productos = res.productos;
+        this.entrada = res.entrada;
+
+       
+
       });
 
+
+
   }
 
-  addEntradaAlmacen() {
-    let entrada = this.productos.filter(item => item.cantidad && item.num_factura);
-    console.log("productos entrada", entrada);
-  }
+
 
 }
