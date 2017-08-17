@@ -21,8 +21,8 @@ export class InventarioComponent implements OnInit {
   more: boolean[] = [];
 
   constructor(
-    private productoCategoriaSrv: ProductoCategoriaService, 
-    private productoSrv: ProductoService, 
+    private productoCategoriaSrv: ProductoCategoriaService,
+    private productoSrv: ProductoService,
     public dialog: MdDialog, public snackBar: MdSnackBar
   ) { }
 
@@ -41,8 +41,12 @@ export class InventarioComponent implements OnInit {
       });
   }
 
-  agregarFicha() {
-    this.dialog.open(AgregarFichaTecnicaDialogoComponent);
+  agregarFicha(producto) {
+    this.dialog.open(AgregarFichaTecnicaDialogoComponent, {
+      data: {
+        id_producto: producto.id_producto
+      }
+    });
   }
 
 

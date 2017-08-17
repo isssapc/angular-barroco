@@ -39,21 +39,21 @@
                     <td class="text-right">{{producto.cantidad}}</td>
                     <td>
                       <button md-icon-button [mdMenuTriggerFor]="menu">
-                   <md-icon>more_vert</md-icon>
-                  </button>
+                        <md-icon>more_vert</md-icon>
+                      </button>
                       <md-menu #menu="mdMenu">
                         <button md-menu-item (click)="editarProducto(producto)">
-                     <md-icon>create</md-icon>
-                      <span>Editar</span>
-                    </button>
-                        <button md-menu-item (click)="agregarFicha()">
-                     <md-icon>attach_file</md-icon>
-                      <span>Ficha técnica</span>
-                   </button>
+                          <md-icon>create</md-icon>
+                          <span>Editar</span>
+                        </button>
+                        <button md-menu-item (click)="agregarFicha(producto)">
+                          <md-icon>attach_file</md-icon>
+                          <span>Ficha técnica</span>
+                        </button>
                         <button md-menu-item>
-                      <md-icon>delete</md-icon>
-                        <span>Eliminar</span>
-                     </button>
+                          <md-icon>delete</md-icon>
+                          <span>Eliminar</span>
+                        </button>
                       </md-menu>
                     </td>
                   </tr>
@@ -62,7 +62,7 @@
                   <tr *ngIf="more[i]">
                     <td colspan="8" class="p-0">
                       <table class="table table-striped mb-0">
-                 <!--        <tr>
+                        <!--        <tr>
                           <th></th>
                           <th></th>
                           <th></th>
