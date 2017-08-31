@@ -20,8 +20,6 @@ import { NgbDateISOParserFormatter } from "@ng-bootstrap/ng-bootstrap/datepicker
 
 
 
-
-
 @Component({
   selector: 'app-orden-compra',
   templateUrl: './orden-compra.component.html',
@@ -41,7 +39,6 @@ export class OrdenCompraComponent implements OnInit {
   taCliente: Cliente;
   formas_pago: any[];
   lugares_entrega: any[];
-
   productos_orden: any[] = [];
   fecha_entrega: NgbDateStruct;
 
